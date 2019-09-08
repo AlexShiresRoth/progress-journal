@@ -34,7 +34,6 @@ mongoose.connect(
 	{ useNewUrlParser: true, useFindAndModify: false }
 );
 
-mongoose.Promise = Promise;
 
 //express-session setup
 app.use(
