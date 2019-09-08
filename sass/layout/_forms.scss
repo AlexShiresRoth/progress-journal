@@ -1,0 +1,95 @@
+/*=======================
+===========FORMS========*/
+
+.form{
+  background-color: $main-color;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  padding: 30px;
+  min-height: 50vh;
+  width:40vw;
+  border: .5px solid lighten($main-color,10%);
+  margin-left: 5vw;
+}
+.form-header{
+  margin:0 0 10px 0;
+}
+.form-header h1{
+  color: $text-color;
+}
+.form-headings{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items:center;
+}
+.input-div{
+  display: flex;
+  flex-direction:column;
+}
+.input-row{
+  display:flex;
+  flex-direction:row;
+  width:100%;
+}
+.input-row input{
+  width:100%;
+  border-left: 0px;
+  background-color: #fff;
+  color: #222;
+}
+.input-container{
+  display: flex;
+  flex-direction:column;
+  justify-content:space-around;
+  border: 1px solid $main-color;
+  padding:10px;
+  min-height: 65vh;
+}
+.icon-container{
+  background-color: lighten($main-color,5%);
+  color: #fff;
+  display:flex;
+  padding:10px;
+  border: 1px solid lighten($main-color,5%);
+  border-right:0px;
+  border-bottom-left-radius: 1px;
+  border-top-left-radius: 1px;
+}
+input,select{
+  color: #fff;
+  padding: 10px;
+  transition: .2s linear;
+  background-color: $secondary-color;
+  border: 1px solid $third-color;
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
+}
+
+label{
+  color: $text-color;
+  margin: 5px;
+}
+textarea{
+  border: 1px solid $secondary-color;
+  height:15vh;
+  color: $text-color;
+  padding:1rem;
+  transition: .5s linear;
+  background-color: $secondary-color;
+}
+input:focus,textarea:focus,select:focus{
+  outline:none;
+  border:1px solid $accent-color;
+}
+input:hover,textarea:hover{
+  border:1px solid $accent-color; 
+}
+select:hover,option:hover{
+  cursor: pointer;
+  border:1px solid $accent-color;
+}
+option:focus{
+  outline:none;
+}

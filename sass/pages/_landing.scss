@@ -1,0 +1,58 @@
+/*=======================
+=========LANDING PAGE ===
+========================*/
+.landing-background{
+  height: 100vh;
+  width:100vw;
+  background-image: linear-gradient(217deg, rgba(59, 1, 96,0.5), rgba(59, 1, 96, 0.4) 70.1%),url('../images/backimg.jpg');
+  clip-path: polygon(0 0, 100% 0, 55% 100%, 0% 100%);
+  background-size: cover;
+  background-position: center;
+  z-index:0;
+  top:0;
+  left:0;
+  position: absolute;
+}
+.landing{
+  display:flex;
+  flex-direction: row;
+  height:100vh;
+  width:100vw;
+  align-items: center;
+  justify-content: space-around;
+  z-index:1;
+  overflow:hidden;
+}
+.landing form{
+  animation: .5s slideInLeft linear;
+  margin-bottom: 40px;
+}
+.signup{
+  text-decoration:underline;
+}
+.img-container{
+  height:40vh;
+  width:40vw;
+  border-right: .5px solid $border-color;
+  animation: slideInRight .5s linear;
+}
+
+.logo{
+  height:100%;
+  width:100%;
+}
+.form-container{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.photo-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.photo-box p {
+  color: #fff;
+}

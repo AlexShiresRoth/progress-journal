@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<div class="todo__container">
+	<div class="todo__header">
+		<a href="/api/todos/<%=user._id%>/createtodo"
+			><button class="todo__header--add-new"><i class="fa fa-plus-circle"></i></button
+		></a>
+		<p>Welcome to Your Todo List Dashboard</p>
+		<a href="/profile">
+			<button class="todo__header--go-back"><i class="fa fa-angle-left"></i></button
+		></a>
+	</div>
+	<% if(error && error.length > 0){ %>
+	<div class="error"><%= error %></div>
+	<% } %> <% if(success && success.length > 0) { %>
+	<div class="success"><%= success %></div>
+	<% } %> <% todos.forEach(todo => { %>
+	<div class="todo__element">
+		<% if(todo.completed) { %>
+		<form class="todo__element--complete" action="/api/todos/<%=todo.id%>/incomplete?_method=PUT" method="POST">
+			<button class="todo__element--complete--button"><i class="fa fa-check-square-o"></i></button>
+		</form>
+		<% } %> <% if(!todo.completed) { %>
+		<form class="todo__element--incomplete" action="/api/todos/<%=todo.id%>/complete?_method=PUT" method="POST">
+			<button class="todo__element--incomplete--button"><i class="fa fa-check-square-o"></i></button>
+		</form>
+		<% } %>
+		<div class="todo__element--title">
+			<p>
+				<% if(todo.completed) { %> <span>DONE</span>: <%= todo.title %> <% } %> <% if(!todo.completed) { %>
+				<span>TODO</span>: <%= todo.title %> <% } %>
+			</p>
+		</div>
+		<div class="todo__element--end-date">
+			<p><span>Complete By</span>: <%= todo.endDate %></p>
+		</div>
+		<form class="todo__element--remove" action="/api/todos/<%=todo.id%>/remove?_method=PUT" method="POST">
+			<button class="todo__element--remove--button"><i class="fa fa-trash"></i></button>
+		</form>
+	</div>
+	<% }) %>
+</div>
+<% include partials/footer %>

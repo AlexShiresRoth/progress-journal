@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+		<link href="https://fonts.googleapis.com/css?family=Raleway|Poiret+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css" > 
+  </head>
+  <body>
+
+    <div class="landing">
+            <div class="img-container">
+                <img class="logo" src="https://res.cloudinary.com/snackmanproductions/image/upload/v1567875066/progressjournal/progressjournal_jo2w0d.png">
+            </div>
+            <form class="form" action="/" method="POST">
+                  <% if(error && error.length > 0){ %>
+                    <div class="error"><%= error %></div>
+                <% } %>
+                <% if(success && success.length > 0) { %>
+                    <div class="success"><%= success %></div>
+                <% } %>
+                <h3>If Your are already registered, please <span><a href="/" class="signup">login</a></span></h3>
+                <div class="input-row">
+                  <label></label>
+                    <div class="icon-container">
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                  <input type="email" name="email" placeholder="add your email" required>
+                </div>
+
+                <div class="input-row">
+                  <label></label>
+                    <div class="icon-container">
+                      <i class="fa fa-user"></i>
+                    </div>
+                  <input type="text" name="username" placeholder="Create Username" required>
+                </div>
+                
+                 <div class="input-row">
+                  <label></label>
+                    <div class="icon-container">
+                      <i class="fa fa-unlock"></i>
+                    </div>
+                  <input type="password" name="password" placeholder="make it a good one" required>
+                </div>
+                <div class="input-row">
+                    <label></label>
+                      <div class="icon-container">
+                        <i class="fa fa-unlock"></i>
+                      </div>
+                    <input type="password" name="password2" placeholder="make it a good one" required>
+                  </div>
+                <div class="custom-hr">
+                    <div class="line"></div><div class="inter">&</div><div class="line"></div>
+                </div>
+                <button class="full-btn">Submit</button>
+            </form>
+        </div>
+
+
+  </div>
+  <script src="/bundle.js"></script>
+  </body>
+</html>

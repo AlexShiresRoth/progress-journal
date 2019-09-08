@@ -1,0 +1,26 @@
+<% include partials/header %>
+
+    <div class="day-display">
+        <div class="show-header">
+            <h1><%= day.title %></h1>
+            <% if(day.mood == 5 ) { %> <h3>Day Rating: <span class="day-rating green">Great!     </span></h3> <% } %>
+            <% if(day.mood == 4 ) { %> <h3>Day Rating: <span class="day-rating green">Good       </span></h3> <% } %>
+            <% if(day.mood == 3 ) { %> <h3>Day Rating: <span class="day-rating green">Pretty Good</span></h3> <% } %>
+            <% if(day.mood == 2 ) { %> <h3>Day Rating: <span class="day-rating orange">Eh         </span></h3> <% } %>
+            <% if(day.mood == 1 ) { %> <h3>Day Rating: <span class="day-rating orange">Not Great  </span></h3> <% } %>
+            <% if(day.mood == 0 ) { %> <h3>Day Rating: <span class="day-rating red">Bad!       </span></h3> <% } %>
+        </div>
+        <div class="show-lower-header">
+                <p>Written by:<%= day.author.username %></p>
+                <p><%= day.date.toDateString() %></p>
+        </div>
+        <p class="text"><%= day.text %></p>
+        <div class="show-buttons">
+           <a href="/<%=day._id %>/edit"><button class="edit-button">Edit</button></a>
+            <form  action="/days/<%= day._id %>?_method=DELETE" method="POST">
+                <button class="delete-button">Delete</button>
+            </form>
+        </div>
+    </div>
+
+<% include partials/footer %>

@@ -1,0 +1,73 @@
+@import 'components/variables';
+@import 'components/functions';
+@import 'components/mixins';
+@import 'components/animations';
+
+@import 'layout/buttons';
+@import 'layout/forms';
+@import 'layout/hrs';
+@import 'layout/navigation';
+@import 'layout/pagination';
+
+@import 'pages/index';
+@import 'pages/landing';
+@import 'pages/listpage';
+@import 'pages/show';
+@import 'pages/dashboard';
+@import 'pages/tododash';
+
+@import 'utilities/alerts';
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Raleway';
+	font-weight: 300;
+}
+
+body {
+	padding: 0px;
+	margin: 0;
+	font: 62.5% 'Raleway', Helvetica, Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	overflow-x: hidden;
+	min-height: 100vh;
+	background: $main-color;
+}
+html {
+	letter-spacing: 1.5px;
+	font-size: 1.5rem;
+}
+
+a {
+	color: $secondary-text-color;
+	text-decoration: none;
+	font-weight: 300;
+	transition: 0.5s linear;
+}
+a:hover,
+a:active {
+	color: $text-color;
+}
+
+h1,
+h2,
+h3 {
+	color: $text-color;
+}
+.green {
+	color: $accent-color;
+}
+.light-blue{
+	color: lighten($accent-color, 10%);
+}
+.orange {
+	color: orange;
+}
+.red {
+	color: red;
+}

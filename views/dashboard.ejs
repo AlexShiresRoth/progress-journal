@@ -1,0 +1,92 @@
+<% include partials/header %> <% if(error && error.length > 0){ %>
+<div class="error"><%= error %></div>
+<% } %> <% if(success && success.length > 0) { %>
+<div class="success"><%= success %></div>
+<% } %> <% if(profile){ %> <% const foundProfile = profile %>
+<div class="dashboard-container">
+	<div class="profile__card">
+		<div class="profile__card--avatar">
+			<figure>
+				<img src="<%=foundProfile.avatar.url%>" alt="<%=foundProfile.avatar%>" />
+			</figure>
+		</div>
+		<div class="profile__card--username">
+			<h2><i class="fa fa-at"></i><%= foundProfile.username %></h2>
+			<div class="profile__card--full-name">
+				<p><%=foundProfile.firstname%> <%=foundProfile.lastname%></p>
+			</div>
+		</div>
+		<div class="profile__card--bio">
+			<p class="profile__card--bio--label">Bio:</p>
+			<p><%= foundProfile.bio %></p>
+		</div>
+
+		<div class="profile__card--social">
+			<ul>
+				<li>
+					<a href="<%=foundProfile.social.facebook%>" target="_blank"
+						><i class="fa fa-facebook-official"></i
+					></a>
+				</li>
+				<li>
+					<a href="<%=foundProfile.social.twitter%>" target="_blank"><i class="fa fa-twitter-square"></i></a>
+				</li>
+				<li>
+					<a href="<%=foundProfile.social.instagram%>" target="_blank"><i class="fa fa-instagram"></i></a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="profile__card--email">
+			<a href="mailto:<%=foundProfile.email%>">
+				<i class="fa fa-envelope"></i>
+				<%=foundProfile.email%></a
+			>
+		</div>
+		<div class="profile__card--view-profile">
+			<a href="/profile/<%=user._id%>"> <button class="profile-button">Go to profile</button></a>
+		</div>
+	</div>
+	<div class="profile__card">
+		<div class="profile__card--header-img-todos">
+			<div class="profile__card--todo-count">
+				<p>Todo List:</p>
+				<div class="profile__card--todo-count--count-display">
+					<% const compAmt = foundProfile.todos.filter(todo => { %> <% return todo.completed %> <% }) %>
+					<% const calcPercentage = (f,s) => { %> 
+					<% const percent = Math.round((f / s) * 100); %>
+					<% return `${percent}%` } %>
+					
+					<h1><%= calcPercentage(compAmt.length,foundProfile.todos.length) %></h1>
+				</div>
+			</div>
+		</div>
+		<div class="profile__card--view-todos">
+			<a href="/api/todos/<%=user._id%>/todos"> <button class="profile-button">Go to Todo List</button></a>
+		</div>
+	</div>
+	<div class="profile__card">
+		<div class="profile__card--header-img-goals">
+			<div class="profile__card--goals-count">
+				<p>Goals Set:</p>
+				<div class="profile__card--goals-count--count-display">
+					<h1><%=foundProfile.goals.length%></h1>
+				</div>
+			</div>
+		</div>
+		<div class="profile__card--view-goals">
+			<a href="/api/goals/<%=user._id%>/goals">
+				<button class="profile-button">Goals List</button>
+			</a>
+		</div>
+	</div>
+	<% } else { %>
+	<div class="profile__card">
+		<div class="profile__card--create-profile">
+			<h2>Looks Like you Haven't Created a Profile Yet...</h2>
+			<a href="/profile/<%=user._id%>/createprofile"> <button class="profile-button">Create Profile</button></a>
+		</div>
+	</div>
+	<% } %>
+</div>
+<% include partials/footer %>

@@ -1,0 +1,39 @@
+<% include partials/header %>
+
+<div class="edit__profile">
+	<form action='/profile/<%=user._id%>?_method=PUT' method="POST" class="edit__profile--form" enctype="multipart/form-data">
+		<div class="edit__profile--form--row">
+			<input name="profile[username]" type="text" value="<%=profile.username%>" />
+		</div>
+
+		<div class="edit__profile--form--row">
+			<input name="profile[email]" type="email" value="<%-profile.email%>" />
+		</div>
+		<div class="edit__profile--form--row">
+			<input name="profile[bio]" type="text" value="<%=profile.bio%>" />
+		</div>
+		<div class="edit__profile--form--row">
+			<input name="profile[facebook]" type="text" value="<%=profile.social.facebook%>" />
+		</div>
+		<div class="edit__profile--form--row">
+			<input name="profile[twitter]" type="text" value="<%=profile.social.twitter%>" />
+		</div>
+		<div class="edit__profile--form--row">
+			<input name="profile[instagram]" type="text" value="<%=profile.social.instagram%>" />
+		</div>
+		<div class="edit__profile--form--row">
+			<input name="profile[firstname]" type="text" value="<%=profile.firstname%>" />
+		</div>
+		<div class="edit__profile--form--row">
+			<input name="profile[lastname]" type="text" value="<%=profile.lastname%>" />
+		</div>
+		<div class="edit__profile--form--row">
+			<input name="profile[avatar]" type="file" value="<%=profile.avatar.url%>" placeholder="<%=profile.avatar.url%>"required/>
+		</div>
+		<div class="edit__profile--form--row">
+			<button>Edit Profile</button>
+		</div>
+	</form>
+</div>
+	<a href="/profile/<%=user._id%>"><button>Go back</button></a>
+<% include partials/footer %>

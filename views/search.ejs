@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+           <% if(error && error.length > 0){ %>
+                <div class="error"><%= error %></div>
+            <% } %>
+            <% if(success && success.length > 0) { %>
+                <div class="success"><%= success %></div>
+            <% } %>
+            
+        <% if(noPosts == 0) { %>
+            <h1 style="color:#666">No Posts just Yet!</h1>
+            <% } %>
+        <% foundDays.forEach((day) => { %>
+        
+          <div class="post">
+            <div class="post-img">
+              <% if(day.mood == 5 ) {  %>   <i class="far fa-smile-beam green large"></i> <% } %>
+              <% if(day.mood == 4 ) {  %>   <i class="far fa-grin green large"></i> <% } %>
+              <% if(day.mood == 3 ) {  %>   <i class="far fa-smile green large"></i> <% } %>
+              <% if(day.mood == 2 ) {  %>   <i class="far fa-meh orange large"></i>  <% } %>
+              <% if(day.mood == 1 ) {  %>   <i class="far fa-frown-open orange large"></i>  <% } %>
+              <% if(day.mood == 0 ) {  %>   <i class="far fa-frown red large"></i>     <% } %>
+            </div>
+          <div class="post-description">
+            <div class="post-header">
+              <a href="/days/<%=day._id %>"><h3><%= day.author.username %>: <%= day.title %> </h3> </a>
+              <h3><a href="/days/<%=day._id%>"><%= day.date.toDateString() %></a></h3>
+            </div>
+              <div class="line"></div>
+                <% if(day.mood == 5 ) { %> <h3>Day Rating: <span class="day-rating green">Great!      </span></h3> <% } %>
+                <% if(day.mood == 4 ) { %> <h3>Day Rating: <span class="day-rating green">Good        </span></h3> <% } %>
+                <% if(day.mood == 3 ) { %> <h3>Day Rating: <span class="day-rating green">Pretty Good </span></h3> <% } %>
+                <% if(day.mood == 2 ) { %> <h3>Day Rating: <span class="day-rating orange">Eh         </span></h3> <% } %>
+                <% if(day.mood == 1 ) { %> <h3>Day Rating: <span class="day-rating orange">Not Great  </span></h3> <% } %>
+                <% if(day.mood == 0 ) { %> <h3>Day Rating: <span class="day-rating red">Bad!          </span></h3> <% } %>
+                <p><%= day.text.substring(0,70) %>...</p> 
+              </div>
+            </div>
+        <% }); %>
+      </div>
+      
+<% include partials/footer %>
+  

@@ -1,0 +1,40 @@
+//UTILITIES
+@mixin flex-row-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+@mixin flex-column-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+//////////////////////////////
+
+////CARD
+@mixin card-separator {
+	border-bottom: 1px solid darken(#fff, 10%);
+	padding: 0.5rem;
+}
+@mixin image-header {
+	flex: 2;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	max-height: 100%;
+	filter: grayscale(65%);
+	margin: 0;
+	object-fit: cover;
+	position: relative;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	box-shadow: 0 5px 5px -5px darken(#eee, 20%);
+}
+@mixin count-number {
+	color:#fff;
+	font-weight: 700;
+	font-size: 2.4rem;
+	font-family: 'Poiret One';
+}

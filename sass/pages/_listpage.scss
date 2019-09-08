@@ -1,0 +1,18 @@
+
+/*=======================
+=========LISTPAGE========
+=======================*/
+
+.lists{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  min-height: 100vw;
+}
+.list-display{
+  margin: 15px;
+}
+input.list-input{
+  background-color: rgba(121, 9, 165, 0.2);
+  border-bottom: 2px solid $secondary-color;
+}

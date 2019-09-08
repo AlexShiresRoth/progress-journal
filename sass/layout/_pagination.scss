@@ -1,0 +1,35 @@
+/*===================
+========PAgination===
+====================*/
+
+.pagination__box{
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  position:fixed;
+  top:40%;
+  right:0;
+}
+ul.pagination{
+  padding:0;
+  display: flex;
+  flex-direction:column;
+  border-radius: 5px;
+  margin:0;
+  max-width: 4vw;
+  background: $main-color; 
+  justify-content:space-around;
+  border: 1px solid $main-color;
+}
+ul.pagination li{
+  list-style: none;
+  padding:.5rem;
+  border-right:1px solid $border-color;
+  border-left:1px solid $border-color;
+}
+ul.pagination li:hover{
+  background-color:rgba(23, 233, 225, .2);
+}
+.active{
+  background-color:rgba(23, 233, 225, .2);
+}

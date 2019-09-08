@@ -1,0 +1,10 @@
+<% include partials/header %>
+<h1 style="color:#666">
+	<%= username %>
+</h1>
+<h1 style="color:#666">
+	<%= profile %>
+</h1>
+	<a href="/profile"><button>Go back</button></a>
+	<a href="/profile/<%=user._id%>/editprofile"><button>Edit Profile</button></a>
+<% include partials/footer %>

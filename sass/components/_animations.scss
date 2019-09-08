@@ -1,0 +1,50 @@
+/*====================
+======ANIMATIONS=====*/
+
+
+@keyframes fadeIn{
+  0%{
+    opacity:.2;
+  }
+  25%{
+    opacity:.4;
+  }
+  50%{
+    opacity: .6;
+  }
+  75%{
+    opacity:.8;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft{
+  0% {
+    opacity:0;
+    transform: translateX(150px);
+  }
+  80%{
+    transform: translateX(-20px);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes slideInRight{
+   0% {
+    opacity:0;
+    transform: translateX(-150px);
+  }
+  80%{
+    transform: translateX(20px);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
