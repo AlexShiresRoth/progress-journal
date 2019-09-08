@@ -9,7 +9,7 @@ exports.getIndex = async (req, res, next) => {
 	let pageQuery = parseInt(req.query.page);
 	let pageNumber = pageQuery ? pageQuery : 1;
 	try {
-		const foundDays = await axios.get('http://localhost:3000/api/days')
+		const foundDays = await axios.get('/api/days')
 		console.log(foundDays)
 		await Day.find({})
 			.skip(perPage * pageNumber - perPage)
