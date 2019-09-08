@@ -11,7 +11,7 @@ export default class SearchQuery {
 		try {
 			if (searchTerm) {
 				console.log(searchTerm);
-				await axios.get(`http://localhost:3000/api/search?searchTerm=${searchTerm}`);
+				await axios.get(`/api/search?searchTerm=${searchTerm}`);
 			}
 		} catch (error) {
 			console.log(error.message);

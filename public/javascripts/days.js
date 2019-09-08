@@ -8,7 +8,7 @@ export default class DaySearch {
 
     async searchDays(){
         try {
-            const response = await axios.get('http://localhost:3000/api/profiles');
+            const response = await axios.get('/api/profiles');
             console.log(response)
         } catch (error) {
             console.log(error.message)
