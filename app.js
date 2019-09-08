@@ -29,10 +29,7 @@ app.set('view engine', 'ejs');
 //mongoose setup
 const mongodburi = process.env.MONGO_URI;
 mongoose.set('debug', true);
-mongoose.connect(mongodburi,
-	{ useNewUrlParser: true, useFindAndModify: false }
-);
-
+mongoose.connect(mongodburi, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useMongoClient:true });
 
 //express-session setup
 app.use(
