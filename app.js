@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -29,7 +29,7 @@ app.set('view engine', 'ejs');
 //mongoose setup
 const mongodburi = process.env.MONGO_URI;
 mongoose.set('debug', true);
-mongoose.connect(mongodburi, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useMongoClient:true });
+mongoose.connect(mongodburi, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true });
 
 //express-session setup
 app.use(
