@@ -1,7 +1,7 @@
 <% include partials/header %>
 
 
-    <form action='/days/<%=day._id%>?_method=PUT' method="POST" class="form">
+    <form action='/api/days/<%=day._id%>?_method=PUT' method="POST" class="form">
         <div class="form-header">
             <div class="form-headings">
                 <h1>Edit Entry</h1> <h3><%= day.date.toDateString() %></h3> 

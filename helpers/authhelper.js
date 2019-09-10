@@ -50,7 +50,7 @@ async (req, res, next) => {
 			}
 			passport.authenticate('local')(req, res, () => {
 				req.flash('success', `Welcome to Progress Journal ${user.username}!`);
-				next();
+				req.redirect('/api/days')
 			});
 		});
 	} catch (error) {
@@ -61,11 +61,19 @@ async (req, res, next) => {
 });
 
 exports.authenticateLogin = passport.authenticate('local', {
-	successRedirect: '/days',
+	successRedirect: '/api/days',
 	failureRedirect: '/',
 });
-exports.login = (req, res, next) => {
-	req.flash(`Welcome Back ${req.user.username}`);
+
+exports.login = async (req, res, next) => {
+	try {
+		next();
+	} catch (error) {
+		if(error){
+			req.flash('error', error.message);
+			res.redirect('back')
+		}
+	}
 };
 
 exports.logout = (req, res, next) => {

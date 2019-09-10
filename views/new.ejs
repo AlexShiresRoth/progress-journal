@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<form action="/days" method="post" class="form">
+<form action="/api/days" method="post" class="form">
 	<div class="form-header">
 		<h1>New Journal Entry</h1>
 		<div class="line"></div>
@@ -30,7 +30,9 @@
 		</div>
 		<div class="input-div">
 			<label for="body"
-				>Describe your day in atleast 200 characters...(Currently:<span class="char-display red">0</span>)</label>
+				>Describe your day in atleast 200 characters...(Currently:<span class="char-display red">0</span
+				>)</label
+			>
 			<textarea
 				type="text"
 				name="day[text]"

@@ -10,11 +10,11 @@ export default class SearchQuery {
 		console.log(searchTerm)
 		try {
 			if (searchTerm) {
-				console.log(searchTerm);
 				await axios.get(`/api/search?searchTerm=${searchTerm}`);
 			}
 		} catch (error) {
 			console.log(error.message);
+			throw error;
 		}
 	}
 }

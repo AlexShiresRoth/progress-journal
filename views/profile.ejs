@@ -1,10 +1,55 @@
 <% include partials/header %>
-<h1 style="color:#666">
-	<%= username %>
-</h1>
-<h1 style="color:#666">
-	<%= profile %>
-</h1>
-	<a href="/profile"><button>Go back</button></a>
-	<a href="/profile/<%=user._id%>/editprofile"><button>Edit Profile</button></a>
+<div class="profile__display">
+	<div class="profile__display--user-info">
+		<div class="profile__display--user-info--avatar">
+			<img src="<%=profile.avatar.url%>" alt="<%=profile.username%>'s avatar img" />
+		</div>
+		<div class="profile__display--user-info--name-display">
+			<div class="profile__display--user-info--name-display--username">
+				<h2 style="color:#666"><%=profile.username%></h2>
+			</div>
+			<div class="profile__display--user-info--name-display--full-name">
+				<h4 style="color:#666"><%=profile.firstname%></h4>
+				<h4 style="color:#666"><%=profile.lastname%></h4>
+			</div>
+		</div>
+	</div>
+	<div class="profile__display--bio">
+		<p><span>Bio</span><%=profile.bio%></p>
+	</div>
+	<div class="profile__display--social">
+		<ul>
+			<li>
+				<a href="<%=profile.social.facebook%>" target="_blank"><i class="fa fa-facebook-official"></i></a>
+			</li>
+			<li>
+				<a href="<%=profile.social.twitter%>" target="_blank"><i class="fa fa-twitter-square"></i></a>
+			</li>
+			<li>
+				<a href="<%=profile.social.instagram%>" target="_blank"><i class="fa fa-instagram"></i></a>
+			</li>
+		</ul>
+	</div>
+	<div class="profile__display--posts">
+		<% profile.posts.map(post => { %>
+		<a href="/api/days/<%=post._id%>"><%=post.title.length > 20 ? post.title.toSubstring(0,20) : post.title %></a>
+		<% }) %>
+	</div>
+	<div class="profile__display--todos">
+		<% profile.todos.map(todo => { %>
+		<a href="/api/todos/<%=user._id%>/todos"
+			><%=todo.title.length > 20 ? todo.title.toSubstring(0,20) : todo.title %></a
+		>
+		<% }) %>
+	</div>
+	<div class="profile__display--goals">
+		<% profile.goals.map(goal => { %>
+		<a href="/api/goals/<%=post._id%>/goals"
+			><%=goal.title.length > 20 ? goal.title.toSubstring(0,20) : goal.title %></a
+		>
+		<% }) %>
+	</div>
+</div>
+<a href="/profile"><button>Go back</button></a>
+<a href="/profile/<%=user._id%>/editprofile"><button>Edit Profile</button></a>
 <% include partials/footer %>

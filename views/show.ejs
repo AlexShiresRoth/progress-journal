@@ -11,13 +11,13 @@
             <% if(day.mood == 0 ) { %> <h3>Day Rating: <span class="day-rating red">Bad!       </span></h3> <% } %>
         </div>
         <div class="show-lower-header">
-                <p>Written by:<%= day.author.username %></p>
+                <p>Written by:<%= day.author %></p>
                 <p><%= day.date.toDateString() %></p>
         </div>
         <p class="text"><%= day.text %></p>
         <div class="show-buttons">
-           <a href="/<%=day._id %>/edit"><button class="edit-button">Edit</button></a>
-            <form  action="/days/<%= day._id %>?_method=DELETE" method="POST">
+           <a href="/api/days/<%=day._id %>/edit"><button class="edit-button">Edit</button></a>
+            <form  action="/api/days/<%=day._id %>/remove?_method=DELETE" method="POST">
                 <button class="delete-button">Delete</button>
             </form>
         </div>
