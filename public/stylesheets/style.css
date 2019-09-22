@@ -166,8 +166,8 @@ input, select {
   color: #fff;
   padding: 10px;
   transition: .2s linear;
-  background-color: #7909A5;
-  border: 1px solid #8F2CB6;
+  background-color: #7909a5;
+  border: 1px solid #8f2cb6;
   border-top-right-radius: 1px;
   border-bottom-right-radius: 1px; }
 
@@ -176,23 +176,23 @@ label {
   margin: 5px; }
 
 textarea {
-  border: 1px solid #7909A5;
+  border: 1px solid #7909a5;
   height: 15vh;
   color: #f4f4f4;
   padding: 1rem;
   transition: .5s linear;
-  background-color: #7909A5; }
+  background-color: #7909a5; }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border: 1px solid #1e90ff; }
+  border: 1px solid dodgerblue; }
 
 input:hover, textarea:hover {
-  border: 1px solid #1e90ff; }
+  border: 1px solid dodgerblue; }
 
 select:hover, option:hover {
   cursor: pointer;
-  border: 1px solid #1e90ff; }
+  border: 1px solid dodgerblue; }
 
 option:focus {
   outline: none; }
@@ -211,10 +211,10 @@ option:focus {
   margin: 2px;
   height: 1px;
   width: 100%;
-  background-color: #BC6FDB; }
+  background-color: #bc6fdb; }
 
 .inter {
-  color: #1e90ff;
+  color: dodgerblue;
   font-size: 1.5em; }
 
 .nav-container {
@@ -321,8 +321,8 @@ ul.pagination {
 ul.pagination li {
   list-style: none;
   padding: .5rem;
-  border-right: 1px solid #BC6FDB;
-  border-left: 1px solid #BC6FDB; }
+  border-right: 1px solid #bc6fdb;
+  border-left: 1px solid #bc6fdb; }
 
 ul.pagination li:hover {
   background-color: rgba(23, 233, 225, 0.2); }
@@ -341,7 +341,8 @@ ul.pagination li:hover {
   justify-items: center; }
 
 .main-container {
-  background: #eee;
+  background-color: #eeeeee;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233b0160' fill-opacity='0.02'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   overflow-x: none;
   width: 100vw;
   display: flex;
@@ -382,7 +383,7 @@ ul.pagination li:hover {
 .post-description {
   display: flex;
   flex-direction: column;
-  border-left: 0.5px solid #BC6FDB;
+  border-left: 0.5px solid #bc6fdb;
   padding: 1.5rem;
   width: 100%; }
 
@@ -441,7 +442,7 @@ ul.pagination li:hover {
 .img-container {
   height: 40vh;
   width: 40vw;
-  border-right: 0.5px solid #BC6FDB;
+  border-right: 0.5px solid #bc6fdb;
   animation: slideInRight .5s linear; }
 
 .logo {
@@ -477,7 +478,7 @@ ul.pagination li:hover {
 
 input.list-input {
   background-color: rgba(121, 9, 165, 0.2);
-  border-bottom: 2px solid #7909A5; }
+  border-bottom: 2px solid #7909a5; }
 
 /*=====================
 =========SHOWPAGE=========*/
@@ -485,7 +486,7 @@ input.list-input {
   min-width: 50vw;
   max-width: 55vw;
   min-height: 50vh;
-  border: 0.5px solid #BC6FDB;
+  border: 0.5px solid #bc6fdb;
   padding: 10px 50px; }
 
 .show-header {
@@ -494,7 +495,7 @@ input.list-input {
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  border-bottom: 0.5px solid #BC6FDB; }
+  border-bottom: 0.5px solid #bc6fdb; }
 
 .show-lower-header {
   display: flex;
@@ -649,7 +650,7 @@ input.list-input {
     border-bottom: 1px solid #e6e6e6;
     padding: 0.5rem; }
     .profile__card--username h2 {
-      color: #1e90ff;
+      color: dodgerblue;
       margin: 0 0.2rem; }
     .profile__card--username--full-name {
       display: flex;
@@ -738,8 +739,8 @@ input.list-input {
     border-bottom-left-radius: 10px;
     height: 100%;
     padding: 0.5rem;
-    background: #1e90ff;
-    border: 1px solid #1e90ff;
+    background: dodgerblue;
+    border: 1px solid dodgerblue;
     transition: all 0.3s ease-in-out;
     max-width: 5rem;
     display: flex;
@@ -747,11 +748,11 @@ input.list-input {
     align-items: center; }
     .todo__header--add-new:hover {
       max-width: 8rem;
-      background: #1e90ff;
+      background: dodgerblue;
       padding: 0.5rem;
       cursor: pointer;
       color: #fff;
-      border: 1px solid #1e90ff;
+      border: 1px solid dodgerblue;
       transition: all 0.3s ease-in-out; }
     .todo__header--add-new:hover::after {
       content: 'Add New';
@@ -774,11 +775,11 @@ input.list-input {
     align-items: center; }
     .todo__header--go-back:hover {
       max-width: 8rem;
-      background: #1e90ff;
+      background: dodgerblue;
       padding: 0.5rem;
       cursor: pointer;
       color: #fff;
-      border: 1px solid #1e90ff; }
+      border: 1px solid dodgerblue; }
     .todo__header--go-back:hover::before {
       content: 'Go Back';
       color: #fff;
@@ -807,7 +808,7 @@ input.list-input {
     align-items: center;
     background: #fbfbfb; }
     .todo__element--title span {
-      color: #1e90ff;
+      color: dodgerblue;
       font-weight: 700; }
   .todo__element--end-date {
     height: 100%;
@@ -816,7 +817,7 @@ input.list-input {
     align-items: center;
     background: #fbfbfb; }
     .todo__element--end-date span {
-      color: #1e90ff;
+      color: dodgerblue;
       font-weight: 700; }
   .todo__element--complete {
     height: 100%; }
@@ -826,8 +827,8 @@ input.list-input {
       height: 100%;
       padding: 0.5rem;
       color: #fff;
-      background: #1e90ff;
-      border: 1px solid #1e90ff;
+      background: dodgerblue;
+      border: 1px solid dodgerblue;
       transition: all 0.3s ease-in-out;
       max-width: 5rem;
       display: flex;
@@ -864,11 +865,11 @@ input.list-input {
       align-items: center; }
       .todo__element--incomplete--button:hover {
         max-width: 8rem;
-        background: #1e90ff;
+        background: dodgerblue;
         padding: 0.5rem;
         cursor: pointer;
         color: #fff;
-        border: 1px solid #1e90ff; }
+        border: 1px solid dodgerblue; }
       .todo__element--incomplete--button i {
         font-size: 1.1rem; }
       .todo__element--incomplete--button:hover::after {
@@ -892,11 +893,11 @@ input.list-input {
       align-items: center; }
       .todo__element--remove--button:hover {
         max-width: 8rem;
-        background: #F31431;
+        background: #f31431;
         padding: 0.5rem;
         cursor: pointer;
         color: #fff;
-        border: 1px solid #F31431; }
+        border: 1px solid #f31431; }
       .todo__element--remove--button i {
         font-size: 1.1rem; }
       .todo__element--remove--button:hover::before {
@@ -904,18 +905,67 @@ input.list-input {
         color: #fff;
         font-size: 0.5rem; }
 
-.profile__display {
+.profile__container {
+  max-width: 60vw;
+  max-height: 60vh;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0px 5px 5px #b3b3b3;
-  border-radius: 10px;
   display: flex;
-  flex-direction: column; }
-  .profile__display--user-info {
-    display: flex;
-    flex-direction: row; }
-    .profile__display--user-info--avatar {
+  flex-direction: column;
+  justify-content: center; }
+  .profile__container--button-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center; }
+
+.profile__display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center; }
+  .profile__display--left-column {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(4, auto);
+    align-content: center;
+    padding: 0 5rem; }
+    .profile__display--left-column--user-info--avatar {
       max-height: 10rem;
       max-width: 10rem; }
+      .profile__display--left-column--user-info--avatar img {
+        width: 100%;
+        border-radius: 200px;
+        border: 5px solid rgba(30, 144, 255, 0.5); }
+    .profile__display--left-column--name-display {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .profile__display--left-column--name-display--username {
+        align-items: center; }
+        .profile__display--left-column--name-display--username h2 {
+          color: dodgerblue; }
+      .profile__display--left-column--name-display--full-name {
+        display: flex;
+        flex-direction: row; }
+        .profile__display--left-column--name-display--full-name h4 {
+          color: #666; }
+    .profile__display--left-column--social ul {
+      display: flex;
+      flex-direction: row;
+      padding: 0; }
+      .profile__display--left-column--social ul li {
+        list-style: none; }
+        .profile__display--left-column--social ul li a {
+          color: #3b0160;
+          font-size: 1.5rem;
+          transition: all 0.3s ease-in-out; }
+          .profile__display--left-column--social ul li a:hover {
+            color: #7909a5; }
+  .profile__display--right-column {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(auto);
+    justify-items: center; }
 
 /*=========================
 ========Alerts=============
@@ -927,7 +977,7 @@ input.list-input {
   width: 60%;
   border-radius: 5px;
   text-align: center;
-  border: 2px solid #1e90ff;
+  border: 2px solid dodgerblue;
   align-self: center; }
 
 .error {
@@ -978,7 +1028,7 @@ h3 {
   color: #f4f4f4; }
 
 .green {
-  color: #1e90ff; }
+  color: dodgerblue; }
 
 .light-blue {
   color: #51a9ff; }

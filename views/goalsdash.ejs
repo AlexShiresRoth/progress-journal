@@ -2,11 +2,7 @@
 <div class="error"><%= error %></div>
 <% } %> <% if(success && success.length > 0) { %>
 <div class="success"><%= success %></div>
-<% } %>
-<h1 style="color:#666">
-	<%= username %>
-</h1>
- <% goals.forEach(goal => { %>
+<% } %> <% goals.forEach(goal => { %>
 <h1 style="color:#666"><%= goal.title %></h1>
 <h1 style="color:#666"><%= goal.startDate %></h1>
 <h1 style="color:#666"><%= goal.endDate %></h1>

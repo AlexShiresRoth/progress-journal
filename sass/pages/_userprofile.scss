@@ -1,15 +1,81 @@
-.profile__display{
-    background:#fff;
-    box-shadow: 0px 5px 5px darken(#fff,30%);
-    border-radius: 10px;
-    display: flex;
-    flex-direction:column;
-    &--user-info{
-        display:flex;
-        flex-direction:row;
-        &--avatar{
-            max-height:10rem;
-            max-width:10rem;
-        }
-    }
+.profile__container {
+	max-width: 60vw;
+	max-height: 60vh;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0px 5px 5px darken(#fff, 30%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	&--button-row {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		justify-items: center;
+	}
+}
+
+.profile__display {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-items: center;
+	&--left-column {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: repeat(4, auto);
+		align-content: center;
+		padding: 0 5rem;
+		&--user-info {
+			&--avatar {
+				max-height: 10rem;
+				max-width: 10rem;
+				& img {
+					width: 100%;
+					border-radius: 200px;
+					border: 5px solid rgba(30, 144, 255, 0.5);
+				}
+			}
+		}
+		&--name-display {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			&--username {
+				align-items: center;
+				& h2 {
+					color: dodgerblue;
+				}
+			}
+			&--full-name {
+				display: flex;
+				flex-direction: row;
+				& h4 {
+					color: #666;
+				}
+			}
+		}
+		&--social {
+			& ul {
+				display: flex;
+				flex-direction: row;
+				padding: 0;
+				& li {
+					list-style: none;
+					& a {
+						color: $main-color;
+						font-size: 1.5rem;
+						transition: all 0.3s ease-in-out;
+						&:hover {
+							color: $secondary-color;
+						}
+					}
+				}
+			}
+		}
+	}
+	&--right-column {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: repeat(auto);
+		justify-items: center;
+	}
 }
