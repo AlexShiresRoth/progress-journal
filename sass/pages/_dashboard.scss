@@ -42,7 +42,7 @@
 		flex-direction: column;
 		justify-content: center;
 		text-align: center;
-		width:100%;
+		width: 100%;
 		& p {
 			color: #fff;
 			text-transform: uppercase;
@@ -51,8 +51,6 @@
 		}
 		&--count-display {
 			padding: 0rem 2rem;
-			border-radius: 50%;
-			border: 3px solid #fff;
 			& h1 {
 				@include count-number;
 			}
@@ -81,7 +79,7 @@
 		flex-direction: column;
 		justify-content: center;
 		text-align: center;
-		width:100%;
+		width: 100%;
 		& p {
 			color: #fff;
 			text-transform: uppercase;
@@ -90,8 +88,6 @@
 		}
 		&--count-display {
 			padding: 0rem 2rem;
-			border-radius: 50%;
-			border: 3px solid #fff;
 			& h1 {
 				@include count-number;
 			}

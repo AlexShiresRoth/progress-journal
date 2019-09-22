@@ -8,6 +8,7 @@
 @import 'layout/hrs';
 @import 'layout/navigation';
 @import 'layout/pagination';
+@import 'layout/footer';
 
 @import 'pages/index';
 @import 'pages/landing';
@@ -31,13 +32,9 @@ html {
 body {
 	padding: 0px;
 	margin: 0;
-	font: 62.5% 'Raleway', Helvetica, Arial, sans-serif;
-	display: flex;
-	flex-direction: column;
-	align-items:center;
+	font-size: 62.5%;
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
 	overflow-x: hidden;
-	min-height: 100vh;
-	background: $main-color;
 }
 html {
 	letter-spacing: 1.5px;
@@ -63,7 +60,7 @@ h3 {
 .green {
 	color: $accent-color;
 }
-.light-blue{
+.light-blue {
 	color: lighten($accent-color, 10%);
 }
 .orange {

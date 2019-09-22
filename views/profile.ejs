@@ -1,10 +1,6 @@
 <% include partials/header %>
 
 <div class="profile__container">
-	<div class="profile__container--button-row">
-		<a href="/profile/<%=user._id%>/editprofile"><button>Edit Profile</button></a>
-		<a href="/profile"><button>Go back</button></a>
-	</div>
 	<div class="profile__display">
 		<div class="profile__display--left-column">
 			<div class="profile__display--left-column--user-info">
@@ -41,21 +37,24 @@
 			</div>
 		</div>
 		<div class="profile__display--right-column">
-			<div class="profile__display--posts">
+			<div class="profile__display--right-column--user-data">
+				<h2>Posts:</h2>
 				<% profile.posts.map(post => { %>
 				<a href="/api/days/<%=post._id%>"
 					><%=post.title.length > 20 ? post.title.toSubstring(0,20) : post.title %></a
 				>
 				<% }) %>
 			</div>
-			<div class="profile__display--todos">
+			<div class="profile__display--right-column--user-data">
+				<h2>To-Dos:</h2>
 				<% profile.todos.map(todo => { %>
 				<a href="/api/todos/<%=user._id%>/todos"
 					><%=todo.title.length > 20 ? todo.title.toSubstring(0,20) : todo.title %></a
 				>
 				<% }) %>
 			</div>
-			<div class="profile__display--goals">
+			<div class="profile__display--right-column--user-data">
+				<h2>Goals:</h2>
 				<% profile.goals.map(goal => { %>
 				<a href="/api/goals/<%=post._id%>/goals"
 					><%=goal.title.length > 20 ? goal.title.toSubstring(0,20) : goal.title %></a
@@ -63,6 +62,14 @@
 				<% }) %>
 			</div>
 		</div>
+	</div>
+	<div class="profile__container--button-row">
+		<a href="/profile/<%=user._id%>/editprofile">
+			<button class="profile__container--button-row--edit"><i class="fa fa-edit"></i>Edit Profile</button>
+		</a>
+		<a href="/profile"
+			><button class="profile__container--button-row--back"><i class="fa fa-angle-left"></i> Dashboard</button></a
+		>
 	</div>
 </div>
 

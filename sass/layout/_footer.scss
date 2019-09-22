@@ -1,0 +1,39 @@
+.footer__section {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background: rgba(59, 1, 96, 0.7);
+	min-height: 20vh;
+	justify-items: center;
+	align-content: center;
+	width: 100%;
+
+	& ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		color: #eee;
+		& li {
+			transition: all 0.3s ease-in-out;
+			margin: 1rem 0;
+			color: #eee;
+			font-size: 0.6rem;
+			& span {
+				color: $accent-color;
+			}
+			&:hover {
+				color: #fff;
+				cursor: pointer;
+			}
+		}
+	}
+	& ul:nth-child(2) {
+		display: flex;
+		flex-direction: row;
+		& li {
+			color: #eee;
+			& i {
+				font-size: 1rem;
+			}
+		}
+	}
+}
