@@ -361,6 +361,11 @@ ul.pagination li:hover {
       .footer__section ul:nth-child(2) li i {
         font-size: 1rem; }
 
+.footer-logo {
+  max-height: 7vh;
+  height: 100%;
+  width: auto; }
+
 /*=======================
 ==========Index page===========*/
 .content {
