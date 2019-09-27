@@ -1,40 +1,40 @@
 <% include partials/header %>
 
-
-    <form action='/api/days/<%=day._id%>?_method=PUT' method="POST" class="form">
-        <div class="form-header">
-            <div class="form-headings">
-                <h1>Edit Entry</h1> <h3><%= day.date.toDateString() %></h3> 
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="input-container">
-            <div class="input-div">
-                <label>Please Give this Post a Title.</label>
-                <input name="day[title]" class="title" maxlength="15" value="<%= day.title %>"required>
-            </div>
-            <div class="input-div">
-            <label for="mood">How do you feel?</label>
-             <select  name="day[mood]" class="mood"  value="<%= day.mood %>" required>
-                <option value="5">Great!</option>
-                <option value="4">Good</option>
-                <option value="3">Pretty Good</option>
-                <option value="2">Eh</option>
-                <option value="1">Not Great</option>
-                <option value="0">Bad</option>
-            </select>
-            </div>
-            <div class="input-div">
-            <label for="body">Describe your day...</label>
-            <textarea name="day[text]"><%= day.text %></textarea>
-            </div>
-            <div class="custom-hr">
-                <div class="line"></div><div class="inter">&</div><div class="line"></div>
-            </div>
-            <button class="full-btn">Submit</button>
-        </div>
-    </form>
-
-
+<form action="/api/days/<%=day._id%>?_method=PUT" method="POST" class="form">
+	<div class="form-header">
+		<div class="form-headings">
+			<h1>Edit Entry</h1>
+			<h3><%= day.date %></h3>
+		</div>
+		<div class="line"></div>
+	</div>
+	<div class="input-container">
+		<div class="input-div">
+			<label>Please Give this Post a Title.</label>
+			<input name="day[title]" class="title" maxlength="15" value="<%= day.title %>" required />
+		</div>
+		<div class="input-div">
+			<label for="mood">How do you feel?</label>
+			<select name="day[mood]" class="mood" value="<%= day.mood %>" required>
+				<option value="5">Great!</option>
+				<option value="4">Good</option>
+				<option value="3">Pretty Good</option>
+				<option value="2">Eh</option>
+				<option value="1">Not Great</option>
+				<option value="0">Bad</option>
+			</select>
+		</div>
+		<div class="input-div">
+			<label for="body">Describe your day...</label>
+			<textarea name="day[text]"><%= day.text %></textarea>
+		</div>
+		<div class="custom-hr">
+			<div class="line"></div>
+			<div class="inter">&</div>
+			<div class="line"></div>
+		</div>
+		<button class="full-btn">Submit</button>
+	</div>
+</form>
 
 <% include partials/footer %>
