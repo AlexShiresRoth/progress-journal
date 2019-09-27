@@ -43,6 +43,15 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 	width: 100%;
+	& h3 {
+		& a {
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				color: $secondary-color;
+				border-bottom: 1px solid $secondary-color;
+			}
+		}
+	}
 }
 .date {
 	display: flex;

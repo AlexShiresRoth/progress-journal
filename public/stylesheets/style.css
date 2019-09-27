@@ -361,11 +361,6 @@ ul.pagination li:hover {
       .footer__section ul:nth-child(2) li i {
         font-size: 1rem; }
 
-.footer-logo {
-  max-height: 7vh;
-  height: 100%;
-  width: auto; }
-
 /*=======================
 ==========Index page===========*/
 .content {
@@ -408,6 +403,11 @@ ul.pagination li:hover {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%; }
+  .post-header h3 a {
+    transition: all 0.3s ease-in-out; }
+    .post-header h3 a:hover {
+      color: #7909a5;
+      border-bottom: 1px solid #7909a5; }
 
 .date {
   display: flex;
@@ -1081,11 +1081,7 @@ a {
   color: #d1d1d1;
   text-decoration: none;
   font-weight: 300;
-  transition: 0.5s linear; }
-
-a:hover,
-a:active {
-  color: #f4f4f4; }
+  transition: all 0.3s ease-in-out; }
 
 h1,
 h2,

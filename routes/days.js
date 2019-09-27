@@ -1,4 +1,4 @@
-const { format, formatDistance, formatRelative, subDays } = require('date-fns');
+const { format } = require('date-fns');
 const express = require('express');
 const router = express.Router();
 const middleware = require('../middleware/middleware');
@@ -64,7 +64,7 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, async (req, res, next
 	if (title) dayPostFields.title = title;
 	if (text) dayPostFields.text = text;
 
-	dayPostFields.date = formatDistance(subDays(new Date()), new Date());
+	dayPostFields.date = format(new Date(), 'EEEEEE MMMM do');
 
 	dayPostFields.author = {
 		id: req.user._id,
@@ -157,17 +157,25 @@ router.put('/:id', middleware.isLoggedIn, middleware.isUser, async (req, res) =>
 
 //Delete User Post
 //Private Access
-router.delete('/:id/remove', middleware.isLoggedIn, middleware.isUser, (req, res) => {
-	Day.findByIdAndRemove(req.params.id, err => {
-		if (err) {
-			console.log(err);
-			req.flash('error', err.message);
-			res.redirect('/:id');
-		} else {
-			req.flash('success', 'Successfully Deleted Post.');
-			res.redirect('/api/days');
-		}
-	});
+router.delete('/:id/remove', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
+
+	try {
+		Day.findByIdAndRemove(req.params.id, err => {
+			if (err) {
+				console.log(err);
+				req.flash('error', err.message);
+				res.redirect('/:id');
+			} else {
+				foundProfile.save();
+				req.flash('success', 'Successfully Deleted Post.');
+				res.redirect('/api/days');
+			}
+		});
+	} catch (error) {
+		req.flash('error', error.message);
+		res.redirect('/:id');
+	}
 });
 
 module.exports = router;

@@ -45,11 +45,7 @@ a {
 	color: $secondary-text-color;
 	text-decoration: none;
 	font-weight: 300;
-	transition: 0.5s linear;
-}
-a:hover,
-a:active {
-	color: $text-color;
+	transition: all 0.3s ease-in-out;
 }
 
 h1,
