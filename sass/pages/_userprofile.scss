@@ -56,8 +56,9 @@
 				max-height: 10rem;
 				max-width: 10rem;
 				& img {
-					width: 100%;
-					border-radius: 200px;
+					max-height: 10rem;
+					max-width: 10rem;
+					border-radius: 50%;
 					border: 5px solid rgba(30, 144, 255, 0.5);
 				}
 			}
@@ -111,13 +112,20 @@
 			& h2 {
 				color: dodgerblue;
 			}
-			& a {
-				color: #666;
-				border-bottom: 1px solid transparent;
-				transition: all 0.3s ease-in-out;
-				&:hover {
-					color: $secondary-color;
-					border-bottom: 1px solid $secondary-color;
+			&--bubble {
+				margin: 0.2rem;
+				& a {
+					color: #fff;
+					border-bottom: 1px solid transparent;
+					padding: 0.5rem;
+					background: $secondary-color;
+					color: #fff;
+					transition: all 0.3s ease-in-out;
+					border-radius: 15px;
+					&:hover {
+						color: #fff;
+						background: $main-color;
+					}
 				}
 			}
 		}

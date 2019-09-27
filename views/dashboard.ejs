@@ -53,10 +53,10 @@
 				<p>Todo List:</p>
 				<div class="profile__card--todo-count--count-display">
 					<% const compAmt = foundProfile.todos.filter(todo => { %> 
-					<% return todo.completed %> <% }) %>
+					<% return todo.completed %> <% },[]) %>
 					<% const calcPercentage = (f,s) => { %> 
 					<% const percent = Math.round((f / s) * 100); %>
-					<% return `${percent}%` } %>
+					<% return `${percent>0 ? percent:0}%` } %>
 					
 					<h1><%= calcPercentage(compAmt.length,foundProfile.todos.length) %></h1>
 				</div>

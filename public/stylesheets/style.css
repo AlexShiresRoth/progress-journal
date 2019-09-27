@@ -989,8 +989,9 @@ input.list-input {
       max-height: 10rem;
       max-width: 10rem; }
       .profile__display--left-column--user-info--avatar img {
-        width: 100%;
-        border-radius: 200px;
+        max-height: 10rem;
+        max-width: 10rem;
+        border-radius: 50%;
         border: 5px solid rgba(30, 144, 255, 0.5); }
     .profile__display--left-column--name-display {
       display: flex;
@@ -1028,13 +1029,19 @@ input.list-input {
       width: 100%; }
       .profile__display--right-column--user-data h2 {
         color: dodgerblue; }
-      .profile__display--right-column--user-data a {
-        color: #666;
-        border-bottom: 1px solid transparent;
-        transition: all 0.3s ease-in-out; }
-        .profile__display--right-column--user-data a:hover {
-          color: #7909a5;
-          border-bottom: 1px solid #7909a5; }
+      .profile__display--right-column--user-data--bubble {
+        margin: 0.2rem; }
+        .profile__display--right-column--user-data--bubble a {
+          color: #fff;
+          border-bottom: 1px solid transparent;
+          padding: 0.5rem;
+          background: #7909a5;
+          color: #fff;
+          transition: all 0.3s ease-in-out;
+          border-radius: 15px; }
+          .profile__display--right-column--user-data--bubble a:hover {
+            color: #fff;
+            background: #3b0160; }
 
 /*=========================
 ========Alerts=============

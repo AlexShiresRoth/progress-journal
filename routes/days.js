@@ -160,14 +160,21 @@ router.put('/:id', middleware.isLoggedIn, middleware.isUser, async (req, res) =>
 router.delete('/:id/remove', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
 	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
 
+	const userPosts = foundProfile.posts.map(post => {
+		return post.id !== req.params.id;
+	},);
+
+	foundProfile.posts = userPosts || [];
+
 	try {
-		Day.findByIdAndRemove(req.params.id, err => {
+		Day.findByIdAndRemove(req.params.id, async err => {
 			if (err) {
 				console.log(err);
 				req.flash('error', err.message);
 				res.redirect('/:id');
 			} else {
-				foundProfile.save();
+				console.log(userPosts);
+				await foundProfile.save();
 				req.flash('success', 'Successfully Deleted Post.');
 				res.redirect('/api/days');
 			}
