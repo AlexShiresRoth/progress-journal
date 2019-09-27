@@ -12,53 +12,54 @@ exports.getSignup = async (req, res) => {
 
 //Signup Page authentication
 //Public
-exports.signUp = ([check('email').isEmail(), check('password').isLength({ min: 6 })],
-async (req, res, next) => {
-	const { email, password, username, password2 } = req.body;
+exports.signUp =
+	([check('email').isEmail(), check('password').isLength({ min: 6 })],
+	async (req, res, next) => {
+		const { email, password, username, password2 } = req.body;
 
-	const whiteSpace = /\s/g;
+		const whiteSpace = /\s/g;
 
-	const errors = validationResult(req);
+		const errors = validationResult(req);
 
-	if (!errors.isEmpty()) {
-		console.log(errors.array());
-		req.flash('error', `${errors.array()}`);
+		if (!errors.isEmpty()) {
+			console.log(errors.array());
+			req.flash('error', `${errors.array()}`);
 
-		return res.status(400).json({ errors: errors.array() });
-	}
-	if (username.match(whiteSpace)) {
-		req.flash('error', 'Username cannot contain spaces');
-		res.redirect('/signup');
-	}
+			return res.status(400).json({ errors: errors.array() });
+		}
+		if (username.match(whiteSpace)) {
+			req.flash('error', 'Username cannot contain spaces');
+			res.redirect('/signup');
+		}
 
-	if (password !== password2) {
-		req.flash('error', 'Passwords do not match!');
-		res.redirect('/signup');
-	}
-	try {
-		let newUser = new User({ username, email, password });
+		if (password !== password2) {
+			req.flash('error', 'Passwords do not match!');
+			res.redirect('/signup');
+		}
+		try {
+			let newUser = new User({ username, email, password });
 
-		const salt = await bcrypt.genSalt(10);
+			const salt = await bcrypt.genSalt(10);
 
-		newUser.password = await bcrypt.hash(password, salt);
+			newUser.password = await bcrypt.hash(password, salt);
 
-		User.register(newUser, password, (err, user) => {
-			if (err) {
-				console.log(err);
-				req.flash('error', err.message);
-				return res.redirect('/signup');
-			}
-			passport.authenticate('local')(req, res, () => {
-				req.flash('success', `Welcome to Progress Journal ${user.username}!`);
-				req.redirect('/api/days')
+			User.register(newUser, password, (err, user) => {
+				if (err) {
+					console.log(err);
+					req.flash('error', err.message);
+					return res.redirect('/signup');
+				}
+				passport.authenticate('local')(req, res, () => {
+					req.flash('success', `Welcome to Progress Journal ${user.username}!`);
+					res.redirect('/api/days');
+				});
 			});
-		});
-	} catch (error) {
-		console.log(error.message);
-		req.flash(error.message);
-		res.redirect('/signup');
-	}
-});
+		} catch (error) {
+			console.log(error.message);
+			req.flash(error.message);
+			res.redirect('/signup');
+		}
+	});
 
 exports.authenticateLogin = passport.authenticate('local', {
 	successRedirect: '/api/days',
@@ -69,9 +70,9 @@ exports.login = async (req, res, next) => {
 	try {
 		next();
 	} catch (error) {
-		if(error){
+		if (error) {
 			req.flash('error', error.message);
-			res.redirect('back')
+			res.redirect('back');
 		}
 	}
 };

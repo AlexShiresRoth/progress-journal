@@ -24,7 +24,7 @@
           <div class="post-description">
             <div class="post-header">
               <a href="/api/days/<%=day._id %>"><h3><%= day.author.username %>: <%= day.title %> </h3> </a>
-              <h3><a href="/api/days/<%=day._id%>"><%= day.date.toDateString() %></a></h3>
+              <h3><a href="/api/days/<%=day._id%>">Posted:<%= day.date %></a></h3>
             </div>
               <div class="line"></div>
                 <% if(day.mood == 5 ) { %> <h3>Day Rating: <span class="day-rating green">Great!      </span></h3> <% } %>

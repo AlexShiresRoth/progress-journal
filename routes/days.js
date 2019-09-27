@@ -1,3 +1,4 @@
+const { format, formatDistance, formatRelative, subDays } = require('date-fns');
 const express = require('express');
 const router = express.Router();
 const middleware = require('../middleware/middleware');
@@ -63,6 +64,8 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, async (req, res, next
 	if (title) dayPostFields.title = title;
 	if (text) dayPostFields.text = text;
 
+	dayPostFields.date = formatDistance(subDays(new Date()), new Date());
+
 	dayPostFields.author = {
 		id: req.user._id,
 		username: req.user.username,
@@ -70,7 +73,7 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, async (req, res, next
 
 	try {
 		const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
-		
+
 		if (!foundProfile) {
 			req.flash('error', 'You must create a profile to create posts!');
 			res.redirect('back');
