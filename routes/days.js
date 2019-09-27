@@ -157,23 +157,24 @@ router.put('/:id', middleware.isLoggedIn, middleware.isUser, async (req, res) =>
 
 //Delete User Post
 //Private Access
+//TODO figure out why this wont remove from array
 router.delete('/:id/remove', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
 	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
 
-	const userPosts = foundProfile.posts.map(post => {
-		return post.id !== req.params.id;
-	},);
-
-	foundProfile.posts = userPosts || [];
-
 	try {
+		const userPosts = foundProfile.posts.filter(post => {
+			console.log(post._id, req.params.id);
+			return post._id !== req.params.id;
+		});
+
+		foundProfile.posts = userPosts;
 		Day.findByIdAndRemove(req.params.id, async err => {
 			if (err) {
 				console.log(err);
 				req.flash('error', err.message);
 				res.redirect('/:id');
 			} else {
-				console.log(userPosts);
+				console.log('user Posts' + userPosts);
 				await foundProfile.save();
 				req.flash('success', 'Successfully Deleted Post.');
 				res.redirect('/api/days');
