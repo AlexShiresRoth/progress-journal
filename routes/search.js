@@ -5,7 +5,6 @@ const Day = require('../models/day');
 //Search for posts by author or
 router.get('/', (req, res) => {
 	const { searchTerm } = req.query;
-	console.log(`this is a ${typeof searchTerm} for ${searchTerm}`);
 	if (searchTerm && searchTerm !== '' && searchTerm !== null && searchTerm.length > 0) {
 		const regex = new RegExp(escapeRegex(searchTerm), 'gi');
 		Day.find({}, (error, foundDays) => {

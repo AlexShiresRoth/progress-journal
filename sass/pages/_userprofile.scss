@@ -109,23 +109,27 @@
 		width: 100%;
 		&--user-data {
 			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
 			& h2 {
 				color: dodgerblue;
 			}
 			&--bubble {
 				margin: 0.2rem;
+				border-bottom: 1px solid transparent;
+				padding: 0.5rem;
+				background: $secondary-color;
+				color: #fff;
+				transition: all 0.3s ease-in-out;
+				border-radius: 5px;
+				&:hover {
+					color: #fff;
+					background: $main-color;
+					cursor: pointer;
+				}
 				& a {
 					color: #fff;
-					border-bottom: 1px solid transparent;
-					padding: 0.5rem;
-					background: $secondary-color;
-					color: #fff;
-					transition: all 0.3s ease-in-out;
-					border-radius: 15px;
-					&:hover {
-						color: #fff;
-						background: $main-color;
-					}
 				}
 			}
 		}

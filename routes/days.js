@@ -8,10 +8,13 @@ const Profile = require('../models/profiles');
 //Index page
 //private access
 router.get('/', middleware.isLoggedIn, async (req, res, next) => {
+	const foundProfile = Profile.findOne({ 'userprofile.username': req.user.username });
 	let perPage = 4;
 	let pageQuery = parseInt(req.query.page);
 	let pageNumber = pageQuery ? pageQuery : 1;
+
 	try {
+		console.log(foundProfile);
 		await Day.find({})
 			.skip(perPage * pageNumber - perPage)
 			.limit(perPage)
@@ -78,7 +81,7 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, async (req, res, next
 			req.flash('error', 'You must create a profile to create posts!');
 			res.redirect('back');
 		}
-		const post = await new Day(dayPostFields);
+		const post = new Day(dayPostFields);
 
 		Day.create(post, async (err, newPost) => {
 			if (err) {
@@ -163,18 +166,18 @@ router.delete('/:id/remove', middleware.isLoggedIn, middleware.isUser, async (re
 
 	try {
 		const userPosts = foundProfile.posts.filter(post => {
-			console.log(post._id, req.params.id);
-			return post._id !== req.params.id;
+			console.log(typeof JSON.stringify(post._id), typeof req.params.id);
+			return JSON.stringify(post._id) !== req.params.id;
 		});
 
 		foundProfile.posts = userPosts;
+		console.log(userPosts);
 		Day.findByIdAndRemove(req.params.id, async err => {
 			if (err) {
 				console.log(err);
 				req.flash('error', err.message);
 				res.redirect('/:id');
 			} else {
-				console.log('user Posts' + userPosts);
 				await foundProfile.save();
 				req.flash('success', 'Successfully Deleted Post.');
 				res.redirect('/api/days');

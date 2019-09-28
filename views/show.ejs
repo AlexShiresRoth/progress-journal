@@ -24,7 +24,7 @@
 	<p class="text"><%= day.text %></p>
 	<div class="show-buttons">
 		<a href="/api/days/<%=day._id %>/edit"><button class="edit-button">Edit</button></a>
-		<form action="/api/days/<%=day._id %>/remove?_method=DELETE" method="POST">
+		<form action="/api/days/<%=day._id %>/remove?_method=PUT" method="POST">
 			<button class="delete-button">Delete</button>
 		</form>
 	</div>
