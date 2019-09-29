@@ -202,8 +202,7 @@ option:hover {
 option:focus {
   outline: none; }
 
-.create__todo,
-.create__goal {
+.create__form {
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -211,34 +210,42 @@ option:focus {
   align-items: center;
   padding: 5rem;
   border-radius: 15px; }
-  .create__todo h2,
-  .create__goal h2 {
+  .create__form h2 {
     color: dodgerblue; }
-  .create__todo--form,
-  .create__goal--form {
+  .create__form--form {
     display: flex;
     flex-direction: column;
     justify-content: space-around; }
-    .create__todo--form--row,
-    .create__goal--form--row {
+    .create__form--form button {
+      color: #7909a5;
+      background: transparent;
+      border: 2px solid #7909a5;
+      font-size: 0.6rem;
+      color: #7909a5;
+      transition: all 0.3s ease-in-out;
+      padding: 0.2rem 0;
+      border-radius: 5px; }
+      .create__form--form button:hover {
+        color: #fff;
+        background: #7909a5;
+        box-shadow: 0 5px 5px #560675;
+        cursor: pointer; }
+    .create__form--form--row {
       display: flex;
       flex-direction: row; }
-      .create__todo--form--row--icon-box,
-      .create__goal--form--row--icon-box {
+      .create__form--form--row--icon-box {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center; }
-        .create__todo--form--row--icon-box i,
-        .create__goal--form--row--icon-box i {
+        .create__form--form--row--icon-box i {
           padding: 0.3rem;
           color: #7909a5;
           font-size: 2rem;
           border-radius: 50px;
           background: rgba(30, 144, 255, 0.2);
           box-shadow: 0 2px 2px rgba(0, 119, 234, 0.2); }
-      .create__todo--form--row--column,
-      .create__goal--form--row--column {
+      .create__form--form--row--column {
         margin: 1rem;
         display: flex;
         flex-direction: column;
@@ -248,12 +255,10 @@ option:focus {
         border: 1px solid #eee;
         padding: 0.5rem;
         width: 100%; }
-        .create__todo--form--row--column label,
-        .create__goal--form--row--column label {
+        .create__form--form--row--column label {
           color: dodgerblue;
           font-size: 0.4rem; }
-        .create__todo--form--row--column input,
-        .create__goal--form--row--column input {
+        .create__form--form--row--column input {
           background: #fff;
           color: #666;
           font-size: 1rem;
@@ -262,28 +267,18 @@ option:focus {
           border: 0;
           border-bottom: 1px solid #7909a5;
           transition: all 0.3s ease-in-out; }
-          .create__todo--form--row--column input:focus,
-          .create__goal--form--row--column input:focus {
+          .create__form--form--row--column input:focus {
             outline: 1px solid dodgerblue; }
-          .create__todo--form--row--column input:hover,
-          .create__goal--form--row--column input:hover {
+          .create__form--form--row--column input:hover {
             border: 1px solid dodgerblue; }
-    .create__todo--form button,
-    .create__goal--form button {
-      color: #7909a5;
-      background: transparent;
-      border: 2px solid #7909a5;
-      font-size: 0.6rem;
-      color: #7909a5;
-      transition: all 0.3s ease-in-out;
-      padding: 0.2rem 0;
-      border-radius: 5px; }
-      .create__todo--form button:hover,
-      .create__goal--form button:hover {
-        color: #fff;
-        background: #7909a5;
-        box-shadow: 0 5px 5px #560675;
-        cursor: pointer; }
+      .create__form--form--row button.add-step {
+        border: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; }
+        .create__form--form--row button.add-step i {
+          font-size: 1.2rem; }
 
 /*=====================
 =======HR============*/
@@ -383,6 +378,72 @@ option:focus {
         max-height: 7vh;
         height: 100%;
         width: auto; }
+
+.list__header {
+  display: flex;
+  flex-direction: row;
+  min-width: 50vw;
+  max-width: 70vw;
+  margin: 1rem;
+  justify-content: space-between;
+  background: #3b0160;
+  align-items: center;
+  color: #fff;
+  max-height: 7vh;
+  border-radius: 10px;
+  box-shadow: 0px 3px 3px #ddd; }
+  .list__header--add-new {
+    color: #fff;
+    font-size: 1.1rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 100%;
+    padding: 0.5rem;
+    background: dodgerblue;
+    border: 1px solid dodgerblue;
+    transition: all 0.3s ease-in-out;
+    max-width: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .list__header--add-new:hover {
+      max-width: 8rem;
+      background: dodgerblue;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: #fff;
+      border: 1px solid dodgerblue;
+      transition: all 0.3s ease-in-out; }
+    .list__header--add-new:hover::after {
+      content: 'Add New';
+      color: #fff;
+      font-size: 0.5rem; }
+  .list__header--go-back {
+    color: #5a0292;
+    font-size: 1.1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100%;
+    padding: 0.5rem;
+    color: #fff;
+    background: #3b0160;
+    border: 1px solid #3b0160;
+    transition: all 0.3s ease-in-out;
+    max-width: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .list__header--go-back:hover {
+      max-width: 8rem;
+      background: dodgerblue;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: #fff;
+      border: 1px solid dodgerblue; }
+    .list__header--go-back:hover::before {
+      content: 'Go Back';
+      color: #fff;
+      font-size: 0.5rem; }
 
 /*===================
 ========PAgination===
@@ -844,72 +905,6 @@ input.list-input {
     .profile__card--create-profile h2 {
       color: #666; }
 
-.todo__header {
-  display: flex;
-  flex-direction: row;
-  min-width: 50vw;
-  max-width: 70vw;
-  margin: 1rem;
-  justify-content: space-between;
-  background: #3b0160;
-  align-items: center;
-  color: #fff;
-  max-height: 7vh;
-  border-radius: 10px;
-  box-shadow: 0px 3px 3px #ddd; }
-  .todo__header--add-new {
-    color: #fff;
-    font-size: 1.1rem;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    height: 100%;
-    padding: 0.5rem;
-    background: dodgerblue;
-    border: 1px solid dodgerblue;
-    transition: all 0.3s ease-in-out;
-    max-width: 5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center; }
-    .todo__header--add-new:hover {
-      max-width: 8rem;
-      background: dodgerblue;
-      padding: 0.5rem;
-      cursor: pointer;
-      color: #fff;
-      border: 1px solid dodgerblue;
-      transition: all 0.3s ease-in-out; }
-    .todo__header--add-new:hover::after {
-      content: 'Add New';
-      color: #fff;
-      font-size: 0.5rem; }
-  .todo__header--go-back {
-    color: #5a0292;
-    font-size: 1.1rem;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    height: 100%;
-    padding: 0.5rem;
-    color: #fff;
-    background: #3b0160;
-    border: 1px solid #3b0160;
-    transition: all 0.3s ease-in-out;
-    max-width: 5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center; }
-    .todo__header--go-back:hover {
-      max-width: 8rem;
-      background: dodgerblue;
-      padding: 0.5rem;
-      cursor: pointer;
-      color: #fff;
-      border: 1px solid dodgerblue; }
-    .todo__header--go-back:hover::before {
-      content: 'Go Back';
-      color: #fff;
-      font-size: 0.5rem; }
-
 .todo__container {
   display: flex;
   flex-direction: column; }
@@ -1159,6 +1154,12 @@ input.list-input {
   text-align: center;
   border: 2px solid red;
   align-self: center; }
+
+.hidden {
+  display: hidden;
+  visibility: hidden;
+  max-height: 0;
+  opacity: 0; }
 
 * {
   box-sizing: border-box; }

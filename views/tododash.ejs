@@ -1,13 +1,13 @@
 <% include partials/header %>
 
 <div class="todo__container">
-	<div class="todo__header">
+	<div class="list__header">
 		<a href="/api/todos/<%=user._id%>/createtodo"
-			><button class="todo__header--add-new"><i class="fa fa-plus-circle"></i></button
+			><button class="list__header--add-new"><i class="fa fa-plus-circle"></i></button
 		></a>
-		<p>Welcome to Your To-do List Dashboard</p>
+		<p><%= username %>'s To-do List Dashboard</p>
 		<a href="/profile">
-			<button class="todo__header--go-back"><i class="fa fa-angle-left"></i></button
+			<button class="list__header--go-back"><i class="fa fa-angle-left"></i></button
 		></a>
 	</div>
 	<% if(error && error.length > 0){ %>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { selectors } from './selectors';
+import { selectors } from '../models/selectors';
 
 export default class SearchQuery {
 	constructor(query) {
@@ -7,7 +7,7 @@ export default class SearchQuery {
 	}
 	async formSubmit() {
 		const searchTerm = this.query;
-		console.log(searchTerm)
+		console.log(searchTerm);
 		try {
 			if (searchTerm) {
 				await axios.get(`/api/search?searchTerm=${searchTerm}`);

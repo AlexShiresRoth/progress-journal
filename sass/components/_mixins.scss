@@ -1,3 +1,10 @@
+////active/passive styles//////////////////
+@mixin hidden {
+	display: hidden;
+	visibility: hidden;
+	max-height: 0;
+	opacity: 0;
+}
 //UTILITIES
 @mixin flex-row-center {
 	display: flex;
@@ -33,7 +40,7 @@
 	box-shadow: 0 5px 5px -5px darken(#eee, 20%);
 }
 @mixin count-number {
-	color:#fff;
+	color: #fff;
 	font-weight: 700;
 	font-size: 2.4rem;
 	font-family: 'Poiret One';

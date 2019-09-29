@@ -93,3 +93,76 @@
 		}
 	}
 }
+
+.list__header {
+	display: flex;
+	flex-direction: row;
+	min-width: 50vw;
+	max-width: 70vw;
+	margin: 1rem;
+	justify-content: space-between;
+	background: $main-color;
+	align-items: center;
+	color: #fff;
+	max-height: 7vh;
+	border-radius: 10px;
+	box-shadow: 0px 3px 3px #ddd;
+	&--add-new {
+		color: #fff;
+		font-size: 1.1rem;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		height: 100%;
+		padding: 0.5rem;
+		background: $accent-color;
+		border: 1px solid $accent-color;
+		transition: all 0.3s ease-in-out;
+		max-width: 5rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		&:hover {
+			max-width: 8rem;
+			background: $accent-color;
+			padding: 0.5rem;
+			cursor: pointer;
+			color: #fff;
+			border: 1px solid $accent-color;
+			transition: all 0.3s ease-in-out;
+		}
+		&:hover::after {
+			content: 'Add New';
+			color: #fff;
+			font-size: 0.5rem;
+		}
+	}
+	&--go-back {
+		color: lighten($main-color, 10%);
+		font-size: 1.1rem;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		height: 100%;
+		padding: 0.5rem;
+		color: #fff;
+		background: $main-color;
+		border: 1px solid $main-color;
+		transition: all 0.3s ease-in-out;
+		max-width: 5rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		&:hover {
+			max-width: 8rem;
+			background: $accent-color;
+			padding: 0.5rem;
+			cursor: pointer;
+			color: #fff;
+			border: 1px solid $accent-color;
+		}
+		&:hover::before {
+			content: 'Go Back';
+			color: #fff;
+			font-size: 0.5rem;
+		}
+	}
+}

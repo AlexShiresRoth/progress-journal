@@ -46,7 +46,7 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		res.redirect('back');
 	}
 
-	const { startDate, endDate, title, completed, details } = req.body.goals;
+	const { startDate, endDate, title, completed, steps } = req.body.goals;
 
 	const goalFields = {};
 
@@ -55,7 +55,7 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 	if (title) goalFields.title = title;
 	if (completed) goalFields.completed = completed;
 
-	if (details) goalFields.details = [...details];
+	if (steps) goalFields.steps = [...steps];
 
 	goalFields.id = genId();
 

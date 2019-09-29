@@ -1,31 +1,37 @@
 <% include partials/header %>
-
-<div class="create__goal">
+<div class="list__header">
+	<a href="/api/goals/<%=user._id%>/creategoals"
+		><button class="list__header--add-new"><i class="fa fa-plus-circle"></i></button
+	></a>
+	<p><%= username %>'s Goals Dashboard</p>
+	<a href="/api/goals/<%=user._id%>/goals">
+		<button class="list__header--go-back"><i class="fa fa-angle-left"></i></button
+	></a>
+</div>
+<div class="create__form">
 	<h2>Add A New Goal</h2>
-	<form class="create__goal--form" action="/api/goals?_method=PUT" method="POST">
-		<div class="create__goal--form--row">
-			<div class="create__goal--form--row--column">
+	<form class="create__form--form" id="goals__form" action="/api/goals?_method=PUT" method="POST">
+		<div class="create__form--form--row">
+			<div class="create__form--form--row--icon-box"><i class="fa fa-list-ul"></i></div>
+			<div class="create__form--form--row--column">
+				<label for="goals[title]">Add A Title</label>
 				<input name="goals[title]" type="text" placeholder="Enter a title" required />
 			</div>
 		</div>
 
-		<div class="create__goal--form--row">
-			<div class="create__goal--form--row--column">
+		<div class="create__form--form--row">
+			<div class="create__form--form--row--icon-box"><i class="fa fa-calendar"></i></div>
+			<div class="create__form--form--row--column">
+				<label for="goals[endDate]">Add A Complete by Date</label>
 				<input name="goals[endDate]" type="date" placeholder="Enter completion date" required />
 			</div>
 		</div>
-		<div class="create__goal--form--row">
-			<div class="create__goal--form--row--column">
-				<input name="goals[details]" type="text" placeholder="Enter details" required />
-			</div>
+		<div class="create__form--form--row">
+			<button class="add-step"><i class="fa fa-plus-circle"></i> Add A step</button>
 		</div>
-		<div class="create__goal--form--row">
-			<button class="create__goal--form--row--button">Add A step</button>
-		</div>
-		<button>Add Goal</button>
+		<div class="create__form--form--row--column hidden" id="steps__container"></div>
+		<button>Create Goal</button>
 	</form>
 </div>
-
-<a href="/api/goals/<%=user._id%>/goals"><button class="profile-button">Go Back</button></a>
 
 <% include partials/footer %>
