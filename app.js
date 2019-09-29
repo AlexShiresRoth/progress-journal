@@ -69,7 +69,6 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/profile', profileRouter);
 app.use('/api/days', daysRouter);
-app.use('/api/profiles', profileApi);
 app.use('/api/search', searchRouter);
 app.use('/api/todos', todosRouter);
 app.use('/api/goals', goalsRouter);
