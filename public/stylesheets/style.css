@@ -1132,6 +1132,125 @@ input.list-input {
         .profile__display--right-column--user-data--bubble a {
           color: #fff; }
 
+.goals__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  grid-template-rows: auto; }
+  .goals__container--goal {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .goals__container--goal--header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      width: 100%;
+      z-index: 0; }
+      .goals__container--goal--header img {
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+        height: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px; }
+      .goals__container--goal--header h3 {
+        color: #fff;
+        z-index: 2; }
+      .goals__container--goal--header p {
+        color: #fff;
+        font-weight: 700;
+        z-index: 2; }
+        .goals__container--goal--header p span {
+          color: dodgerblue; }
+      .goals__container--goal--header--overlay {
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px; }
+      .goals__container--goal--header--title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1rem; }
+    .goals__container--goal--steps {
+      padding: 0.5rem; }
+      .goals__container--goal--steps--header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 1rem; }
+        .goals__container--goal--steps--header p {
+          font-weight: 700; }
+        .goals__container--goal--steps--header button.add-step {
+          border: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          color: #7909a5;
+          background: transparent;
+          font-size: 0.6rem;
+          transition: all 0.3s ease-in-out;
+          padding: 0.2rem 0;
+          border-radius: 5px; }
+          .goals__container--goal--steps--header button.add-step:hover {
+            color: #fff;
+            background: #7909a5;
+            box-shadow: 0 5px 5px #560675;
+            cursor: pointer; }
+          .goals__container--goal--steps--header button.add-step i {
+            font-size: 1.2rem; }
+      .goals__container--goal--steps ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 0; }
+        .goals__container--goal--steps ul li {
+          list-style: none;
+          color: #666;
+          width: 100%;
+          border-bottom: 1px solid #eee; }
+          .goals__container--goal--steps ul li p {
+            font-weight: 700; }
+            .goals__container--goal--steps ul li p span {
+              color: #7909a5;
+              margin: 0 0.2rem;
+              font-size: 0.8rem; }
+    .goals__container--goal .remove-button {
+      background: rgba(243, 20, 49, 0.5);
+      color: #fff;
+      border: 0;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px; }
+      .goals__container--goal .remove-button:hover {
+        cursor: pointer;
+        background: #f31431;
+        border: 0; }
+      .goals__container--goal .remove-button:hover::after {
+        content: 'Remove Goal?';
+        color: #fff;
+        font-weight: 700; }
+      .goals__container--goal .remove-button i {
+        font-size: 1.1rem;
+        color: #fff; }
+
 /*=========================
 ========Alerts=============
 =========================*/

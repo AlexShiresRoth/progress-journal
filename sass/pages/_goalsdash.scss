@@ -1,0 +1,141 @@
+.goals__container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+	grid-template-rows: auto;
+	&--goal {
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: 0 5px 5px #eee;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		&--header {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: flex-start;
+			border-bottom: 1px solid #eee;
+			position: relative;
+			width: 100%;
+			z-index: 0;
+			& img {
+				position: absolute;
+				width: 100%;
+				z-index: 0;
+				height: 100%;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+			}
+			& h3 {
+				color: #fff;
+				z-index: 2;
+			}
+			& p {
+				color: #fff;
+				font-weight: 700;
+				z-index: 2;
+				& span {
+					color: $accent-color;
+				}
+			}
+			&--overlay {
+				background: rgba(0, 0, 0, 0.5);
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 1;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+			}
+			&--title {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: flex-start;
+				padding: 1rem;
+			}
+		}
+		&--steps {
+			padding: 0.5rem;
+			&--header {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				padding: 0 1rem;
+				& p {
+					font-weight: 700;
+				}
+				& button.add-step {
+					border: 0;
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					color: $secondary-color;
+					background: transparent;
+					font-size: 0.6rem;
+					transition: all 0.3s ease-in-out;
+					padding: 0.2rem 0;
+					border-radius: 5px;
+					&:hover {
+						color: #fff;
+						background: $secondary-color;
+						box-shadow: 0 5px 5px darken($secondary-color, 10%);
+						cursor: pointer;
+					}
+					& i {
+						font-size: 1.2rem;
+					}
+				}
+			}
+			& ul {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				padding: 0;
+				& li {
+					list-style: none;
+					color: #666;
+					width: 100%;
+					border-bottom: 1px solid #eee;
+					& p {
+						font-weight: 700;
+						& span {
+							color: $secondary-color;
+							margin: 0 0.2rem;
+							font-size: 0.8rem;
+						}
+					}
+				}
+			}
+		}
+		& .remove-button {
+			background: rgba(243, 20, 49, 0.5);
+			color: #fff;
+			border: 0;
+			padding: 0.5rem 1rem;
+			transition: all 0.3s ease-in-out;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			&:hover {
+				cursor: pointer;
+				background: $alert-red;
+				border: 0;
+			}
+			&:hover::after {
+				content: 'Remove Goal?';
+				color: #fff;
+				font-weight: 700;
+			}
+			& i {
+				font-size: 1.1rem;
+				color: #fff;
+			}
+		}
+	}
+}

@@ -1,34 +1,53 @@
-<% include partials/header %> <% if(error && error.length > 0){ %>
+<% include partials/header %>
+<div class="list__header">
+	<a href="/api/goals/<%=user._id%>/creategoals"
+		><button class="list__header--add-new"><i class="fa fa-plus-circle"></i></button
+	></a>
+	<p><%= username %>'s Goals Dashboard</p>
+	<a href="/profile">
+		<button class="list__header--go-back"><i class="fa fa-angle-left"></i></button
+	></a>
+</div>
+<% if(error && error.length > 0){ %>
 <div class="error"><%= error %></div>
 <% } %> <% if(success && success.length > 0) { %>
 <div class="success"><%= success %></div>
 <% } %>
 <div class="goals__container">
-	<div class="list__header">
-		<a href="/api/goals/<%=user._id%>/creategoals"
-			><button class="list__header--add-new"><i class="fa fa-plus-circle"></i></button
-		></a>
-		<p><%= username %>'s Goals Dashboard</p>
-		<a href="/profile">
-			<button class="list__header--go-back"><i class="fa fa-angle-left"></i></button
-		></a>
-	</div>
 	<% goals.forEach(goal => { %>
-	<div class="goal__container"></div>
-	<h1 style="color:#666"><%= goal.title %></h1>
-	<h1 style="color:#666"><%= goal.endDate %></h1>
-	<% if(goal.steps) { %>
-	<ul style="color:#666">
-		<% goal.steps.map(step => { %>
-		<li style="color:#666">
-			<p><%= step %></p>
-		</li>
-		<% }) %>
-	</ul>
-	<% } %>
-	<form action="/api/goals/<%=goal.id%>/remove?_method=PUT" method="POST">
-		<button>Remove Goal</button>
-	</form>
+	<div class="goals__container--goal">
+		<div class="goals__container--goal--header">
+			<img src="<%= goal.image %>" alt="motivation" />
+			<div class="goals__container--goal--header--overlay"></div>
+			<div class="goals__container--goal--header--title">
+				<h3><%= goal.title %></h3>
+				<p>Complete By:<span><%= goal.endDate %></span></p>
+			</div>
+		</div>
+		<div class="goals__container--goal--steps">
+			<% if(!goal.steps) { %>
+			<div class="goals__container--goal--steps--header">
+				<button class="add-step"><i class="fa fa-plus-circle"></i> Add A step</button>
+			</div>
+			<% } %> <% if(goal.steps) { %>
+			<div class="goals__container--goal--steps--header">
+				<p>Steps:</p>
+				<button class="add-step"><i class="fa fa-plus-circle"></i> Add A step</button>
+			</div>
+			<ul>
+				<% goal.steps.map((step,i) => { %>
+				<li>
+					<p><span><%=i+1%>:</span><%= step %></p>
+				</li>
+				<% }) %>
+			</ul>
+			<% } %>
+		</div>
+		<form action="/api/goals/<%=goal.id%>/remove?_method=PUT" method="POST">
+			<button class="remove-button"><i class="fa fa-trash"></i></button>
+		</form>
+	</div>
+
 	<% }) %>
 </div>
 

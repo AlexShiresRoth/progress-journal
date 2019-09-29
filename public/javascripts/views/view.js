@@ -30,7 +30,7 @@ export const addStepClosure = () => {
 		} else {
 			stepsContainer.classList.add('hidden');
 		}
-		stepsContainer.insertAdjacentHTML('afterbegin', addStepMarkup);
+		stepsContainer.insertAdjacentHTML('beforeend', addStepMarkup);
 	};
 	const addStep = event => {
 		if (event) {

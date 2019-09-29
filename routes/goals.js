@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { genId } = require('../helpers/idGen');
+const { getImages } = require('../helpers/images');
 const { check, validationResult } = require('express-validator');
 const Profile = require('../models/profiles');
 const middleware = require('../middleware/middleware');
@@ -55,10 +56,10 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 	if (title) goalFields.title = title;
 	if (completed) goalFields.completed = completed;
 
-	if (steps) goalFields.steps = [...steps];
-
+	if (typeof steps === 'object') goalFields.steps = [...steps];
+	if (typeof steps === 'string') goalFields.steps = [steps];
+	goalFields.image = getImages();
 	goalFields.id = genId();
-
 	try {
 		const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
 		console.log('this is' + foundProfile);
