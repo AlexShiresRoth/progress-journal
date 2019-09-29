@@ -5,18 +5,18 @@
 	<form class="create__goal--form" action="/api/goals?_method=PUT" method="POST">
 		<div class="create__goal--form--row">
 			<div class="create__goal--form--row--column">
-				<input name="goals[title]" type="text" placeholder="Enter a title" />
+				<input name="goals[title]" type="text" placeholder="Enter a title" required />
 			</div>
 		</div>
 
 		<div class="create__goal--form--row">
 			<div class="create__goal--form--row--column">
-				<input name="goals[endDate]" type="date" placeholder="Enter completion date" />
+				<input name="goals[endDate]" type="date" placeholder="Enter completion date" required />
 			</div>
 		</div>
 		<div class="create__goal--form--row">
 			<div class="create__goal--form--row--column">
-				<input name="goals[details]" type="text" placeholder="Enter details" />
+				<input name="goals[details]" type="text" placeholder="Enter details" required />
 			</div>
 		</div>
 		<div class="create__goal--form--row">
