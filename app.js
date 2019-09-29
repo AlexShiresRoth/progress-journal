@@ -14,7 +14,6 @@ const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 const daysRouter = require('./routes/days');
-const profileApi = require('./routes/profiles');
 const profileRouter = require('./routes/profile');
 const searchRouter = require('./routes/search');
 const todosRouter = require('./routes/todos');
