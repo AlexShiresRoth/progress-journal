@@ -1,47 +1,28 @@
 const { format } = require('date-fns');
 const express = require('express');
 const router = express.Router();
+const { genId } = require('../helpers/idGen');
 const middleware = require('../middleware/middleware');
 const Day = require('../models/day');
 const Profile = require('../models/profiles');
 
 //Index page
 //private access
+//TODO redo pagination
 router.get('/', middleware.isLoggedIn, async (req, res, next) => {
-	const foundProfile = Profile.findOne({ 'userprofile.username': req.user.username });
-	let perPage = 4;
-	let pageQuery = parseInt(req.query.page);
-	let pageNumber = pageQuery ? pageQuery : 1;
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
 
 	try {
-		console.log(foundProfile);
-		await Day.find({})
-			.skip(perPage * pageNumber - perPage)
-			.limit(perPage)
-			.exec((err, days) => {
-				if (err) {
-					req.flash('error', err.message);
-					res.redirect('/');
-				}
-				Day.count().exec((err, count) => {
-					if (err) {
-						console.log(err);
-						req.flash('error', err.message);
-						res.redirect('/');
-					} else {
-						res.render('index', {
-							title: 'Progress Journal',
-							days: days,
-							current: pageNumber,
-							pages: Math.ceil(count / perPage),
-							noPosts: days.length,
-							user: req.user._id,
-							username: req.user.username,
-							currentUser: req.user.username,
-						});
-					}
-				});
-			});
+		console.log(foundProfile ? foundProfile.posts : 'No profile');
+
+		res.render('index', {
+			title: 'Progress Journal',
+			days: foundProfile ? foundProfile.posts : [],
+			noPosts: foundProfile ? foundProfile.posts.length : 0,
+			user: req.user._id,
+			username: req.user.username,
+			currentUser: req.user.username,
+		});
 	} catch (error) {
 		if (error) {
 			req.flash('error', error.message);
@@ -52,7 +33,12 @@ router.get('/', middleware.isLoggedIn, async (req, res, next) => {
 
 //Create a new post form
 //Private
-router.get('/new', middleware.isLoggedIn, middleware.isUser, (req, res, next) => {
+router.get('/new', middleware.isLoggedIn, middleware.isUser, async (req, res, next) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	if (!foundProfile) {
+		req.flash('error', 'You must create a profile to create posts!');
+		res.redirect('back');
+	}
 	res.render('new', { title: 'new Route', user: req.user._id, currentUser: req.user.username });
 });
 
@@ -74,14 +60,12 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, async (req, res, next
 		username: req.user.username,
 	};
 
-	try {
-		const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
+	dayPostFields.id = genId();
 
-		if (!foundProfile) {
-			req.flash('error', 'You must create a profile to create posts!');
-			res.redirect('back');
-		}
-		const post = new Day(dayPostFields);
+	try {
+		const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+
+		const post = await new Day(dayPostFields);
 
 		Day.create(post, async (err, newPost) => {
 			if (err) {
@@ -109,70 +93,79 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, async (req, res, next
 //Get a user's post
 //Access Private
 router.get('/:id', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
-	await Day.findById(req.params.id, (err, foundDay) => {
-		if (err) {
-			req.flash('error', err.message);
-			res.redirect('/api/days');
-		} else {
-			if (foundDay.author.id.equals(req.user._id)) {
-				console.log(`this found day ${foundDay.author}`);
-				res.render('show', {
-					day: foundDay,
-					user: req.user._id,
-					username: req.user.username,
-					currentUser: req.user.username,
-				});
-			} else {
-				req.flash('error', 'Sorry, you do not have permission to view this post!');
-				res.redirect('/api/days');
-			}
-		}
-	});
+	const foundDay = await Day.findOne({ id: req.params.id });
+
+	if (foundDay.author.id.equals(req.user._id)) {
+		console.log(`this found day ${foundDay.author}`);
+		res.render('show', {
+			day: foundDay,
+			user: req.user._id,
+			username: req.user.username,
+			currentUser: req.user.username,
+		});
+	} else {
+		req.flash('error', 'Sorry, you do not have permission to view this post!');
+		res.redirect('/api/days');
+	}
 });
 
 //Get Editable Post
 //Acess Private
 router.get('/:id/edit', middleware.isLoggedIn, middleware.isUser, async (req, res, next) => {
-	await Day.findById(req.params.id, (err, foundDay) => {
-		if (err) {
-			req.flash('error', err.message);
-			res.redirect('back');
-		} else {
-			res.render('edit', { day: foundDay, title: 'edit', user: req.user._id, currentUser: req.user.username });
-		}
-	});
+	const foundDay = await Day.findOne({ id: req.params.id });
+
+	try {
+		res.render('edit', { day: foundDay, title: 'edit', user: req.user._id, currentUser: req.user.username });
+	} catch (error) {
+		req.flash('error', error.message);
+		req.redirect('back');
+	}
 });
 
 //Edit Post
 //Access Private
 router.put('/:id', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
-	await Day.findByIdAndUpdate(req.params.id, req.body.day, (err, updatedDay) => {
-		if (err) {
-			console.log(err);
-			req.flash('error', err.message);
-			res.redirect('back');
-		} else {
-			req.flash('success', 'Successfully Edited Post!');
-			res.redirect('/api/days');
-		}
-	});
+	const foundDay = await Day.findOne({ id: req.params.id });
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	const { mood, title, text } = req.body.day;
+	const editedPost = foundProfile.posts
+		.filter(post => {
+			return post.id === req.params.id;
+		})
+		.map(post => {
+			return foundProfile.posts.indexOf(post);
+		});
+	foundProfile.posts[editedPost].mood = mood;
+	foundProfile.posts[editedPost].title = title;
+	foundProfile.posts[editedPost].text = text;
+
+	const editedPosts = foundProfile.posts;
+	try {
+		await foundDay.update({ $set: { mood, title, text } });
+		await foundDay.save();
+		await foundProfile.update({ $set: { posts: editedPosts } });
+		await foundProfile.save();
+		req.flash('success', 'Successfully Edited Post!');
+		res.redirect('/api/days');
+	} catch (error) {
+		console.log(error.message);
+		req.flash('error', error.message);
+		res.redirect('back');
+	}
 });
 
 //Delete User Post
 //Private Access
-//TODO figure out why this wont remove from array
-router.delete('/:id/remove', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
-	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
+router.put('/:id/remove', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	const filteredRes = foundProfile.posts.filter(post => {
+		return post.id !== req.params.id;
+	});
 
 	try {
-		const userPosts = foundProfile.posts.filter(post => {
-			console.log(typeof JSON.stringify(post._id), typeof req.params.id);
-			return JSON.stringify(post._id) !== req.params.id;
-		});
-
-		foundProfile.posts = userPosts;
-		console.log(userPosts);
-		Day.findByIdAndRemove(req.params.id, async err => {
+		await foundProfile.updateOne({ $set: { posts: filteredRes } });
+		await foundProfile.save();
+		Day.findOneAndRemove({ id: req.params.id }, async err => {
 			if (err) {
 				console.log(err);
 				req.flash('error', err.message);

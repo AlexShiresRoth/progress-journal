@@ -41,8 +41,8 @@
 				<h2>Posts:</h2>
 				<% profile.posts.map(post => { %> <% if(post.title){ %>
 				<div class="profile__display--right-column--user-data--bubble">
-					<a href="/api/days/<%=post._id%>">
-						<%=post.title.length > 20 ? post.title.toSubstring(0,20) : post.title %></a
+					<a href="/api/days/<%=post.id%>">
+						<%=post.title.length > 20 ? post.title.substr(0,20)+ '...' : post.title %></a
 					>
 				</div>
 				<% } %> <% }) %>
@@ -52,7 +52,7 @@
 				<% profile.todos.map(todo => { %>
 				<div class="profile__display--right-column--user-data--bubble">
 					<a href="/api/todos/<%=user._id%>/todos"
-						><%=todo.title.length > 20 ? todo.title.toSubstring(0,20) : todo.title %></a
+						><%=todo.title.length > 20 ? todo.title.substr(0,20)+ '...' : todo.title %></a
 					>
 				</div>
 				<% }) %>
@@ -62,7 +62,7 @@
 				<% profile.goals.map(goal => { %>
 				<div class="profile__display--right-column--user-data--bubble">
 					<a href="/api/goals/<%=post._id%>/goals"
-						><%=goal.title.length > 20 ? goal.title.toSubstring(0,20) : goal.title %></a
+						><%=goal.title.length > 20 ? goal.title.substr(0,20)+ '...' : goal.title %></a
 					>
 				</div>
 				<% }) %>

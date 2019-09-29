@@ -162,10 +162,11 @@ button {
   border-bottom-left-radius: 1px;
   border-top-left-radius: 1px; }
 
-input, select {
+input,
+select {
   color: #fff;
   padding: 10px;
-  transition: .2s linear;
+  transition: 0.2s linear;
   background-color: #7909a5;
   border: 1px solid #8f2cb6;
   border-top-right-radius: 1px;
@@ -180,22 +181,109 @@ textarea {
   height: 15vh;
   color: #f4f4f4;
   padding: 1rem;
-  transition: .5s linear;
+  transition: 0.5s linear;
   background-color: #7909a5; }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border: 1px solid dodgerblue; }
 
-input:hover, textarea:hover {
+input:hover,
+textarea:hover {
   border: 1px solid dodgerblue; }
 
-select:hover, option:hover {
+select:hover,
+option:hover {
   cursor: pointer;
   border: 1px solid dodgerblue; }
 
 option:focus {
   outline: none; }
+
+.create__todo,
+.create__goal {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  border-radius: 15px; }
+  .create__todo h2,
+  .create__goal h2 {
+    color: dodgerblue; }
+  .create__todo--form,
+  .create__goal--form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .create__todo--form--row,
+    .create__goal--form--row {
+      display: flex;
+      flex-direction: row; }
+      .create__todo--form--row--icon-box,
+      .create__goal--form--row--icon-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+        .create__todo--form--row--icon-box i,
+        .create__goal--form--row--icon-box i {
+          padding: 0.3rem;
+          color: #7909a5;
+          font-size: 2rem;
+          border-radius: 50px;
+          background: rgba(30, 144, 255, 0.2);
+          box-shadow: 0 2px 2px rgba(0, 119, 234, 0.2); }
+      .create__todo--form--row--column,
+      .create__goal--form--row--column {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-radius: 5px;
+        border: 1px solid #eee;
+        padding: 0.5rem;
+        width: 100%; }
+        .create__todo--form--row--column label,
+        .create__goal--form--row--column label {
+          color: dodgerblue;
+          font-size: 0.4rem; }
+        .create__todo--form--row--column input,
+        .create__goal--form--row--column input {
+          background: #fff;
+          color: #666;
+          font-size: 1rem;
+          padding: 0.2rem;
+          width: 100%;
+          border: 0;
+          border-bottom: 1px solid #7909a5;
+          transition: all 0.3s ease-in-out; }
+          .create__todo--form--row--column input:focus,
+          .create__goal--form--row--column input:focus {
+            outline: 1px solid dodgerblue; }
+          .create__todo--form--row--column input:hover,
+          .create__goal--form--row--column input:hover {
+            border: 1px solid dodgerblue; }
+    .create__todo--form button,
+    .create__goal--form button {
+      color: #7909a5;
+      background: transparent;
+      border: 2px solid #7909a5;
+      font-size: 0.6rem;
+      color: #7909a5;
+      transition: all 0.3s ease-in-out;
+      padding: 0.2rem 0;
+      border-radius: 5px; }
+      .create__todo--form button:hover,
+      .create__goal--form button:hover {
+        color: #fff;
+        background: #7909a5;
+        box-shadow: 0 5px 5px #560675;
+        cursor: pointer; }
 
 /*=====================
 =======HR============*/
@@ -332,12 +420,14 @@ ul.pagination li:hover {
 
 .footer__section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background: rgba(59, 1, 96, 0.7);
+  grid-template-columns: repeat(3, 1fr);
+  background: #222;
   min-height: 20vh;
   justify-items: center;
   align-content: center;
   width: 100%; }
+  .footer__section img {
+    max-width: 10rem; }
   .footer__section ul {
     list-style: none;
     padding: 0;

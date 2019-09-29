@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { genId } = require('../helpers/idGen');
 const { check, validationResult } = require('express-validator');
 const Profile = require('../models/profiles');
 const middleware = require('../middleware/middleware');
@@ -44,9 +45,6 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		req.flash('error', errors.array());
 		res.redirect('back');
 	}
-	//create a better system for generating unique ids
-	const createId =
-		Math.floor(Math.random() * 100) + 1000 + Math.floor(Math.random() * 1000) + Math.floor(Math.random() * 100);
 
 	const { startDate, endDate, title, completed, details } = req.body.goals;
 
@@ -59,7 +57,7 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 
 	if (details) goalFields.details = [...details];
 
-	goalFields.id = createId.toString();
+	goalFields.id = genId();
 
 	try {
 		const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
@@ -68,7 +66,7 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		await foundProfile.save();
 
 		req.flash('success', 'A New Goal was added');
-		res.redirect('/api/goals/:id/goals');
+		res.redirect(`/api/goals/${req.user._id}/goals`);
 	} catch (error) {
 		if (error) {
 			console.log(error.message);

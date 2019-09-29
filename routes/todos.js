@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { genId } = require('../helpers/idGen');
 const { check, validationResult } = require('express-validator');
 const Profile = require('../models/profiles');
 const middleware = require('../middleware/middleware');
@@ -12,13 +13,12 @@ router.get('/', (req, res) => {
 //Todos within user Profile
 //Private Access
 router.get('/:id/todos', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
-	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
 	if (!foundProfile) {
 		req.flash('error', 'You must create a profile first!');
 		res.redirect('back');
 	}
 	const foundTodos = foundProfile.todos;
-	console.log('found todos' + JSON.stringify(foundProfile.todos));
 	res.render('tododash', {
 		user: req.user._id,
 		currentUser: req.user.username,
@@ -36,10 +36,6 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		res.redirect('back');
 	}
 
-	//create a better system for generating unique ids
-	const createId =
-		Math.floor(Math.random() * 100) + 1000 + Math.floor(Math.random() * 1000) + Math.floor(Math.random() * 100);
-
 	const { startDate, endDate, title, deleted } = req.body.todo;
 
 	const todoFields = {};
@@ -50,16 +46,16 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 	if (deleted) todoFields.deleted = deleted;
 
 	todoFields.completed = false;
-	todoFields.id = createId.toString();
+	todoFields.id = genId();
 
 	try {
-		const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
+		const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
 		foundProfile.todos.unshift(todoFields);
 
 		await foundProfile.save();
 
 		req.flash('success', 'Todo was created');
-		res.redirect('/api/todos/:id/todos');
+		res.redirect(`/api/todos/${req.user._id}/todos`);
 	} catch (error) {
 		if (error) {
 			console.log(error.message);
@@ -135,9 +131,9 @@ router.put('/:id/complete', middleware.isLoggedIn, middleware.isUser, async (req
 		}
 	}
 });
+
 //Delete Todo
 //Access Private
-//fix deleting todos of the same title
 router.put('/:id/remove', async (req, res) => {
 	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
 	try {

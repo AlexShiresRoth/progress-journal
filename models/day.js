@@ -16,6 +16,9 @@ const daysSchema = new mongoose.Schema({
 		},
 		username: String,
 	},
+	id: {
+		type: String,
+	},
 });
 
 const Day = mongoose.model('Day', daysSchema);

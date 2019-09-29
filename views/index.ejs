@@ -23,8 +23,8 @@
             </div>
           <div class="post-description">
             <div class="post-header">
-              <a href="/api/days/<%=day._id %>"><h3><%= day.author.username %>: <%= day.title %> </h3> </a>
-              <h3><a href="/api/days/<%=day._id%>">Posted:<%= day.date %></a></h3>
+              <a href="/api/days/<%=day.id %>"><h3><%= day.author.username %>: <%= day.title %> </h3> </a>
+              <h3><a href="/api/days/<%=day.id%>">Posted:<%= day.date %></a></h3>
             </div>
               <div class="line"></div>
                 <% if(day.mood == 5 ) { %> <h3>Day Rating: <span class="day-rating green">Great!      </span></h3> <% } %>
@@ -39,49 +39,6 @@
         <% }); %>
         
       </div>
-      <div class="pagination__box">
-          <% if (pages && pages > 0) { %>
-       <ul class="pagination">
-           <% if (current == 1) { %>
-           <li class="disabled"><a>First</a></li>
-           <% } else { %>
-           <li><a href="/api/days">First</a></li>
-           <% } %>
-    
-           <% if (current == 1) { %>
-           <li class="disabled"><a><i class="fas fa-arrow-circle-left"></i></a></li>
-           <% } else { %>
-           <li><a href="/api/days?page=<%= Number(current) - 1 %>"><i class="fas fa-arrow-circle-left"></i></a></li>
-           <% } %>
-    
-           <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-           <% if (i !== 1) { %>
-           <li class="disabled"><a>...</a></li>
-           <% } %>
-           <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
-           <% if (i == current) { %>
-           <li class="active"><a><%= i %></a></li>
-           <% } else { %>
-           <li><a href="/api/days?page=<%= i %>"><%= i %></a></li>
-           <% } %>
-           <% if (i == Number(current) + 4 && i < pages) { %>
-           <li class="disabled"><a>...</a></li>
-           <% } %>
-           <% } %>
-    
-           <% if (current == pages) { %>
-           <li class="disabled"><a><i class="fas fa-arrow-circle-right"></i></a></li>
-           <% } else { %>
-           <li><a href="/api/days?page=<%= Number(current) + 1 %>"><i class="fas fa-arrow-circle-right"></i></a></li>
-           <% } %>
-    
-           <% if (current == pages) { %>
-           <li class="disabled"><a>Last</a></li>
-           <% } else { %>
-           <li><a href="/api/days?page=<%= pages %>">Last</a></li>
-           <% } %>
-       </ul>
-    <% } %>
-    </div>
+      
 <% include partials/footer %>
   

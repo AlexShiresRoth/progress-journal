@@ -1,12 +1,14 @@
 .footer__section {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	background: rgba(59, 1, 96, 0.7);
+	grid-template-columns: repeat(3, 1fr);
+	background: #222;
 	min-height: 20vh;
 	justify-items: center;
 	align-content: center;
 	width: 100%;
-
+	& img {
+		max-width: 10rem;
+	}
 	& ul {
 		list-style: none;
 		padding: 0;

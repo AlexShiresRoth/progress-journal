@@ -1,95 +1,186 @@
 /*=======================
 ===========FORMS========*/
 
-.form{
-  background-color: $main-color;
-  display: flex;
-  flex-direction:column;
-  justify-content: space-around;
-  padding: 30px;
-  min-height: 50vh;
-  width:40vw;
-  border: .5px solid lighten($main-color,10%);
-  margin-left: 5vw;
+.form {
+	background-color: $main-color;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 30px;
+	min-height: 50vh;
+	width: 40vw;
+	border: 0.5px solid lighten($main-color, 10%);
+	margin-left: 5vw;
 }
-.form-header{
-  margin:0 0 10px 0;
+.form-header {
+	margin: 0 0 10px 0;
 }
-.form-header h1{
-  color: $text-color;
+.form-header h1 {
+	color: $text-color;
 }
-.form-headings{
-  display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  align-items:center;
+.form-headings {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
-.input-div{
-  display: flex;
-  flex-direction:column;
+.input-div {
+	display: flex;
+	flex-direction: column;
 }
-.input-row{
-  display:flex;
-  flex-direction:row;
-  width:100%;
+.input-row {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
 }
-.input-row input{
-  width:100%;
-  border-left: 0px;
-  background-color: #fff;
-  color: #222;
+.input-row input {
+	width: 100%;
+	border-left: 0px;
+	background-color: #fff;
+	color: #222;
 }
-.input-container{
-  display: flex;
-  flex-direction:column;
-  justify-content:space-around;
-  border: 1px solid $main-color;
-  padding:10px;
-  min-height: 65vh;
+.input-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border: 1px solid $main-color;
+	padding: 10px;
+	min-height: 65vh;
 }
-.icon-container{
-  background-color: lighten($main-color,5%);
-  color: #fff;
-  display:flex;
-  padding:10px;
-  border: 1px solid lighten($main-color,5%);
-  border-right:0px;
-  border-bottom-left-radius: 1px;
-  border-top-left-radius: 1px;
+.icon-container {
+	background-color: lighten($main-color, 5%);
+	color: #fff;
+	display: flex;
+	padding: 10px;
+	border: 1px solid lighten($main-color, 5%);
+	border-right: 0px;
+	border-bottom-left-radius: 1px;
+	border-top-left-radius: 1px;
 }
-input,select{
-  color: #fff;
-  padding: 10px;
-  transition: .2s linear;
-  background-color: $secondary-color;
-  border: 1px solid $third-color;
-  border-top-right-radius: 1px;
-  border-bottom-right-radius: 1px;
+input,
+select {
+	color: #fff;
+	padding: 10px;
+	transition: 0.2s linear;
+	background-color: $secondary-color;
+	border: 1px solid $third-color;
+	border-top-right-radius: 1px;
+	border-bottom-right-radius: 1px;
 }
 
-label{
-  color: $text-color;
-  margin: 5px;
+label {
+	color: $text-color;
+	margin: 5px;
 }
-textarea{
-  border: 1px solid $secondary-color;
-  height:15vh;
-  color: $text-color;
-  padding:1rem;
-  transition: .5s linear;
-  background-color: $secondary-color;
+textarea {
+	border: 1px solid $secondary-color;
+	height: 15vh;
+	color: $text-color;
+	padding: 1rem;
+	transition: 0.5s linear;
+	background-color: $secondary-color;
 }
-input:focus,textarea:focus,select:focus{
-  outline:none;
-  border:1px solid $accent-color;
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border: 1px solid $accent-color;
 }
-input:hover,textarea:hover{
-  border:1px solid $accent-color; 
+input:hover,
+textarea:hover {
+	border: 1px solid $accent-color;
 }
-select:hover,option:hover{
-  cursor: pointer;
-  border:1px solid $accent-color;
+select:hover,
+option:hover {
+	cursor: pointer;
+	border: 1px solid $accent-color;
 }
-option:focus{
-  outline:none;
+option:focus {
+	outline: none;
+}
+
+////create forms////////////////////
+.create__todo,
+.create__goal {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5rem;
+	border-radius: 15px;
+	& h2 {
+		color: $accent-color;
+	}
+	&--form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		&--row {
+			display: flex;
+			flex-direction: row;
+			&--icon-box {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				& i {
+					padding: 0.3rem;
+					color: $secondary-color;
+					font-size: 2rem;
+					border-radius: 50px;
+					background: rgba(30, 144, 255, 0.2);
+					box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
+				}
+			}
+			&--column {
+				margin: 1rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: flex-start;
+				border-radius: 5px;
+				border: 1px solid #eee;
+				padding: 0.5rem;
+				width: 100%;
+				& label {
+					color: $accent-color;
+					font-size: 0.4rem;
+				}
+				& input {
+					background: #fff;
+					color: $dark-text;
+					font-size: 1rem;
+					padding: 0.2rem;
+					width: 100%;
+					border: 0;
+					border-bottom: 1px solid $secondary-color;
+					transition: all 0.3s ease-in-out;
+					&:focus {
+						outline: 1px solid $accent-color;
+					}
+					&:hover {
+						border: 1px solid $accent-color;
+					}
+				}
+			}
+		}
+		& button {
+			color: $secondary-color;
+			background: transparent;
+			border: 2px solid $secondary-color;
+			font-size: 0.6rem;
+			color: $secondary-color;
+			transition: all 0.3s ease-in-out;
+			padding: 0.2rem 0;
+			border-radius: 5px;
+			&:hover {
+				color: #fff;
+				background: $secondary-color;
+				box-shadow: 0 5px 5px darken($secondary-color, 10%);
+				cursor: pointer;
+			}
+		}
+	}
 }

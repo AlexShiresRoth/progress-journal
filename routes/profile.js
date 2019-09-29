@@ -92,7 +92,6 @@ router.get('/:id', middleware.isLoggedIn, middleware.isUser, (req, res) => {
 router.post('/', middleware.isLoggedIn, middleware.isUser, parser.single('profile[avatar]'), async (req, res) => {
 	const { username, firstname, lastname, email, facebook, instagram, twitter, bio } = req.body.profile;
 
-	console.log('file:' + typeof req.file.url);
 	const profileFields = {};
 	if (username) profileFields.username = username;
 	if (firstname) profileFields.firstname = firstname;
@@ -209,6 +208,5 @@ router.put('/:id', middleware.isLoggedIn, middleware.isUser, parser.single('prof
 		}
 	);
 });
-
 
 module.exports = router;

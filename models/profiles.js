@@ -16,12 +16,12 @@ const ProfileSchema = new mongoose.Schema({
 		type: String,
 	},
 	avatar: {
-		id : {
-			type:String
+		id: {
+			type: String,
 		},
 		url: {
-			type: String
-		}
+			type: String,
+		},
 	},
 	date: {
 		type: Date,

@@ -1,21 +1,27 @@
 <% include partials/header %>
 
-<div class="create__todo">
-	<form class="create__todo--form" action="/api/goals?_method=PUT" method="POST">
-		<div class="create__todo--form--row">
-			<input name="goals[title]" type="text" placeholder="Enter a title" />
+<div class="create__goal">
+	<h2>Add A New Goal</h2>
+	<form class="create__goal--form" action="/api/goals?_method=PUT" method="POST">
+		<div class="create__goal--form--row">
+			<div class="create__goal--form--row--column">
+				<input name="goals[title]" type="text" placeholder="Enter a title" />
+			</div>
 		</div>
 
-		<div class="create__todo--form--row">
-			<input name="goals[startDate]" type="date" placeholder="Enter start time" />
+		<div class="create__goal--form--row">
+			<div class="create__goal--form--row--column">
+				<input name="goals[endDate]" type="date" placeholder="Enter completion date" />
+			</div>
 		</div>
-
-		<div class="create__todo--form--row">
-			<input name="goals[endDate]" type="date" placeholder="Enter completion date" />
-        </div>
-        <div class="create__todo--form--row">
-                <input name="goals[details]" type="text" placeholder="Enter details" />
-        </div>
+		<div class="create__goal--form--row">
+			<div class="create__goal--form--row--column">
+				<input name="goals[details]" type="text" placeholder="Enter details" />
+			</div>
+		</div>
+		<div class="create__goal--form--row">
+			<button class="create__goal--form--row--button">Add A step</button>
+		</div>
 		<button>Add Goal</button>
 	</form>
 </div>

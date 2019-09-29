@@ -17,8 +17,8 @@
 	</div>
 	<div class="post-description">
 		<div class="post-header">
-			<a href="/days/<%=day._id %>"><h3><%= day.author.username %>: <%= day.title %></h3> </a>
-			<h3><a href="/days/<%=day._id%>"><%= day.date.toDateString() %></a></h3>
+			<a href="/api/days/<%=day.id %>"><h3><%= day.author.username %>: <%= day.title %></h3> </a>
+			<h3><a href="/api/days/<%=day.id%>"><%= day.date %></a></h3>
 		</div>
 		<div class="line"></div>
 		<% if(day.mood == 5 ) { %>
