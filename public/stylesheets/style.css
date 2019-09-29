@@ -1184,7 +1184,8 @@ input.list-input {
         align-items: flex-start;
         padding: 1rem; }
     .goals__container--goal--steps {
-      padding: 0.5rem; }
+      padding: 0.5rem;
+      height: 100%; }
       .goals__container--goal--steps--header {
         display: flex;
         flex-direction: row;
