@@ -6,7 +6,6 @@ export const newPostClosure = () => {
 	const countCharacters = () => {
 		if (selectors.dayText !== null) {
 			selectors.dayText.addEventListener('keyup', () => {
-				console.log('typing');
 				let length = selectors.dayText.value.length;
 				selectors.charCount.textContent = length;
 				if (length > 199) {
@@ -22,6 +21,7 @@ export const newPostClosure = () => {
 	return [countCharacters];
 };
 
+//Handle adding and removing steps within goals form
 export const addStepClosure = () => {
 	const createRow = () => {
 		const stepsContainer = selectors.stepsContainer;
@@ -35,14 +35,28 @@ export const addStepClosure = () => {
 	const addStep = event => {
 		if (event) {
 			event.preventDefault();
-
 			createRow();
+		}
+	};
+	const removeStep = event => {
+		if (event) {
+			console.log(event);
+			event.stopPropagation();
 		}
 	};
 	if (selectors.addStepBtn)
 		selectors.addStepBtn.addEventListener('click', e => {
 			addStep(e);
 		});
-
-	return [addStep];
+	if (selectors.stepsContainer.childNodes) {
+		console.log(selectors.stepsContainer.childNodes);
+		selectors.stepsContainer.childNodes.forEach((step, i) => {
+			console.log(step);
+			step.addEventListener('click', e => {
+				console.log('click');
+				removeStep(e);
+			});
+		});
+	}
+	return [addStep, removeStep];
 };

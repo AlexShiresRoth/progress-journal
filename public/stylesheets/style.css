@@ -245,6 +245,24 @@ option:focus {
           border-radius: 50px;
           background: rgba(30, 144, 255, 0.2);
           box-shadow: 0 2px 2px rgba(0, 119, 234, 0.2); }
+      .create__form--form--row--icon-box-remove {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+        .create__form--form--row--icon-box-remove i {
+          padding: 0.3rem;
+          color: #7909a5;
+          font-size: 2rem;
+          border-radius: 50px;
+          background: rgba(243, 20, 49, 0.2);
+          box-shadow: 0 2px 2px rgba(202, 10, 35, 0.2);
+          transition: all 0.3s ease-in-out; }
+          .create__form--form--row--icon-box-remove i:hover {
+            background: rgba(243, 20, 49, 0.5);
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(202, 10, 35, 0.2); }
       .create__form--form--row--column {
         margin: 1rem;
         display: flex;
@@ -254,7 +272,9 @@ option:focus {
         border-radius: 5px;
         border: 1px solid #eee;
         padding: 0.5rem;
-        width: 100%; }
+        width: 100%;
+        max-height: 15rem;
+        overflow-y: auto; }
         .create__form--form--row--column label {
           color: dodgerblue;
           font-size: 0.4rem; }
@@ -1160,17 +1180,22 @@ input.list-input {
         height: 100%;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px; }
-      .goals__container--goal--header h3 {
+      .goals__container--goal--header h2 {
         color: #fff;
-        z-index: 2; }
+        z-index: 2;
+        text-transform: uppercase; }
       .goals__container--goal--header p {
         color: #fff;
         font-weight: 700;
-        z-index: 2; }
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        text-transform: uppercase; }
         .goals__container--goal--header p span {
+          font-size: 0.9rem;
           color: dodgerblue; }
       .goals__container--goal--header--overlay {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
         width: 100%;
         height: 100%;
         position: absolute;
@@ -1227,7 +1252,7 @@ input.list-input {
             .goals__container--goal--steps ul li p span {
               color: #7909a5;
               margin: 0 0.2rem;
-              font-size: 0.8rem; }
+              font-size: 0.9rem; }
     .goals__container--goal .remove-button {
       background: rgba(243, 20, 49, 0.5);
       color: #fff;

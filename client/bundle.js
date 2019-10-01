@@ -110,6 +110,17 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"./node_modules/core-js/es6/in
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function _arrayWithoutHoles(arr) {\n  if (Array.isArray(arr)) {\n    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {\n      arr2[i] = arr[i];\n    }\n\n    return arr2;\n  }\n}\n\nmodule.exports = _arrayWithoutHoles;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
@@ -140,6 +151,39 @@ eval("function _classCallCheck(instance, Constructor) {\n  if (!(instance instan
 /***/ (function(module, exports) {
 
 eval("function _defineProperties(target, props) {\n  for (var i = 0; i < props.length; i++) {\n    var descriptor = props[i];\n    descriptor.enumerable = descriptor.enumerable || false;\n    descriptor.configurable = true;\n    if (\"value\" in descriptor) descriptor.writable = true;\n    Object.defineProperty(target, descriptor.key, descriptor);\n  }\n}\n\nfunction _createClass(Constructor, protoProps, staticProps) {\n  if (protoProps) _defineProperties(Constructor.prototype, protoProps);\n  if (staticProps) _defineProperties(Constructor, staticProps);\n  return Constructor;\n}\n\nmodule.exports = _createClass;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/createClass.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function _iterableToArray(iter) {\n  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === \"[object Arguments]\") return Array.from(iter);\n}\n\nmodule.exports = _iterableToArray;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/iterableToArray.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function _nonIterableSpread() {\n  throw new TypeError(\"Invalid attempt to spread non-iterable instance\");\n}\n\nmodule.exports = _nonIterableSpread;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/nonIterableSpread.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/toConsumableArray.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ \"./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js\");\n\nvar iterableToArray = __webpack_require__(/*! ./iterableToArray */ \"./node_modules/@babel/runtime/helpers/iterableToArray.js\");\n\nvar nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread */ \"./node_modules/@babel/runtime/helpers/nonIterableSpread.js\");\n\nfunction _toConsumableArray(arr) {\n  return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();\n}\n\nmodule.exports = _toConsumableArray;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/toConsumableArray.js?");
 
 /***/ }),
 
@@ -3946,11 +3990,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _vie
 /*!*********************************************!*\
   !*** ./public/javascripts/models/markup.js ***!
   \*********************************************/
-/*! exports provided: addStepMarkup */
+/*! exports provided: addStepMarkup, createMarkup */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addStepMarkup\", function() { return addStepMarkup; });\nvar addStepMarkup = \"<div class=\\\"create__form--form--row\\\">\\n<div class=\\\"create__form--form--row--icon-box\\\"><i class=\\\"fa fa-check\\\"></i></div>\\n\\t\\t\\t<div class=\\\"create__form--form--row--column\\\">\\n\\t\\t\\t\\t<label for=\\\"goals[steps]\\\">Add A Step</label>\\n\\t\\t\\t\\t<input name=\\\"goals[steps]\\\" type=\\\"text\\\" placeholder=\\\"Enter step details\\\" required />\\n\\t\\t\\t</div>\\n\\t\\t</div>\";\n\n//# sourceURL=webpack:///./public/javascripts/models/markup.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addStepMarkup\", function() { return addStepMarkup; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createMarkup\", function() { return createMarkup; });\nvar addStepMarkup = \"<div class=\\\"create__form--form--row\\\">\\n<div class=\\\"create__form--form--row--icon-box\\\"><i class=\\\"fa fa-tasks\\\"></i></div>\\n\\t\\t\\t<div class=\\\"create__form--form--row--column\\\">\\n\\t\\t\\t\\t<label for=\\\"goals[steps]\\\">Add A Step</label>\\n\\t\\t\\t\\t<input name=\\\"goals[steps]\\\" type=\\\"text\\\" placeholder=\\\"Enter step details\\\" required />\\n\\t\\t\\t</div>\\n\\t\\t\\t<div class=\\\"create__form--form--row--icon-box-remove remove-step\\\"><i class=\\\"fa fa-close\\\"></i></div>\\n\\t\\t</div>\";\nvar createMarkup = function createMarkup() {\n  var newFormRow = document.createElement('div');\n  newFormRow.classList.add('create__form--form--row');\n  var addIcon = document.createElement('div');\n  addIcon.classList.add('create__form--form--row--icon-box');\n  newFormRow.appendChild(addIcon);\n};\n\n//# sourceURL=webpack:///./public/javascripts/models/markup.js?");
 
 /***/ }),
 
@@ -3962,7 +4006,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"selectors\", function() { return selectors; });\nvar selectors = {\n  btn: document.querySelector('.btn'),\n  textDisplay: document.querySelector('.text'),\n  dataDisplayGood: document.querySelector('.data-good'),\n  dataDisplayBad: document.querySelector('.data-bad'),\n  dayRating: document.querySelector('.day-rating'),\n  dayText: document.querySelector('#day-text'),\n  charCount: document.querySelector('.char-display'),\n  post: document.querySelector('.post'),\n  searchQuery: document.getElementById('search-query'),\n  searchBtn: document.querySelector('.search__nav--form--row--icon-box'),\n  addStepBtn: document.querySelector('.add-step'),\n  stepsContainer: document.getElementById('steps__container'),\n  goalsForm: document.getElementById('goals__form')\n};\n\n//# sourceURL=webpack:///./public/javascripts/models/selectors.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"selectors\", function() { return selectors; });\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ \"./node_modules/@babel/runtime/helpers/toConsumableArray.js\");\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);\n\nvar selectors = {\n  btn: document.querySelector('.btn'),\n  textDisplay: document.querySelector('.text'),\n  dataDisplayGood: document.querySelector('.data-good'),\n  dataDisplayBad: document.querySelector('.data-bad'),\n  dayRating: document.querySelector('.day-rating'),\n  dayText: document.querySelector('#day-text'),\n  charCount: document.querySelector('.char-display'),\n  post: document.querySelector('.post'),\n  searchQuery: document.getElementById('search-query'),\n  searchBtn: document.querySelector('.search__nav--form--row--icon-box'),\n  addStepBtn: document.querySelector('.add-step'),\n  removeStepBtn: _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(document.getElementsByClassName('create__form--form--row--icon-box-remove')),\n  stepsContainer: document.getElementById('steps__container'),\n  goalsForm: document.getElementById('goals__form')\n};\n\n//# sourceURL=webpack:///./public/javascripts/models/selectors.js?");
 
 /***/ }),
 
@@ -3974,7 +4018,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"newPostClosure\", function() { return newPostClosure; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addStepClosure\", function() { return addStepClosure; });\n/* harmony import */ var _models_selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/selectors */ \"./public/javascripts/models/selectors.js\");\n/* harmony import */ var _models_markup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/markup */ \"./public/javascripts/models/markup.js\");\n\n ////Minimum Character check for posts\n\nvar newPostClosure = function newPostClosure() {\n  var countCharacters = function countCharacters() {\n    if (_models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].dayText !== null) {\n      _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].dayText.addEventListener('keyup', function () {\n        console.log('typing');\n        var length = _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].dayText.value.length;\n        _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.textContent = length;\n\n        if (length > 199) {\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.remove('red');\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.add('green');\n        } else {\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.remove('green');\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.add('red');\n        }\n      });\n    }\n  };\n\n  return [countCharacters];\n};\nvar addStepClosure = function addStepClosure() {\n  var createRow = function createRow() {\n    var stepsContainer = _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].stepsContainer;\n\n    if (stepsContainer.childNodes.length >= 0) {\n      stepsContainer.classList.remove('hidden');\n    } else {\n      stepsContainer.classList.add('hidden');\n    }\n\n    stepsContainer.insertAdjacentHTML('beforeend', _models_markup__WEBPACK_IMPORTED_MODULE_1__[\"addStepMarkup\"]);\n  };\n\n  var addStep = function addStep(event) {\n    if (event) {\n      event.preventDefault();\n      createRow();\n    }\n  };\n\n  if (_models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].addStepBtn) _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].addStepBtn.addEventListener('click', function (e) {\n    addStep(e);\n  });\n  return [addStep];\n};\n\n//# sourceURL=webpack:///./public/javascripts/views/view.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"newPostClosure\", function() { return newPostClosure; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addStepClosure\", function() { return addStepClosure; });\n/* harmony import */ var _models_selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/selectors */ \"./public/javascripts/models/selectors.js\");\n/* harmony import */ var _models_markup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/markup */ \"./public/javascripts/models/markup.js\");\n\n ////Minimum Character check for posts\n\nvar newPostClosure = function newPostClosure() {\n  var countCharacters = function countCharacters() {\n    if (_models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].dayText !== null) {\n      _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].dayText.addEventListener('keyup', function () {\n        var length = _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].dayText.value.length;\n        _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.textContent = length;\n\n        if (length > 199) {\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.remove('red');\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.add('green');\n        } else {\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.remove('green');\n          _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].charCount.classList.add('red');\n        }\n      });\n    }\n  };\n\n  return [countCharacters];\n}; //Handle adding and removing steps within goals form\n\nvar addStepClosure = function addStepClosure() {\n  var createRow = function createRow() {\n    var stepsContainer = _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].stepsContainer;\n\n    if (stepsContainer.childNodes.length >= 0) {\n      stepsContainer.classList.remove('hidden');\n    } else {\n      stepsContainer.classList.add('hidden');\n    }\n\n    stepsContainer.insertAdjacentHTML('beforeend', _models_markup__WEBPACK_IMPORTED_MODULE_1__[\"addStepMarkup\"]);\n  };\n\n  var addStep = function addStep(event) {\n    if (event) {\n      event.preventDefault();\n      createRow();\n    }\n  };\n\n  var removeStep = function removeStep(event) {\n    if (event) {\n      console.log(event);\n      event.stopPropagation();\n    }\n  };\n\n  if (_models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].addStepBtn) _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].addStepBtn.addEventListener('click', function (e) {\n    addStep(e);\n  });\n\n  if (_models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].stepsContainer.childNodes) {\n    console.log(_models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].stepsContainer.childNodes);\n    _models_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].stepsContainer.childNodes.forEach(function (step, i) {\n      console.log(step);\n      step.addEventListener('click', function (e) {\n        console.log('click');\n        removeStep(e);\n      });\n    });\n  }\n\n  return [addStep, removeStep];\n};\n\n//# sourceURL=webpack:///./public/javascripts/views/view.js?");
 
 /***/ }),
 

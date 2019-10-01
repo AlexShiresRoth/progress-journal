@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { format } = require('date-fns');
 const { genId } = require('../helpers/idGen');
 const { getImages } = require('../helpers/images');
 const { check, validationResult } = require('express-validator');
@@ -52,7 +53,7 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 	const goalFields = {};
 
 	if (startDate) goalFields.startDate = startDate;
-	if (endDate) goalFields.endDate = endDate;
+	if (endDate) goalFields.endDate = format(new Date(endDate), 'EEEEEE MMMM do');
 	if (title) goalFields.title = title;
 	if (completed) goalFields.completed = completed;
 
@@ -70,7 +71,6 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		res.redirect(`/api/goals/${req.user._id}/goals`);
 	} catch (error) {
 		if (error) {
-			console.log(error.message);
 			req.flash('error', error.message);
 			res.redirect('back');
 		}

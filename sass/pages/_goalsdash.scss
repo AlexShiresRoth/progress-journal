@@ -27,20 +27,25 @@
 				border-top-left-radius: 10px;
 				border-top-right-radius: 10px;
 			}
-			& h3 {
+			& h2 {
 				color: #fff;
 				z-index: 2;
+				text-transform: uppercase;
 			}
 			& p {
 				color: #fff;
 				font-weight: 700;
+				display: flex;
+				flex-direction: column;
 				z-index: 2;
+				text-transform: uppercase;
 				& span {
+					font-size: 0.9rem;
 					color: $accent-color;
 				}
 			}
 			&--overlay {
-				background: rgba(0, 0, 0, 0.5);
+				background: rgba(0, 0, 0, 0.7);
 				width: 100%;
 				height: 100%;
 				position: absolute;
@@ -58,7 +63,7 @@
 		}
 		&--steps {
 			padding: 0.5rem;
-			height:100%;
+			height: 100%;
 			&--header {
 				display: flex;
 				flex-direction: row;
@@ -102,10 +107,11 @@
 					border-bottom: 1px solid #eee;
 					& p {
 						font-weight: 700;
+
 						& span {
 							color: $secondary-color;
 							margin: 0 0.2rem;
-							font-size: 0.8rem;
+							font-size: 0.9rem;
 						}
 					}
 				}
