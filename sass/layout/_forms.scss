@@ -184,6 +184,8 @@ option:focus {
 				width: 100%;
 				max-height: 15rem;
 				overflow-y: auto;
+				transition: all 0.3s ease-in-out;
+				opacity: 1;
 				& label {
 					color: $accent-color;
 					font-size: 0.4rem;

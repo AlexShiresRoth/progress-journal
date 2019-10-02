@@ -10,7 +10,8 @@ export const selectors = {
 	searchQuery: document.getElementById('search-query'),
 	searchBtn: document.querySelector('.search__nav--form--row--icon-box'),
 	addStepBtn: document.querySelector('.add-step'),
-	removeStepBtn: [...document.getElementsByClassName('create__form--form--row--icon-box-remove')],
+	addStepDash: document.querySelector('.add-step-dash'),
 	stepsContainer: document.getElementById('steps__container'),
+	stepsUl: document.querySelectorAll('.steps-ul'),
 	goalsForm: document.getElementById('goals__form'),
 };

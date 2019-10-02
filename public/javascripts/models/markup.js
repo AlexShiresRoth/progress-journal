@@ -4,13 +4,7 @@ export const addStepMarkup = `<div class="create__form--form--row">
 				<label for="goals[steps]">Add A Step</label>
 				<input name="goals[steps]" type="text" placeholder="Enter step details" required />
 			</div>
-			<div class="create__form--form--row--icon-box-remove remove-step"><i class="fa fa-close"></i></div>
+			<div class="create__form--form--row--icon-box-remove"><i class="fa fa-close remove-step"></i></div>
 		</div>`;
 
-export const createMarkup = () => {
-	const newFormRow = document.createElement('div');
-	newFormRow.classList.add('create__form--form--row');
-	const addIcon = document.createElement('div');
-	addIcon.classList.add('create__form--form--row--icon-box');
-	newFormRow.appendChild(addIcon);
-};
+export const addStepDashMarkup = `<li><input class="dashboard-input" type="text" name="goals[steps] placeholder="add a new step" /></li>`;

@@ -25,22 +25,23 @@
 			</div>
 		</div>
 		<div class="goals__container--goal--steps">
-			<% if(!goal.steps) { %>
-			<div class="goals__container--goal--steps--header">
-				<button class="add-step"><i class="fa fa-plus-circle"></i> Add A step</button>
-			</div>
-			<% } %> <% if(goal.steps) { %>
+			<% if(goal.steps) { %>
 			<div class="goals__container--goal--steps--header">
 				<p>Steps:</p>
-				<button class="add-step"><i class="fa fa-plus-circle"></i> Add A step</button>
+				<button class="add-step-dash"><i class="fa fa-plus-circle"></i> Add A step</button>
 			</div>
-			<ul>
+			<ul class="steps-ul">
 				<% goal.steps.map((step,i) => { %>
 				<li>
 					<p><span><%=i+1%>:</span><%= step %></p>
 				</li>
 				<% }) %>
 			</ul>
+			<% } %> <% if(!goal.steps) { %>
+			<div class="goals__container--goal--steps--header">
+				<button class="add-step-dash"><i class="fa fa-plus-circle"></i> Add A step</button>
+			</div>
+			<ul class="steps-ul hidden" id="steps-ul"></ul>
 			<% } %>
 		</div>
 		<form action="/api/goals/<%=goal.id%>/remove?_method=PUT" method="POST">

@@ -72,7 +72,8 @@
 				& p {
 					font-weight: 700;
 				}
-				& button.add-step {
+				& button.add-step,
+				button.add-step-dash {
 					border: 0;
 					display: flex;
 					flex-direction: row;
@@ -100,6 +101,10 @@
 				grid-template-columns: 1fr;
 				grid-template-rows: auto;
 				padding: 0;
+				transition: all 0.3s ease-in-out;
+				opacity: 1;
+				overflow-y: auto;
+				max-height: 10rem;
 				& li {
 					list-style: none;
 					color: #666;
@@ -113,6 +118,12 @@
 							margin: 0 0.2rem;
 							font-size: 0.9rem;
 						}
+					}
+					& .dashboard-input {
+						background: transparent;
+						color: #666;
+						border: 0;
+						border-bottom: 1px solid $secondary-color;
 					}
 				}
 			}

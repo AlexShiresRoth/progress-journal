@@ -274,7 +274,9 @@ option:focus {
         padding: 0.5rem;
         width: 100%;
         max-height: 15rem;
-        overflow-y: auto; }
+        overflow-y: auto;
+        transition: all 0.3s ease-in-out;
+        opacity: 1; }
         .create__form--form--row--column label {
           color: dodgerblue;
           font-size: 0.4rem; }
@@ -1218,7 +1220,8 @@ input.list-input {
         padding: 0 1rem; }
         .goals__container--goal--steps--header p {
           font-weight: 700; }
-        .goals__container--goal--steps--header button.add-step {
+        .goals__container--goal--steps--header button.add-step,
+        .goals__container--goal--steps--header button.add-step-dash {
           border: 0;
           display: flex;
           flex-direction: row;
@@ -1230,18 +1233,24 @@ input.list-input {
           transition: all 0.3s ease-in-out;
           padding: 0.2rem 0;
           border-radius: 5px; }
-          .goals__container--goal--steps--header button.add-step:hover {
+          .goals__container--goal--steps--header button.add-step:hover,
+          .goals__container--goal--steps--header button.add-step-dash:hover {
             color: #fff;
             background: #7909a5;
             box-shadow: 0 5px 5px #560675;
             cursor: pointer; }
-          .goals__container--goal--steps--header button.add-step i {
+          .goals__container--goal--steps--header button.add-step i,
+          .goals__container--goal--steps--header button.add-step-dash i {
             font-size: 1.2rem; }
       .goals__container--goal--steps ul {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        padding: 0; }
+        padding: 0;
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        overflow-y: auto;
+        max-height: 10rem; }
         .goals__container--goal--steps ul li {
           list-style: none;
           color: #666;
@@ -1253,6 +1262,11 @@ input.list-input {
               color: #7909a5;
               margin: 0 0.2rem;
               font-size: 0.9rem; }
+          .goals__container--goal--steps ul li .dashboard-input {
+            background: transparent;
+            color: #666;
+            border: 0;
+            border-bottom: 1px solid #7909a5; }
     .goals__container--goal .remove-button {
       background: rgba(243, 20, 49, 0.5);
       color: #fff;
@@ -1304,7 +1318,8 @@ input.list-input {
   display: hidden;
   visibility: hidden;
   max-height: 0;
-  opacity: 0; }
+  opacity: 0;
+  transition: all 0.3s ease-in-out; }
 
 * {
   box-sizing: border-box; }
