@@ -105,6 +105,66 @@
 				opacity: 1;
 				overflow-y: auto;
 				max-height: 10rem;
+				& .dashboard-step-row {
+					display: flex;
+					flex-direction: row;
+					width: 100%;
+					justify-content: space-between;
+					margin: 0.2rem 0;
+					& .save-step-btn {
+						background: transparent;
+						color: $secondary-color;
+						border: 0;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						border-radius: 50%;
+						& i {
+							padding: 0.2rem;
+							font-size: 0.8rem;
+							border-radius: 50px;
+							background: rgba(30, 144, 255, 0.2);
+							box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
+							transition: all 0.3s ease-in-out;
+							&:hover {
+								background: rgba(75, 202, 129, 0.5);
+								color: #fff;
+								cursor: pointer;
+								box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
+							}
+						}
+					}
+					& .remove-step-btn {
+						background: transparent;
+						color: $secondary-color;
+						border: 0;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						border-radius: 50%;
+						& i {
+							padding: 0.2rem;
+							font-size: 0.8rem;
+							border-radius: 50px;
+							background: rgba(243, 20, 49, 0.2);
+							box-shadow: 0 2px 2px darken(rgba(243, 20, 49, 0.2), 10%);
+							transition: all 0.3s ease-in-out;
+							&:hover {
+								background: rgba(243, 20, 49, 0.5);
+								color: #fff;
+								cursor: pointer;
+								box-shadow: 0 4px 4px darken(rgba(243, 20, 49, 0.2), 10%);
+							}
+						}
+					}
+					& .dashboard-input {
+						background: transparent;
+						color: #666;
+						border: 0;
+						border-bottom: 1px solid $secondary-color;
+						padding: 0.1rem;
+					}
+				}
 				& li {
 					list-style: none;
 					color: #666;
@@ -118,12 +178,6 @@
 							margin: 0 0.2rem;
 							font-size: 0.9rem;
 						}
-					}
-					& .dashboard-input {
-						background: transparent;
-						color: #666;
-						border: 0;
-						border-bottom: 1px solid $secondary-color;
 					}
 				}
 			}

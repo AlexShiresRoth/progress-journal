@@ -1251,6 +1251,58 @@ input.list-input {
         opacity: 1;
         overflow-y: auto;
         max-height: 10rem; }
+        .goals__container--goal--steps ul .dashboard-step-row {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          justify-content: space-between;
+          margin: 0.2rem 0; }
+          .goals__container--goal--steps ul .dashboard-step-row .save-step-btn {
+            background: transparent;
+            color: #7909a5;
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 50%; }
+            .goals__container--goal--steps ul .dashboard-step-row .save-step-btn i {
+              padding: 0.2rem;
+              font-size: 0.8rem;
+              border-radius: 50px;
+              background: rgba(30, 144, 255, 0.2);
+              box-shadow: 0 2px 2px rgba(0, 119, 234, 0.2);
+              transition: all 0.3s ease-in-out; }
+              .goals__container--goal--steps ul .dashboard-step-row .save-step-btn i:hover {
+                background: rgba(75, 202, 129, 0.5);
+                color: #fff;
+                cursor: pointer;
+                box-shadow: 0 4px 4px rgba(51, 175, 104, 0.5); }
+          .goals__container--goal--steps ul .dashboard-step-row .remove-step-btn {
+            background: transparent;
+            color: #7909a5;
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 50%; }
+            .goals__container--goal--steps ul .dashboard-step-row .remove-step-btn i {
+              padding: 0.2rem;
+              font-size: 0.8rem;
+              border-radius: 50px;
+              background: rgba(243, 20, 49, 0.2);
+              box-shadow: 0 2px 2px rgba(202, 10, 35, 0.2);
+              transition: all 0.3s ease-in-out; }
+              .goals__container--goal--steps ul .dashboard-step-row .remove-step-btn i:hover {
+                background: rgba(243, 20, 49, 0.5);
+                color: #fff;
+                cursor: pointer;
+                box-shadow: 0 4px 4px rgba(202, 10, 35, 0.2); }
+          .goals__container--goal--steps ul .dashboard-step-row .dashboard-input {
+            background: transparent;
+            color: #666;
+            border: 0;
+            border-bottom: 1px solid #7909a5;
+            padding: 0.1rem; }
         .goals__container--goal--steps ul li {
           list-style: none;
           color: #666;
@@ -1262,11 +1314,6 @@ input.list-input {
               color: #7909a5;
               margin: 0 0.2rem;
               font-size: 0.9rem; }
-          .goals__container--goal--steps ul li .dashboard-input {
-            background: transparent;
-            color: #666;
-            border: 0;
-            border-bottom: 1px solid #7909a5; }
     .goals__container--goal .remove-button {
       background: rgba(243, 20, 49, 0.5);
       color: #fff;

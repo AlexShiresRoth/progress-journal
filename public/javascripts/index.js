@@ -1,4 +1,4 @@
-import { newPostClosure, addStepClosure, addStepsDashboard } from './views/view';
+import { newPostClosure, addStepClosure, addStepsDashboardClosure } from './views/view';
 import DaySearch from './controllers/days';
 
 const funcOne = newPostClosure();
@@ -8,7 +8,7 @@ const newSearch = new DaySearch();
 const funcTwo = addStepClosure();
 const addStep = funcTwo[0];
 
-const funcThree = addStepsDashboard();
+const funcThree = addStepsDashboardClosure();
 const addStepDash = funcThree[0];
 
 const loadFile = () => {

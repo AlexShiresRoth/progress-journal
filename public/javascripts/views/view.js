@@ -1,5 +1,6 @@
 import { selectors } from '../models/selectors';
 import { addStepMarkup, addStepDashMarkup } from '../models/markup';
+import SaveStep from '../controllers/steps';
 
 ////Minimum Character check for posts
 export const newPostClosure = () => {
@@ -62,22 +63,34 @@ export const addStepClosure = () => {
 };
 
 //handle adding and removing steps on the goals dashboard
-//TODO figure out how to add just one input to one ul and not all uls
-export const addStepsDashboard = () => {
+//Figure out less hacky way to find closest sibling matching clasname
+export const addStepsDashboardClosure = () => {
 	const stepsUl = selectors.stepsUl;
-	const allSteps = [...stepsUl];
 
 	const addStepDash = event => {
 		if (event) {
-			const insertStep = allSteps.forEach((step, i) => {
-				console.log(event);
-				if (stepsUl[i].classList.contains('hidden')) {
-					stepsUl[i].classList.remove('hidden');
-				}
-				allSteps[i].insertAdjacentHTML('beforeend', addStepDashMarkup);
-			});
+			//need to find index of where event is occuring
+			//pass to sibling of event
+			const step = event.target.parentElement.nextSibling.nextSibling;
+			if (step.classList.contains('steps-ul')) {
+				step.classList.remove('hidden');
+				step.insertAdjacentHTML('beforeend', addStepDashMarkup);
+			}
+		}
+	};
+	const removeStepDash = event => {
+		const rowToBeRemoved = document.querySelector('.dashboard-step-row');
+		if (event) {
+			const stepToBeRemoved = event.target.parentNode.parentNode;
+			stepToBeRemoved.remove(rowToBeRemoved);
+		}
+	};
 
-			return insertStep;
+	const saveStepQuery = event => {
+		if (event) {
+			console.log(event);
+			const newQuery = new SaveStep(event.target);
+			newQuery.sendQuery();
 		}
 	};
 
@@ -85,6 +98,20 @@ export const addStepsDashboard = () => {
 		document.addEventListener('click', e => {
 			if (e.target && e.target.classList.contains('add-step-dash')) {
 				addStepDash(e);
+			}
+		});
+	}
+	if (stepsUl) {
+		document.addEventListener('click', e => {
+			if (e.target && e.target.classList.contains('remove-step')) {
+				removeStepDash(e);
+			}
+		});
+	}
+	if (stepsUl) {
+		document.addEventListener('click', e => {
+			if (e.target && e.target.classList.contains('save-step')) {
+				saveStepQuery(e);
 			}
 		});
 	}
