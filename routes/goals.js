@@ -76,6 +76,7 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		}
 	}
 });
+
 //PUT Route
 //Set as incomplete
 router.put('/:id/incomplete', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
@@ -92,7 +93,7 @@ router.put('/:id/incomplete', middleware.isLoggedIn, middleware.isUser, async (r
 	foundProfile.goals[foundGoal].completed = false;
 	const incompletedGoals = foundProfile.goals;
 	try {
-		await foundProfile.update({ $set: { todos: incompletedGoals } });
+		await foundProfile.update({ $set: { goals: incompletedGoals } });
 		await foundProfile.save();
 
 		req.flash('success', 'This goal is now incomplete!');
@@ -108,22 +109,23 @@ router.put('/:id/incomplete', middleware.isLoggedIn, middleware.isUser, async (r
 //PUT Route
 //Edit Goal to be incomplete
 router.put('/:id/complete', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
-	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
 	//find the index of the todo to be completed
-	const foundGoal = foundProfile.todos
+	const foundGoal = foundProfile.goals
 		.filter(goal => {
 			return goal.id == req.params.id;
 		})
 		.map(newGoal => {
 			return foundProfile.goals.indexOf(newGoal);
 		});
+
 	//set the status of the todo to be complete
 	foundProfile.goals[foundGoal].completed = true;
 	const completedGoals = foundProfile.goals;
 	try {
-		await foundProfile.update({ $set: { todos: completedGoals } });
+		await foundProfile.updateOne({ $set: { goals: completedGoals } });
 		await foundProfile.save();
-
+		console.log(foundProfile.goals);
 		req.flash('success', 'Good job completing that goal!');
 		res.redirect('back');
 	} catch (error) {
@@ -132,6 +134,14 @@ router.put('/:id/complete', middleware.isLoggedIn, middleware.isUser, async (req
 			res.redirect('back');
 		}
 	}
+});
+
+//PUT ROUTE
+//ADD Step to goal
+router.put('/:id/addstep', async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	console.log(foundProfile.goals);
+	res.json(foundProfile.goals);
 });
 //Delete Goal
 //Access Private

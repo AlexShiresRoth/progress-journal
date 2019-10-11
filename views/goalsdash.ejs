@@ -19,16 +19,34 @@
 		<div class="goals__container--goal--header">
 			<img src="<%= goal.image %>" alt="motivation" />
 			<div class="goals__container--goal--header--overlay"></div>
+			<% if(goal.completed) { %>
+			<div class="goals__container--goal--header--incomplete">
+				<form action="/api/goals/<%=goal.id%>/incomplete?_method=PUT" method="POST">
+					<button class="incomplete-button"><i class="fa fa-check-circle"></i></button>
+				</form>
+			</div>
+			<% } %> <% if(!goal.completed) { %>
+			<div class="goals__container--goal--header--complete">
+				<form action="/api/goals/<%=goal.id%>/complete?_method=PUT" method="POST">
+					<button class="complete-button"><i class="fa fa-check-circle"></i></button>
+				</form>
+			</div>
+			<% } %>
+
 			<div class="goals__container--goal--header--title">
 				<h2><%= goal.title %></h2>
+				<% if(goal.completed) { %>
+				<p class="complete">COMPLETED</p>
+				<% } else{ %>
 				<p>Complete By:<span><%= goal.endDate %></span></p>
+				<% } %>
 			</div>
 		</div>
 		<div class="goals__container--goal--steps">
 			<% if(goal.steps) { %>
 			<div class="goals__container--goal--steps--header">
 				<p>Steps:</p>
-				<button class="add-step-dash"><i class="fa fa-plus-circle"></i> Add A step</button>
+				<button class="add-step-dash"><i class="fa fa-plus-circle add-step-dash"></i> Add A step</button>
 			</div>
 			<ul class="steps-ul">
 				<% goal.steps.map((step,i) => { %>

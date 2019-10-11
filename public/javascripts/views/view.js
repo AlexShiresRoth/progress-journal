@@ -63,7 +63,7 @@ export const addStepClosure = () => {
 };
 
 //handle adding and removing steps on the goals dashboard
-//Figure out less hacky way to find closest sibling matching clasname
+//Figure out less hacky way to find closest sibling matching classname
 export const addStepsDashboardClosure = () => {
 	const stepsUl = selectors.stepsUl;
 
@@ -89,8 +89,9 @@ export const addStepsDashboardClosure = () => {
 	const saveStepQuery = event => {
 		if (event) {
 			console.log(event);
+			event.preventDefault();
 			const newQuery = new SaveStep(event.target);
-			newQuery.sendQuery();
+			newQuery.getUserId();
 		}
 	};
 

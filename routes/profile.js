@@ -25,7 +25,7 @@ const parser = multer({ storage: storage });
 //Private Access
 router.get('/', (req, res) => {
 	try {
-		Profile.findOne({ 'userprofile.username': req.user.username }, (err, foundProfile) => {
+		Profile.findOne({ 'userprofile.id': req.user._id }, (err, foundProfile) => {
 			//MATCH PROFILE ID WITH CURRENT USER ID
 
 			if (foundProfile) {
@@ -50,6 +50,18 @@ router.get('/', (req, res) => {
 			console.log(error.message);
 			return res.status(500).json({ msg: error.message });
 		}
+	}
+});
+
+//GET ROUTE
+//SEND USER ID
+router.get('/getuserid', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	console.log('did this work?' + foundProfile.id);
+	try {
+		return res.json(foundProfile);
+	} catch (error) {
+		return res.status(500).json({ msg: 'Internal Server Error' });
 	}
 });
 
