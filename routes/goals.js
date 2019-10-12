@@ -57,11 +57,29 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 	if (title) goalFields.title = title;
 	if (completed) goalFields.completed = completed;
 
-	if (typeof steps === 'object') goalFields.steps = [...steps];
-	if (typeof steps === 'string') goalFields.steps = [steps];
+	//TODO fix this that the title is not only onew
+	if (typeof steps === 'object') {
+		const stepFields = {};
+		goalFields.steps = [...steps];
+		const newSteps = goalFields.steps.map((step, i) => {
+			stepFields.title = step;
+			stepFields.completed = false;
+			stepFields.id = genId();
+			const newStep = Object.create(stepFields);
+			return newStep;
+		});
+		goalFields.steps = [...newSteps];
+	}
+	if (typeof steps === 'string') {
+		goalFields.steps = [steps];
+
+		goalFields.steps.title = [steps];
+		goalFields.steps.id = genId();
+	}
 	goalFields.image = getImages();
 	goalFields.id = genId();
 	try {
+		console.log(goalFields.steps);
 		const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
 		console.log('this is' + foundProfile);
 		foundProfile.goals.unshift(goalFields);
@@ -91,9 +109,9 @@ router.put('/:id/incomplete', middleware.isLoggedIn, middleware.isUser, async (r
 		});
 	//set the todo's status as incomplete
 	foundProfile.goals[foundGoal].completed = false;
-	const incompletedGoals = foundProfile.goals;
+	const incompleteGoals = foundProfile.goals;
 	try {
-		await foundProfile.update({ $set: { goals: incompletedGoals } });
+		await foundProfile.update({ $set: { goals: incompleteGoals } });
 		await foundProfile.save();
 
 		req.flash('success', 'This goal is now incomplete!');
