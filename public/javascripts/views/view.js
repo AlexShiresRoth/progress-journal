@@ -88,9 +88,9 @@ export const addStepsDashboardClosure = () => {
 
 	const saveStepQuery = event => {
 		if (event) {
-			console.log(event);
+			const inputVal = event.target.parentElement.nextSibling.nextSibling.value;
 			event.preventDefault();
-			const newQuery = new SaveStep(event.target);
+			const newQuery = new SaveStep(inputVal);
 			newQuery.getUserId();
 		}
 	};

@@ -138,9 +138,11 @@ router.put('/:id/complete', middleware.isLoggedIn, middleware.isUser, async (req
 
 //PUT ROUTE
 //ADD Step to goal
+//TODO return the saved state of a goal if a step was added or removed
 router.put('/:id/addstep', async (req, res) => {
+	const { steps } = req.body;
 	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
-	console.log(foundProfile.goals);
+	console.log(req.params.id);
 	res.json(foundProfile.goals);
 });
 //Delete Goal

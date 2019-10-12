@@ -1165,7 +1165,8 @@ input.list-input {
     box-shadow: 0 5px 5px #eee;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
+    justify-content: space-between;
+    max-width: 15rem; }
     .goals__container--goal--header {
       display: flex;
       flex-direction: column;
@@ -1327,6 +1328,7 @@ input.list-input {
           flex-direction: row;
           width: 100%;
           justify-content: space-between;
+          align-items: center;
           margin: 0.2rem 0; }
           .goals__container--goal--steps ul .dashboard-step-row .save-step-btn {
             background: transparent;

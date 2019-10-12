@@ -50,8 +50,11 @@
 			</div>
 			<ul class="steps-ul">
 				<% goal.steps.map((step,i) => { %>
-				<li>
+				<li class="dashboard-step-row">
 					<p><span><%=i+1%>:</span><%= step %></p>
+					<form action="/api/goals/<%=goal.id%>/completestep?_method=PUT" method="POST">
+						<button class="save-step-btn"><i class="fa fa-check-circle"></i></button>
+					</form>
 				</li>
 				<% }) %>
 			</ul>

@@ -10,6 +10,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		max-width: 15rem;
 		&--header {
 			display: flex;
 			flex-direction: column;
@@ -149,6 +150,7 @@
 		&--steps {
 			padding: 0.5rem;
 			height: 100%;
+
 			&--header {
 				display: flex;
 				flex-direction: row;
@@ -195,6 +197,7 @@
 					flex-direction: row;
 					width: 100%;
 					justify-content: space-between;
+					align-items: center;
 					margin: 0.2rem 0;
 					& .save-step-btn {
 						background: transparent;
