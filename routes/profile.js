@@ -53,18 +53,6 @@ router.get('/', (req, res) => {
 	}
 });
 
-//GET ROUTE
-//SEND USER ID
-router.get('/getuserid', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
-	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
-	console.log('did this work?' + foundProfile.id);
-	try {
-		return res.json(foundProfile);
-	} catch (error) {
-		return res.status(500).json({ msg: 'Internal Server Error' });
-	}
-});
-
 //Create user profile if this is current user
 router.get('/:id/createprofile', middleware.isLoggedIn, middleware.isUser, (req, res) => {
 	res.render('createprofile', {

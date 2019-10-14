@@ -6,9 +6,3 @@ export const addStepMarkup = `<div class="create__form--form--row">
 			</div>
 			<div class="create__form--form--row--icon-box-remove"><i class="fa fa-close remove-step"></i></div>
 		</div>`;
-
-export const addStepDashMarkup = `
-<li class="dashboard-step-row"><button class="save-step-btn">
-<i class="fa fa-check-circle save-step"></i></button>
-<input class="dashboard-input" type="text" name="goals[steps]" placeholder="add a new step" />
-<button class="remove-step-btn"><i class="fa fa-close remove-step"></i></<button></li>`;

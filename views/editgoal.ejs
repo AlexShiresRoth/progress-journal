@@ -1,0 +1,54 @@
+<% include partials/header %>
+<div class="list__header">
+	<a href="/api/goals/<%=user._id%>/creategoals"
+		><button class="list__header--add-new"><i class="fa fa-plus-circle"></i></button
+	></a>
+	<p><%= username %>'s Goals Dashboard</p>
+	<a href="/api/goals/<%=user._id%>/goals">
+		<button class="list__header--go-back"><i class="fa fa-angle-left"></i></button
+	></a>
+</div>
+<div class="create__form">
+	<h2>Edit Goal</h2>
+	<% goal.map(goal => { %>
+	<form class="create__form--form" id="goals__form" action="/api/goals/<%=goal.id%>?_method=PUT" method="POST">
+		<div class="create__form--form--row">
+			<div class="create__form--form--row--icon-box"><i class="fa fa-list-ul"></i></div>
+			<div class="create__form--form--row--column">
+				<label for="goals[title]">Add A Title</label>
+				<input name="goals[title]" type="text" value="<%=goal.title%>" />
+			</div>
+		</div>
+
+		<div class="create__form--form--row">
+			<div class="create__form--form--row--icon-box"><i class="fa fa-calendar"></i></div>
+			<div class="create__form--form--row--column">
+				<label for="goals[endDate]">Add A Complete by Date</label>
+				<input name="goals[endDate]" type="date" value="<%=goal.endDate%>" />
+			</div>
+		</div>
+		<div class="create__form--form--row">
+			<button class="add-step"><i class="fa fa-plus-circle"></i> Add A step</button>
+		</div>
+		<% if(goal.steps) { %>
+		<div class="create__form--form--row--column" id="steps__container">
+			<% goal.steps.map((step) => { %>
+			<div class="create__form--form--row">
+				<div class="create__form--form--row--icon-box"><i class="fa fa-tasks"></i></div>
+				<div class="create__form--form--row--column">
+					<label for="goals[steps]">Edit Step</label>
+					<input name="goals[steps]" type="text" placeholder="Enter step details" value="<%=step.title%>" />
+				</div>
+				<div class="create__form--form--row--icon-box-remove"><i class="fa fa-close remove-step"></i></div>
+			</div>
+			<% }) %>
+		</div>
+		<% } else { %>
+		<div class="create__form--form--row--column hidden" id="steps__container"></div>
+		<% } %>
+		<button>Submit Edits</button>
+	</form>
+	<% }) %>
+</div>
+
+<% include partials/footer %>

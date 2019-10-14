@@ -8,14 +8,10 @@ const newSearch = new DaySearch();
 const funcTwo = addStepClosure();
 const addStep = funcTwo[0];
 
-const funcThree = addStepsDashboardClosure();
-const addStepDash = funcThree[0];
-
 const loadFile = () => {
 	countCharacters();
 	newSearch.searchDays();
 	addStep();
-	addStepDash();
 };
 
 if (document.readyState == 'loading') {

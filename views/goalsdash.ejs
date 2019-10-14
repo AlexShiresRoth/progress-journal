@@ -46,21 +46,33 @@
 			<% if(goal.steps) { %>
 			<div class="goals__container--goal--steps--header">
 				<p>Steps:</p>
-				<button class="add-step-dash"><i class="fa fa-plus-circle add-step-dash"></i> Add A step</button>
+				<a href="/api/goals/<%=goal.id%>/editgoal">
+				<button class="add-step-dash"><i class="fa fa-plus-circle add-step-dash"></i> Edit Goal</button>
+				</a>
 			</div>
 			<ul class="steps-ul">
 				<% goal.steps.map((step,i) => { %>
 				<li class="dashboard-step-row">
-					<p><span><%=i+1%>:</span><%= step %></p>
-					<form action="/api/goals/<%=goal.id%>/completestep?_method=PUT" method="POST">
+					<% if(step.completed) { %>
+					<form action="/api/goals/<%=goal.id%>/<%=step.id%>/incompletestep?_method=PUT" method="POST">
+						<button class="completed-step-btn"><i class="fa fa-check-circle "></i></button>
+					</form>
+					<% } else {%>
+					<form action="/api/goals/<%=goal.id%>/<%=step.id%>/completestep?_method=PUT" method="POST">
 						<button class="save-step-btn"><i class="fa fa-check-circle"></i></button>
+					</form>
+					<% } %>
+					<p><%= step.title %></p>
+					<form action="/api/goals/<%=goal.id%>/<%=step.id%>/removestep?_method=PUT" method="POST">
+						<button class="remove-step-btn"><i class="fa fa-close "></i></<button>
 					</form>
 				</li>
 				<% }) %>
 			</ul>
 			<% } %> <% if(!goal.steps) { %>
 			<div class="goals__container--goal--steps--header">
-				<button class="add-step-dash"><i class="fa fa-plus-circle"></i> Add A step</button>
+				<a href="/api/goals/<%=goal.id%>/editgoal">
+				<button class="add-step-dash"><i class="fa fa-plus-circle"></i> Edit Goal</button></a>
 			</div>
 			<ul class="steps-ul hidden"></ul>
 			<% } %>

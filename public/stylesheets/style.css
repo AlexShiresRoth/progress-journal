@@ -1340,7 +1340,7 @@ input.list-input {
             border-radius: 50%; }
             .goals__container--goal--steps ul .dashboard-step-row .save-step-btn i {
               padding: 0.2rem;
-              font-size: 0.8rem;
+              font-size: 1rem;
               border-radius: 50px;
               background: rgba(30, 144, 255, 0.2);
               box-shadow: 0 2px 2px rgba(0, 119, 234, 0.2);
@@ -1348,6 +1348,27 @@ input.list-input {
               .goals__container--goal--steps ul .dashboard-step-row .save-step-btn i:hover {
                 background: #4bca81;
                 color: #fff;
+                cursor: pointer;
+                box-shadow: 0 4px 4px rgba(51, 175, 104, 0.5); }
+          .goals__container--goal--steps ul .dashboard-step-row .completed-step-btn {
+            background: transparent;
+            color: #fff;
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 50%; }
+            .goals__container--goal--steps ul .dashboard-step-row .completed-step-btn i {
+              padding: 0.2rem;
+              font-size: 1rem;
+              border-radius: 50px;
+              background: #4bca81;
+              color: #fff;
+              box-shadow: 0 2px 2px rgba(0, 119, 234, 0.2);
+              transition: all 0.3s ease-in-out; }
+              .goals__container--goal--steps ul .dashboard-step-row .completed-step-btn i:hover {
+                background: transparent;
+                color: #4bca81;
                 cursor: pointer;
                 box-shadow: 0 4px 4px rgba(51, 175, 104, 0.5); }
           .goals__container--goal--steps ul .dashboard-step-row .remove-step-btn {
@@ -1360,7 +1381,7 @@ input.list-input {
             border-radius: 50%; }
             .goals__container--goal--steps ul .dashboard-step-row .remove-step-btn i {
               padding: 0.2rem;
-              font-size: 0.8rem;
+              font-size: 1rem;
               border-radius: 50px;
               background: rgba(243, 20, 49, 0.2);
               box-shadow: 0 2px 2px rgba(202, 10, 35, 0.2);

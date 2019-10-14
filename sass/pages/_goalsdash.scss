@@ -209,7 +209,7 @@
 						border-radius: 50%;
 						& i {
 							padding: 0.2rem;
-							font-size: 0.8rem;
+							font-size: 1rem;
 							border-radius: 50px;
 							background: rgba(30, 144, 255, 0.2);
 							box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
@@ -222,6 +222,31 @@
 							}
 						}
 					}
+					& .completed-step-btn {
+						background: transparent;
+						color: #fff;
+						border: 0;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						border-radius: 50%;
+						& i {
+							padding: 0.2rem;
+							font-size: 1rem;
+							border-radius: 50px;
+							background: $success-green;
+							color: #fff;
+							box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
+							transition: all 0.3s ease-in-out;
+							&:hover {
+								background: transparent;
+								color: $success-green;
+								cursor: pointer;
+								box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
+							}
+						}
+					}
+
 					& .remove-step-btn {
 						background: transparent;
 						color: $secondary-color;
@@ -232,7 +257,7 @@
 						border-radius: 50%;
 						& i {
 							padding: 0.2rem;
-							font-size: 0.8rem;
+							font-size: 1rem;
 							border-radius: 50px;
 							background: rgba(243, 20, 49, 0.2);
 							box-shadow: 0 2px 2px darken(rgba(243, 20, 49, 0.2), 10%);

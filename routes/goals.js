@@ -39,6 +39,26 @@ router.get('/:id/creategoals', (req, res) => {
 	});
 });
 
+router.get('/:id/editgoal', async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	const foundGoal = foundProfile.goals.filter(goal => {
+		return goal.id == req.params.id;
+	});
+	try {
+		res.render('editgoal', {
+			user: req.user._id,
+			goal: foundGoal,
+			currentUser: req.user.username,
+			username: req.user.username,
+		});
+	} catch (error) {
+		req.flash('error', error.message);
+		res.redirect('back');
+	}
+});
+
+//PUT ROUTE
+//CREATE GOAL
 router.put('/', [check('title').isEmpty()], async (req, res) => {
 	const errors = validationResult(req);
 
@@ -57,31 +77,34 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 	if (title) goalFields.title = title;
 	if (completed) goalFields.completed = completed;
 
-	//TODO fix this that the title is not only onew
+	//TODO fix this that the title is not only one
 	if (typeof steps === 'object') {
-		const stepFields = {};
 		goalFields.steps = [...steps];
 		const newSteps = goalFields.steps.map((step, i) => {
+			const stepFields = {};
 			stepFields.title = step;
 			stepFields.completed = false;
 			stepFields.id = genId();
 			const newStep = Object.create(stepFields);
 			return newStep;
 		});
-		goalFields.steps = [...newSteps];
+		goalFields.steps = newSteps;
+		console.log(goalFields.steps);
 	}
 	if (typeof steps === 'string') {
-		goalFields.steps = [steps];
-
-		goalFields.steps.title = [steps];
-		goalFields.steps.id = genId();
+		const stepFields = {};
+		stepFields.title = steps;
+		stepFields.completed = false;
+		stepFields.id = genId();
+		const newStep = Object.create(stepFields);
+		goalFields.steps = [newStep];
 	}
 	goalFields.image = getImages();
 	goalFields.id = genId();
 	try {
 		console.log(goalFields.steps);
 		const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
-		console.log('this is' + foundProfile);
+
 		foundProfile.goals.unshift(goalFields);
 		await foundProfile.save();
 
@@ -143,7 +166,6 @@ router.put('/:id/complete', middleware.isLoggedIn, middleware.isUser, async (req
 	try {
 		await foundProfile.updateOne({ $set: { goals: completedGoals } });
 		await foundProfile.save();
-		console.log(foundProfile.goals);
 		req.flash('success', 'Good job completing that goal!');
 		res.redirect('back');
 	} catch (error) {
@@ -158,15 +180,145 @@ router.put('/:id/complete', middleware.isLoggedIn, middleware.isUser, async (req
 //ADD Step to goal
 //TODO return the saved state of a goal if a step was added or removed
 router.put('/:id/addstep', async (req, res) => {
-	const { steps } = req.body;
+	const { steps } = req.body.goals;
+	const foundProfile = await Profile.findOne({
+		'userprofile.id': req.user._id,
+	});
+
+	const foundGoal = foundProfile.goals
+		.filter(goal => {
+			return goal.id === req.params.idGoal;
+		})
+		.map(goal => {
+			return foundProfile.goals.indexOf(goal);
+		});
+	if (typeof steps === 'object') {
+		foundProfile.goals[foundGoal].steps = [...steps];
+		const newSteps = goalFields.steps.map((step, i) => {
+			const stepFields = {};
+			stepFields.title = step;
+			stepFields.completed = false;
+			stepFields.id = genId();
+			const newStep = Object.create(stepFields);
+			return newStep;
+		});
+		foundProfile.goals[foundGoal].steps = newSteps;
+	}
+	if (typeof steps === 'string') {
+		const stepFields = {};
+		stepFields.title = steps;
+		stepFields.completed = false;
+		stepFields.id = genId();
+		const newStep = Object.create(stepFields);
+		foundProfile.goals[foundGoal].steps = [newStep];
+	}
+	const addedSteps = foundProfile.goals;
+	try {
+		await foundProfile.updateOne({ $set: { goals: addedSteps } });
+		await foundProfile.save();
+	} catch (error) {}
+});
+
+//PUT ROUTE
+//PRIVATE ACCESS
+//UPDATE STEP STATUS
+router.put('/:idGoal/:idStep/completestep', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
 	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
-	console.log(req.params.id);
-	res.json(foundProfile.goals);
+	console.log(foundProfile.goals[0].steps);
+	const foundGoal = foundProfile.goals
+		.filter(goal => {
+			return goal.id === req.params.idGoal;
+		})
+		.map(goal => {
+			return foundProfile.goals.indexOf(goal);
+		});
+	const foundStep = foundProfile.goals[foundGoal].steps
+		.filter(step => {
+			return step.id === req.params.idStep;
+		})
+		.map(step => {
+			return foundProfile.goals[foundGoal].steps.indexOf(step);
+		});
+
+	foundProfile.goals[foundGoal].steps[foundStep].completed = true;
+	const completedSteps = foundProfile.goals;
+	console.log(completedSteps);
+	try {
+		await foundProfile.updateOne({ $set: { goals: completedSteps } });
+		await foundProfile.save();
+		res.redirect('back');
+	} catch (error) {
+		req.flash('error', error.message);
+		res.redirect('back');
+	}
+});
+//PUT ROUTE
+//PRIVATE ACCESS
+//UPDATE STEP STATUS
+router.put('/:idGoal/:idStep/incompletestep', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+
+	const foundGoal = foundProfile.goals
+		.filter(goal => {
+			return goal.id === req.params.idGoal;
+		})
+		.map(goal => {
+			return foundProfile.goals.indexOf(goal);
+		});
+	const foundStep = foundProfile.goals[foundGoal].steps
+		.filter(step => {
+			return step.id === req.params.idStep;
+		})
+		.map(step => {
+			return foundProfile.goals[foundGoal].steps.indexOf(step);
+		});
+
+	foundProfile.goals[foundGoal].steps[foundStep].completed = false;
+	const completedSteps = foundProfile.goals;
+	console.log(completedSteps);
+	try {
+		await foundProfile.updateOne({ $set: { goals: completedSteps } });
+		await foundProfile.save();
+
+		res.redirect('back');
+	} catch (error) {
+		req.flash('error', error.message);
+		res.redirect('back');
+	}
+});
+//Delete Step
+//Access Private
+router.put('/:idGoal/:idStep/removestep', async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user.id });
+
+	const foundGoal = foundProfile.goals
+		.filter(goal => {
+			return goal.id === req.params.idGoal;
+		})
+		.map(goal => {
+			return foundProfile.goals.indexOf(goal);
+		});
+	const foundSteps = foundProfile.goals[foundGoal].steps.filter(step => {
+		return step.id !== req.params.idStep;
+	});
+
+	foundProfile.goals[foundGoal].steps = foundSteps;
+	const updatedSteps = foundProfile.goals;
+	try {
+		await foundProfile.updateOne({ $set: { goals: updatedSteps } });
+		await foundProfile.save();
+		res.redirect('back');
+	} catch (error) {
+		if (error) {
+			req.flash('error', err.message);
+			res.redirect('back');
+		}
+	}
 });
 //Delete Goal
 //Access Private
 router.put('/:id/remove', async (req, res) => {
-	const foundProfile = await Profile.findOne({ 'userprofile.username': req.user.username });
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user.id });
 	try {
 		const foundGoals = foundProfile.goals.filter(goal => {
 			return goal.id !== req.params.id;
