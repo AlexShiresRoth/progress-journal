@@ -141,9 +141,9 @@ router.put('/:id', middleware.isLoggedIn, middleware.isUser, async (req, res) =>
 
 	const editedPosts = foundProfile.posts;
 	try {
-		await foundDay.update({ $set: { mood, title, text } });
+		await foundDay.updateOne({ $set: { mood, title, text } });
 		await foundDay.save();
-		await foundProfile.update({ $set: { posts: editedPosts } });
+		await foundProfile.updateOne({ $set: { posts: editedPosts } });
 		await foundProfile.save();
 		req.flash('success', 'Successfully Edited Post!');
 		res.redirect('/api/days');

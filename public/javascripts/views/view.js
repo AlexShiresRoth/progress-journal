@@ -60,3 +60,46 @@ export const addStepClosure = () => {
 
 	return [addStep, removeStep];
 };
+
+//handle adding and removing steps on the goals dashboard
+//Figure out less hacky way to find closest sibling matching classname
+export const addStepsDashboardClosure = () => {
+	const stepsUl = selectors.stepsUl;
+
+	const addStepDash = event => {
+		if (event) {
+			event.preventDefault();
+			//need to find index of where event is occuring
+			//pass to sibling of event
+			const step = event.target.parentElement.nextSibling.nextSibling;
+			if (step.classList.contains('steps-ul')) {
+				step.classList.remove('hidden');
+				step.insertAdjacentHTML('beforeend', addStepDashMarkup);
+			}
+		}
+	};
+	const removeStepDash = event => {
+		const rowToBeRemoved = document.querySelector('.dashboard-step-row');
+		if (event) {
+			const stepToBeRemoved = event.target.parentNode.parentNode;
+			stepToBeRemoved.remove(rowToBeRemoved);
+		}
+	};
+
+	if (stepsUl) {
+		document.addEventListener('click', e => {
+			if (e.target && e.target.classList.contains('add-step-dash')) {
+				addStepDash(e);
+			}
+		});
+	}
+	if (stepsUl) {
+		document.addEventListener('click', e => {
+			if (e.target && e.target.classList.contains('remove-step')) {
+				removeStepDash(e);
+			}
+		});
+	}
+
+	return [addStepDash];
+};

@@ -43,11 +43,11 @@
 			</div>
 		</div>
 		<div class="goals__container--goal--steps">
-			<% if(goal.steps) { %>
+			<% if(goal.steps || goal.editedSteps) { %>
 			<div class="goals__container--goal--steps--header">
 				<p>Steps:</p>
 				<a href="/api/goals/<%=goal.id%>/editgoal">
-				<button class="add-step-dash"><i class="fa fa-plus-circle add-step-dash"></i> Edit Goal</button>
+				<button class="edit-goal-dash"><i class="fa fa-pencil edit-goal-dash"></i> Edit Goal</button>
 				</a>
 			</div>
 			<ul class="steps-ul">
@@ -72,7 +72,7 @@
 			<% } %> <% if(!goal.steps) { %>
 			<div class="goals__container--goal--steps--header">
 				<a href="/api/goals/<%=goal.id%>/editgoal">
-				<button class="add-step-dash"><i class="fa fa-plus-circle"></i> Edit Goal</button></a>
+				<button class="edit-goal-dash"><i class="fa fa-pencil edit-goal-dash"></i> Edit Goal</button></a>
 			</div>
 			<ul class="steps-ul hidden"></ul>
 			<% } %>

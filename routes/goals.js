@@ -38,19 +38,73 @@ router.get('/:id/creategoals', (req, res) => {
 		username: req.user.username,
 	});
 });
-
+//GET ROUTE
+//RENDER EDIT GOAL PAGE
 router.get('/:id/editgoal', async (req, res) => {
 	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
 	const foundGoal = foundProfile.goals.filter(goal => {
 		return goal.id == req.params.id;
 	});
 	try {
+		console.log(foundGoal);
 		res.render('editgoal', {
 			user: req.user._id,
 			goal: foundGoal,
 			currentUser: req.user.username,
 			username: req.user.username,
 		});
+	} catch (error) {
+		req.flash('error', error.message);
+		res.redirect('back');
+	}
+});
+
+//PUT ROUTE
+//EDIT Goal
+router.put('/:id/goals', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	const { endDate, title, steps } = req.body.goals;
+	const editedGoal = foundProfile.goals
+		.filter(goal => {
+			return goal.id === req.params.id;
+		})
+		.map(goal => {
+			return foundProfile.goals.indexOf(goal);
+		});
+	foundProfile.goals[editedGoal].endDate = endDate;
+	foundProfile.goals[editedGoal].title = title;
+	const editStep = foundProfile.goals[editedGoal].steps;
+
+	//Handle if there is more than one step added
+	if (typeof steps === 'object') {
+		foundProfile.goals[editedGoal].steps = [...steps];
+		const newSteps = foundProfile.goals[editedGoal].steps.map((step, i) => {
+			const stepFields = {};
+			stepFields.title = step;
+			stepFields.completed = false;
+			stepFields.id = genId();
+			const newStep = Object.create(stepFields);
+			return newStep;
+		});
+		foundProfile.goals[editedGoal].steps = [...editStep, ...newSteps];
+	}
+
+	//Handle for if there is only one step added
+	if (typeof steps === 'string') {
+		const stepFields = {};
+		stepFields.title = steps;
+		stepFields.completed = false;
+		stepFields.id = genId();
+		const newStep = Object.create(stepFields);
+		foundProfile.goals[editedGoal].steps = [...editStep, newStep];
+	}
+
+	const editedGoals = foundProfile.goals;
+	try {
+		await foundProfile.updateOne({ $set: { goals: editedGoals } });
+		await foundProfile.save();
+		req.flash('success', 'Goal has been updated');
+		res.redirect(`/api/goals/${req.user._id}/goals`);
 	} catch (error) {
 		req.flash('error', error.message);
 		res.redirect('back');
@@ -77,7 +131,6 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 	if (title) goalFields.title = title;
 	if (completed) goalFields.completed = completed;
 
-	//TODO fix this that the title is not only one
 	if (typeof steps === 'object') {
 		goalFields.steps = [...steps];
 		const newSteps = goalFields.steps.map((step, i) => {
@@ -216,7 +269,10 @@ router.put('/:id/addstep', async (req, res) => {
 	try {
 		await foundProfile.updateOne({ $set: { goals: addedSteps } });
 		await foundProfile.save();
-	} catch (error) {}
+	} catch (error) {
+		req.flash('error', error.message);
+		res.redirect('back');
+	}
 });
 
 //PUT ROUTE
@@ -224,7 +280,7 @@ router.put('/:id/addstep', async (req, res) => {
 //UPDATE STEP STATUS
 router.put('/:idGoal/:idStep/completestep', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
 	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
-	console.log(foundProfile.goals[0].steps);
+
 	const foundGoal = foundProfile.goals
 		.filter(goal => {
 			return goal.id === req.params.idGoal;
@@ -242,7 +298,7 @@ router.put('/:idGoal/:idStep/completestep', middleware.isLoggedIn, middleware.is
 
 	foundProfile.goals[foundGoal].steps[foundStep].completed = true;
 	const completedSteps = foundProfile.goals;
-	console.log(completedSteps);
+
 	try {
 		await foundProfile.updateOne({ $set: { goals: completedSteps } });
 		await foundProfile.save();
@@ -275,7 +331,7 @@ router.put('/:idGoal/:idStep/incompletestep', middleware.isLoggedIn, middleware.
 
 	foundProfile.goals[foundGoal].steps[foundStep].completed = false;
 	const completedSteps = foundProfile.goals;
-	console.log(completedSteps);
+
 	try {
 		await foundProfile.updateOne({ $set: { goals: completedSteps } });
 		await foundProfile.save();
