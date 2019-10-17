@@ -38,7 +38,7 @@
 				<% if(goal.completed) { %>
 				<p class="complete">COMPLETED</p>
 				<% } else{ %>
-				<p>Complete By:<span><%= goal.endDate %></span></p>
+				<p>Complete By:<span><%= goal.endDate.toLocaleDateString() %></span></p>
 				<% } %>
 			</div>
 		</div>
@@ -57,7 +57,7 @@
 					<form action="/api/goals/<%=goal.id%>/<%=step.id%>/incompletestep?_method=PUT" method="POST">
 						<button class="completed-step-btn"><i class="fa fa-check-circle "></i></button>
 					</form>
-					<% } else {%>
+					<% } else { %>
 					<form action="/api/goals/<%=goal.id%>/<%=step.id%>/completestep?_method=PUT" method="POST">
 						<button class="save-step-btn"><i class="fa fa-check-circle"></i></button>
 					</form>

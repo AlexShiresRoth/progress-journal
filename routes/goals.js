@@ -71,7 +71,7 @@ router.put('/:id/goals', middleware.isLoggedIn, middleware.isUser, async (req, r
 		.map(goal => {
 			return foundProfile.goals.indexOf(goal);
 		});
-	foundProfile.goals[editedGoal].endDate = endDate;
+	foundProfile.goals[editedGoal].endDate = new Date(endDate);
 	foundProfile.goals[editedGoal].title = title;
 	const editStep = foundProfile.goals[editedGoal].steps;
 
@@ -122,15 +122,12 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		res.redirect('back');
 	}
 
-	const { startDate, endDate, title, completed, steps } = req.body.goals;
+	const { endDate, title, completed, steps } = req.body.goals;
 
 	const goalFields = {};
-
-	if (startDate) goalFields.startDate = startDate;
-	if (endDate) goalFields.endDate = format(new Date(endDate), 'EEEEEE MMMM do');
+	if (endDate) goalFields.endDate = new Date(endDate);
 	if (title) goalFields.title = title;
 	if (completed) goalFields.completed = completed;
-
 	if (typeof steps === 'object') {
 		goalFields.steps = [...steps];
 		const newSteps = goalFields.steps.map((step, i) => {

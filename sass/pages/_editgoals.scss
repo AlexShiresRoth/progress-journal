@@ -54,80 +54,78 @@
 			&--complete {
 				width: 100%;
 				z-index: 1;
-				& form {
-					& .complete-button,
-					.incomplete-button {
-						width: 100%;
-						display: flex;
-						flex-direction: row;
-						background: transparent;
-						border: 0;
-						color: #fff;
-						justify-content: flex-end;
-						align-items: center;
+
+				& .complete-button,
+				.incomplete-button {
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					background: transparent;
+					border: 0;
+					color: #fff;
+					justify-content: flex-end;
+					align-items: center;
+					transition: all 0.3s ease-in-out;
+					border-top-left-radius: 10px;
+					border-top-right-radius: 10px;
+					& i {
 						transition: all 0.3s ease-in-out;
-						border-top-left-radius: 10px;
-						border-top-right-radius: 10px;
-						& i {
-							transition: all 0.3s ease-in-out;
-							font-size: 1.2rem;
-							&:hover {
-								color: #fff;
-								background: $success-green;
-								border-radius: 50%;
-								cursor: pointer;
-							}
-						}
-						&::before {
-							transition: all 0.3s ease-in-out;
-						}
-						&:hover::before {
-							content: 'Complete Goal?';
+						font-size: 1.2rem;
+						&:hover {
 							color: #fff;
-							font-weight: 300;
-							font-size: 0.7rem;
+							background: $success-green;
+							border-radius: 50%;
+							cursor: pointer;
 						}
+					}
+					&::before {
+						transition: all 0.3s ease-in-out;
+					}
+					&:hover::before {
+						content: 'Complete Goal?';
+						color: #fff;
+						font-weight: 300;
+						font-size: 0.7rem;
 					}
 				}
 			}
 			&--incomplete {
 				width: 100%;
 				z-index: 1;
-				& form {
-					& .incomplete-button {
-						width: 100%;
-						display: flex;
-						flex-direction: row;
-						background: transparent;
-						border: 0;
 
-						justify-content: flex-end;
-						align-items: center;
+				& .incomplete-button {
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					background: transparent;
+					border: 0;
+
+					justify-content: flex-end;
+					align-items: center;
+					transition: all 0.3s ease-in-out;
+					border-top-left-radius: 10px;
+					border-top-right-radius: 10px;
+					& i {
 						transition: all 0.3s ease-in-out;
-						border-top-left-radius: 10px;
-						border-top-right-radius: 10px;
-						& i {
-							transition: all 0.3s ease-in-out;
-							font-size: 1.2rem;
+						font-size: 1.2rem;
+						color: #fff;
+						background: $success-green;
+						border-radius: 50%;
+						&:hover {
 							color: #fff;
-							background: $success-green;
+							background: transparent;
 							border-radius: 50%;
-							&:hover {
-								color: #fff;
-								background: transparent;
-								border-radius: 50%;
-								cursor: pointer;
-							}
+							cursor: pointer;
 						}
-						&::before {
-							transition: all 0.3s ease-in-out;
-						}
-						&:hover::before {
-							content: 'Undo Completed Goal?';
-							color: #fff;
-							font-weight: 300;
-							font-size: 0.6rem;
-						}
+					}
+					&::before {
+						transition: all 0.3s ease-in-out;
+					}
+					&:hover::before {
+						content: 'Undo Completed Goal?';
+						color: #fff;
+						font-weight: 300;
+						font-size: 0.6rem;
 					}
 				}
 			}

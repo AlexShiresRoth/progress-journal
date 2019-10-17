@@ -9,10 +9,10 @@
 	></a>
 </div>
 
-<div class="editgoal__container">
-	<h2>Edit Goal</h2>
-	<% goal.map(goal => { %>
-	<form class="editgoals--form" id="goals__form" action="/api/goals/<%=goal.id%>/goals?_method=PUT" method="POST">
+<h2>Edit Goal</h2>
+<% goal.map(goal => { %>
+<form class="editgoals--form" id="goals__form" action="/api/goals/<%=goal.id%>/goals?_method=PUT" method="POST">
+	<div class="editgoal__container">
 		<div class="editgoals__container--goal">
 			<div class="editgoals__container--goal--header">
 				<img src="<%= goal.image %>" alt="motivation" />
@@ -33,12 +33,20 @@
 
 				<div class="editgoals__container--goal--header--title">
 					<div class="editgoals__container--goal--header--title--row">
-						<i class="fa fa-pencil"></i><input name="goals[title]" value="<%= goal.title %>" />
+						<i class="fa fa-pencil"></i><input type="text" name="goals[title]" value="<%= goal.title %>" />
 					</div>
 					<% if(goal.completed) { %>
 					<p class="complete">COMPLETED</p>
 					<% } else{ %>
-					<p>Complete By:<span><%= goal.endDate %></span></p>
+					<p>Complete By:</p>
+					<div class="editgoals__container--goal--header--title--row">
+						<i class="fa fa-pencil"></i
+						><input
+							type="date"
+							name="goals[endDate]"
+							value="<%= goal.endDate.toISOString().split('T')[0] %>"
+						/>
+					</div>
 					<% } %>
 				</div>
 			</div>
@@ -78,7 +86,6 @@
 			</div>
 			<button class="submit-edit-button"><i class="fa fa-paper-plane-o"></i></button>
 		</div>
-	</form>
-	<% }) %>
-</div>
-<% include partials/footer %>
+	</div>
+</form>
+<% }) %> <% include partials/footer %>

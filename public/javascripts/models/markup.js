@@ -9,7 +9,7 @@ export const addStepMarkup = `<div class="create__form--form--row">
 
 export const addStepDashMarkup = `
 <li class="dashboard-step-row"><form action="/api/goals/<%=goal.id%>/addstep?_method=PUT" method="POST">
-<button class="save-step-btn">
+<button class="completed-step-btn">
 <i class="fa fa-plus-circle save-step"></i></button>
 <input class="dashboard-input" type="text" name="goals[steps]" placeholder="add a new step" />
 </form>

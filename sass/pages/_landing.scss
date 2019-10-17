@@ -5,7 +5,7 @@
 	height: 100vh;
 	width: 100vw;
 	background-image: linear-gradient(217deg, rgba(59, 1, 96, 0.5), rgba(59, 1, 96, 0.4) 70.1%),
-		url('../images/backimg.jpg');
+		url('https://res.cloudinary.com/snackmanproductions/image/upload/v1571278497/progressjournal/landingpage/backimg_qsrpqq.jpg');
 	clip-path: polygon(0 0, 100% 0, 55% 100%, 0% 100%);
 	background-size: cover;
 	background-position: center;
@@ -34,8 +34,8 @@
 	text-decoration: underline;
 }
 .img-container {
-	height: 40vh;
-	width: 40vw;
+	max-height: 40vh;
+	max-width: 40vw;
 	border-right: 0.5px solid $border-color;
 	animation: slideInRight 0.5s linear;
 	z-index: 9999999;
@@ -59,4 +59,42 @@
 }
 .photo-box p {
 	color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+	.landing-background {
+		height: 100vh;
+		width: 100vw;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+		background-size: cover;
+		background-position: center;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		position: absolute;
+	}
+	.landing {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.landing form {
+		animation: 0.5s slideInLeft linear;
+		margin-bottom: 0px;
+		z-index: 999999;
+	}
+	.signup {
+		text-decoration: underline;
+	}
+	.img-container {
+		max-width: 100vw;
+		border-right: 0;
+		animation: slideInRight 0.5s linear;
+		z-index: 9999999;
+	}
+
+	.logo {
+		height: 100%;
+		width: 100%;
+	}
 }
