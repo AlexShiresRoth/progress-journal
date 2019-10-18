@@ -76,7 +76,8 @@
 	.landing {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-start;
+		padding: 2rem 0;
 	}
 	.landing form {
 		animation: 0.5s slideInLeft linear;
@@ -96,5 +97,8 @@
 	.logo {
 		height: 100%;
 		width: 100%;
+	}
+	.photo-box {
+		display: none;
 	}
 }
