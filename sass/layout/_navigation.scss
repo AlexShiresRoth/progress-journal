@@ -4,14 +4,14 @@
 	justify-content: space-around;
 	align-items: center;
 	background: $main-color;
-	width: 100vw;
+	width: 100%;
 	max-height: 7vh;
 	padding: 0;
 	margin: 0;
 	position: fixed;
 	padding: 0.3rem 0;
 	box-shadow: 0 2px 2px darken($main-color, 10%);
-	z-index: 999999999999999999999999999999999999999999999999;
+	z-index: 9999999;
 }
 .search__nav {
 	display: flex;
@@ -19,9 +19,8 @@
 	justify-content: space-around;
 	align-items: center;
 	background: $main-color;
-	min-width: 60vw;
+	min-width: 100%;
 	max-height: 7vh;
-	max-width: 70vw;
 	&--form {
 		&--row {
 			display: flex;
@@ -163,6 +162,107 @@
 			content: 'Go Back';
 			color: #fff;
 			font-size: 0.5rem;
+		}
+	}
+}
+@media screen and (max-width: 600px) {
+	.nav-container {
+		display: flex;
+		flex-direction: row;
+		max-height: 15vh;
+		width: 100%;
+	}
+	.search__nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		background: $main-color;
+		min-width: 0vw;
+		max-height: 100%;
+		max-width: 100%;
+		&--form {
+			order: 2;
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+			&--row {
+				display: flex;
+				flex-direction: row;
+				width: 80%;
+				&--icon-box {
+					display: flex;
+					padding: 0.43rem;
+					border-top-left-radius: 5px;
+					border-bottom-left-radius: 5px;
+					background: lighten($main-color, 10%);
+					border: none;
+					color: #fff;
+					transition: all 0.3s ease;
+					&:hover {
+						cursor: pointer;
+						box-shadow: 0 10px 10px lighten($main-color, 5%);
+					}
+					&:focus {
+						outline: none;
+					}
+					& i {
+						font-size: 0.7rem;
+					}
+				}
+				& input {
+					background: #fff;
+					color: #666;
+					padding: 0.4rem;
+					border-top-right-radius: 5px;
+					border-bottom-right-radius: 5px;
+					max-width: 100%;
+					width: 100%;
+				}
+			}
+		}
+		&--nav-links {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: space-around;
+			& i {
+				margin: 0 0.2rem;
+				font-size: 0.8rem;
+			}
+			& a {
+				display: flex;
+				justify-content: space-around;
+				margin: 0 1vw;
+				color: #fff;
+				transition: all 0.3s ease;
+				border-bottom: 2px solid $main-color;
+				&:hover {
+					border-bottom: 2px solid lighten($main-color, 10%);
+				}
+				& .profile {
+					font-weight: 400;
+				}
+				& span {
+					visibility: hidden;
+					width: 0;
+					display: none;
+				}
+			}
+		}
+		&--logo-container {
+			max-height: 7vh;
+			align-items: center;
+			&--nav-img-container {
+				max-height: 7vh;
+				& .logo {
+					max-height: 7vh;
+					height: 100%;
+					width: auto;
+				}
+			}
 		}
 	}
 }
