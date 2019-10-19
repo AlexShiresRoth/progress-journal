@@ -1,5 +1,13 @@
 <% include partials/header %>
-
+<div class="list__header">
+	<a href="/profile/<%=user._id%>/editprofile">
+		<button class="list__header--edit"><i class="fa fa-edit"></i></button>
+	</a>
+	<p><%= username %>'s Profile</p>
+	<a href="/profile">
+		<button class="list__header--go-back"><i class="fa fa-angle-left"></i></button
+	></a>
+</div>
 <div class="profile__container">
 	<div class="profile__display">
 		<div class="profile__display--left-column">
@@ -7,16 +15,23 @@
 				<div class="profile__display--left-column--user-info--avatar">
 					<img src="<%=profile.avatar.url%>" alt="<%=profile.username%>'s " />
 				</div>
-			</div>
-			<div class="profile__display--left-column--name-display">
-				<div class="profile__display--left-column--name-display--username">
-					<h2>@<%=profile.username%></h2>
+				<div class="profile__display--left-column--user-info--name-display">
+					<div class="profile__display--left-column--user-info--name-display--username">
+						<h2>@<%=profile.username%></h2>
+					</div>
+					<div class="profile__display--left-column--user-info--name-display--email">
+						<a href="mailto:<%=profile.email%>">
+							<i class="fa fa-envelope"></i>
+							<%=profile.email%></a
+						>
+					</div>
+					<div class="profile__display--left-column--user-info--name-display--full-name">
+						<h4><%=profile.firstname%></h4>
+						<h4><%=profile.lastname%></h4>
+					</div>
 				</div>
-				<div class="profile__display--left-column--name-display--full-name">
-					<h4><%=profile.firstname%></h4>
-					<h4><%=profile.lastname%></h4>
-				</div>
 			</div>
+
 			<div class="profile__display--left-column--bio">
 				<p><span>Bio:</span><%=profile.bio%></p>
 			</div>
@@ -41,8 +56,9 @@
 				<h2>Posts:</h2>
 				<% profile.posts.map(post => { %> <% if(post.title){ %>
 				<div class="profile__display--right-column--user-data--bubble">
-					<a href="/api/days/<%=post.id%>">
-						<%=post.title.length > 20 ? post.title.substr(0,20)+ '...' : post.title %></a
+					<a href="/api/days/<%=post.id%>"
+						><i class="fa fa-sticky-note"></i> <%=post.title.length > 20 ? post.title.substr(0,20)+ '...' :
+						post.title %></a
 					>
 				</div>
 				<% } %> <% }) %>
@@ -52,7 +68,8 @@
 				<% profile.todos.map(todo => { %>
 				<div class="profile__display--right-column--user-data--bubble">
 					<a href="/api/todos/<%=user._id%>/todos"
-						><%=todo.title.length > 20 ? todo.title.substr(0,20)+ '...' : todo.title %></a
+						><i class="fa fa-list-alt"></i> <%=todo.title.length > 20 ? todo.title.substr(0,20)+ '...' :
+						todo.title %></a
 					>
 				</div>
 				<% }) %>
@@ -62,21 +79,14 @@
 				<% profile.goals.map(goal => { %>
 				<div class="profile__display--right-column--user-data--bubble">
 					<a href="/api/goals/<%=user._id%>/goals"
-						><%=goal.title.length > 20 ? goal.title.substr(0,20)+ '...' : goal.title %></a
+						><i class="fa fa-futbol-o"></i><%=goal.title.length > 20 ? goal.title.substr(0,20)+ '...' :
+						goal.title %></a
 					>
 				</div>
 				<% }) %>
 			</div>
 		</div>
 	</div>
-	<div class="profile__container--button-row">
-		<a href="/profile/<%=user._id%>/editprofile">
-			<button class="profile__container--button-row--edit"><i class="fa fa-edit"></i>Edit Profile</button>
-		</a>
-		<a href="/profile"
-			><button class="profile__container--button-row--back"><i class="fa fa-angle-left"></i> Dashboard</button></a
-		>
-	</div>
-</div>
 
-<% include partials/footer %>
+	<% include partials/footer %>
+</div>

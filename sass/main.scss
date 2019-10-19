@@ -70,3 +70,38 @@ h3 {
 .red {
 	color: red;
 }
+.content {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 2rem;
+	width: 100%;
+	padding: 10vh 0;
+	justify-items: center;
+}
+.main-container {
+	background-color: #eeeeee;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233b0160' fill-opacity='0.02'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+	overflow-x: hidden;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+	.content {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 2rem;
+		width: 100%;
+		padding: 20vh 0;
+		justify-items: center;
+	}
+	.main-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 90vh;
+	}
+}

@@ -135,6 +135,35 @@
 			font-size: 0.5rem;
 		}
 	}
+	&--edit {
+		color: #fff;
+		font-size: 1.1rem;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		height: 100%;
+		padding: 0.5rem;
+		background: $accent-color;
+		border: 1px solid $accent-color;
+		transition: all 0.3s ease-in-out;
+		max-width: 5rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		&:hover {
+			max-width: 8rem;
+			background: $accent-color;
+			padding: 0.5rem;
+			cursor: pointer;
+			color: #fff;
+			border: 1px solid $accent-color;
+			transition: all 0.3s ease-in-out;
+		}
+		&:hover::after {
+			content: 'Edit Profile';
+			color: #fff;
+			font-size: 0.5rem;
+		}
+	}
 	&--go-back {
 		color: lighten($main-color, 10%);
 		font-size: 1.1rem;
@@ -166,6 +195,10 @@
 	}
 }
 @media screen and (max-width: 600px) {
+	.list__header {
+		min-width: 80vw;
+		max-width: 90vw;
+	}
 	.nav-container {
 		display: flex;
 		flex-direction: row;
