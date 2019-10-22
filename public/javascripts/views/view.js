@@ -8,7 +8,7 @@ export const newPostClosure = () => {
 			selectors.dayText.addEventListener('keyup', () => {
 				let length = selectors.dayText.value.length;
 				selectors.charCount.textContent = length;
-				if (length > 199) {
+				if (length < 200) {
 					selectors.charCount.classList.remove('red');
 					selectors.charCount.classList.add('green');
 				} else {

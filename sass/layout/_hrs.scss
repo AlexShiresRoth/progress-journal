@@ -1,22 +1,22 @@
 /*=====================
 =======HR============*/
 
-.custom-hr{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items:center;
-  width: 100%;
-  height:10px;
+.custom-hr {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	height: 10px;
 }
 
-.line{
-  margin: 2px;
-  height:1px;
-  width:100%;
-  background-color: $border-color;
+.line {
+	margin: 2px;
+	height: 1px;
+	width: 100%;
+	background-color: lighten($main-color, 10%);
 }
-.inter{
-  color: $accent-color;
-  font-size:1.5em;
+.inter {
+	color: $accent-color;
+	font-size: 1.5em;
 }

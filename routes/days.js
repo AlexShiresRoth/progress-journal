@@ -51,7 +51,7 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, async (req, res, next
 
 	if (mood) dayPostFields.mood = mood;
 	if (title) dayPostFields.title = title;
-	if (text) dayPostFields.text = text;
+	if (text && text.length < 200) dayPostFields.text = text;
 
 	dayPostFields.date = format(new Date(), 'EEEEEE MMMM do');
 
