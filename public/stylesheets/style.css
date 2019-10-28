@@ -418,9 +418,9 @@ option:focus {
   align-items: center;
   background: #3b0160;
   width: 100%;
-  max-height: 7vh;
   padding: 0;
   margin: 0;
+  min-height: 7vh;
   position: fixed;
   padding: 0.3rem 0;
   box-shadow: 0 2px 2px #1c002e;
@@ -432,8 +432,7 @@ option:focus {
   justify-content: space-around;
   align-items: center;
   background: #3b0160;
-  min-width: 100%;
-  max-height: 7vh; }
+  min-width: 100%; }
   .search__nav--form--row {
     display: flex;
     flex-direction: row; }
@@ -463,7 +462,6 @@ option:focus {
   .search__nav--nav-links {
     display: flex;
     flex-direction: row;
-    align-items: space-around;
     justify-content: space-around; }
     .search__nav--nav-links i {
       margin: 0 0.2rem;
@@ -471,6 +469,7 @@ option:focus {
     .search__nav--nav-links a {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       margin: 0 1vw;
       color: #fff;
       transition: all 0.3s ease;
@@ -480,14 +479,9 @@ option:focus {
       .search__nav--nav-links a .profile {
         font-weight: 400; }
   .search__nav--logo-container {
-    max-height: 7vh;
     align-items: center; }
-    .search__nav--logo-container--nav-img-container {
-      max-height: 7vh; }
-      .search__nav--logo-container--nav-img-container .logo {
-        max-height: 7vh;
-        height: 100%;
-        width: auto; }
+    .search__nav--logo-container--nav-img-container .logo {
+      max-width: 4rem; }
 
 .list__header {
   display: flex;
@@ -525,7 +519,7 @@ option:focus {
       border: 1px solid dodgerblue;
       transition: all 0.3s ease-in-out; }
     .list__header--add-new:hover::after {
-      content: 'Add New';
+      content: "Add New";
       color: #fff;
       font-size: 0.5rem; }
   .list__header--edit {
@@ -551,7 +545,7 @@ option:focus {
       border: 1px solid dodgerblue;
       transition: all 0.3s ease-in-out; }
     .list__header--edit:hover::after {
-      content: 'Edit Profile';
+      content: "Edit Profile";
       color: #fff;
       font-size: 0.5rem; }
   .list__header--go-back {
@@ -577,7 +571,7 @@ option:focus {
       color: #fff;
       border: 1px solid dodgerblue; }
     .list__header--go-back:hover::before {
-      content: 'Go Back';
+      content: "Go Back";
       color: #fff;
       font-size: 0.5rem; }
 
@@ -791,7 +785,6 @@ ul.pagination li:hover {
   align-items: center;
   margin: 1rem;
   min-width: 38rem;
-  max-height: 10rem;
   max-width: 38rem;
   background: #f7f7f7;
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
@@ -800,41 +793,49 @@ ul.pagination li:hover {
   .post:hover {
     box-shadow: 0 2rem 2.5rem rgba(0, 0, 0, 0.2);
     transform: translateY(-0.2vh); }
-
-.post-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%; }
-  .post-header h3 a {
-    transition: all 0.3s ease-in-out; }
-    .post-header h3 a:hover {
-      color: #7909a5;
-      border-bottom: 1px solid #7909a5; }
-
-.date {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  width: 100%; }
-
-.post-description {
-  display: flex;
-  flex-direction: column;
-  border-left: 0.5px solid #bc6fdb;
-  padding: 1.5rem;
-  width: 100%; }
-
-.post-description a,
-.post-description h3 {
-  color: #444; }
-
-.post-description p {
-  color: #666;
-  align-self: center;
-  font-size: 0.75em; }
+  .post .post__description {
+    display: flex;
+    flex-direction: column;
+    border-left: 0.5px solid rgba(121, 9, 165, 0.5);
+    width: 100%; }
+    .post .post__description a,
+    .post .post__description h3,
+    .post .post__description h4 {
+      color: #444; }
+    .post .post__description p {
+      color: #666;
+      align-self: center;
+      font-size: 0.75em; }
+    .post .post__description--text {
+      padding: 0.5rem; }
+      .post .post__description--text--rating {
+        margin: 0.5rem 0; }
+    .post .post__description--header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 0.5rem;
+      border-bottom: 0.5px solid rgba(121, 9, 165, 0.5); }
+      .post .post__description--header--user {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center; }
+        .post .post__description--header--user i {
+          display: flex;
+          flex-direction: row;
+          color: #7909a5;
+          border-radius: 50%;
+          font-size: 1rem;
+          align-items: center;
+          justify-content: center; }
+      .post .post__description--header h3 a {
+        transition: all 0.3s ease-in-out; }
+        .post .post__description--header h3 a:hover {
+          color: #7909a5;
+          border-bottom: 1px solid #7909a5; }
 
 .post-img {
   display: flex;
@@ -2754,7 +2755,7 @@ h3 {
   grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
   width: 100%;
-  padding: 10vh 0;
+  padding: 4rem 0;
   justify-items: center; }
 
 .main-container {
