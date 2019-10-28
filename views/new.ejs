@@ -1,23 +1,22 @@
 <% include partials/header %>
 
-<form action="/api/days" method="post" class="form">
-	<div class="form-header">
+<form action="/api/days" method="post" class="form__new">
+	<div class="form__new--header">
 		<h1>New Journal Entry</h1>
-		<div class="line"></div>
 	</div>
-	<div class="input-container">
-		<div class="input-div">
-			<label for="title">Please Give this Post a Title.</label>
+	<div class="form__new--input-container">
+		<div class="form__new--input-container--input title">
+			<label for="title"><span><%= currentUser %></span>, Please Give this Post a Title.</label>
 			<input
 				type="text"
 				class="title"
 				name="day[title]"
-				placeholder="Running in the forest"
-				maxlength="60"
+				placeholder="Ex. Bought a new car."
+				maxlength="80"
 				required
 			/>
 		</div>
-		<div class="input-div">
+		<div class="form__new--input-container--input">
 			<label for="mood">How Would You Rate Your Day?</label>
 			<select name="day[mood]" class="mood" required>
 				<option value="5">Great!</option>
@@ -28,7 +27,7 @@
 				<option value="0">Bad</option>
 			</select>
 		</div>
-		<div class="input-div">
+		<div class="form__new--input-container--input">
 			<label for="body"
 				>Describe your day in at most 200 characters...(Currently:<span class="char-display red">0</span
 				>)</label
@@ -39,7 +38,9 @@
 				class="body"
 				maxlength="200"
 				minlength="50"
+				rows="7"
 				id="day-text"
+				placeholder="Ex. The car is siiiiiiiiick"
 				required
 			></textarea>
 		</div>
@@ -48,6 +49,8 @@
 			<div class="inter">&</div>
 			<div class="line"></div>
 		</div>
+	</div>
+	<div class="form__new--button-container">
 		<button class="full-btn">Submit</button>
 	</div>
 </form>

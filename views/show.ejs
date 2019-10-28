@@ -1,32 +1,50 @@
 <% include partials/header %>
-
-<div class="day-display">
-	<div class="show-header">
-		<h1><%= day.title %></h1>
-		<% if(day.mood == 5 ) { %>
-		<h3>Day Rating: <span class="day-rating green">Great! </span></h3>
-		<% } %> <% if(day.mood == 4 ) { %>
-		<h3>Day Rating: <span class="day-rating green">Good </span></h3>
-		<% } %> <% if(day.mood == 3 ) { %>
-		<h3>Day Rating: <span class="day-rating green">Pretty Good</span></h3>
-		<% } %> <% if(day.mood == 2 ) { %>
-		<h3>Day Rating: <span class="day-rating orange">Eh </span></h3>
-		<% } %> <% if(day.mood == 1 ) { %>
-		<h3>Day Rating: <span class="day-rating orange">Not Great </span></h3>
-		<% } %> <% if(day.mood == 0 ) { %>
-		<h3>Day Rating: <span class="day-rating red">Bad! </span></h3>
-		<% } %>
+<div class="post">
+	<div class="post-img">
+		<% if(day.mood == 5 ) { %> <i class="fa fa-smile-o green large"></i> <% } %> <% if(day.mood == 4 ) { %>
+		<i class="fa fa-smile-o green large"></i> <% } %> <% if(day.mood == 3 ) { %>
+		<i class="fa fa-smile-o green large"></i> <% } %> <% if(day.mood == 2 ) { %>
+		<i class="fa fa-meh-o orange large"></i> <% } %> <% if(day.mood == 1 ) { %>
+		<i class="fa fa-frown-o orange large"></i> <% } %> <% if(day.mood == 0 ) { %>
+		<i class="fa fa-frown-o red large"></i> <% } %>
 	</div>
-	<div class="show-lower-header">
-		<p>Written by:<%= day.author %></p>
-		<p><%= day.date%></p>
-	</div>
-	<p class="text"><%= day.text %></p>
-	<div class="show-buttons">
-		<a href="/api/days/<%=day.id %>/edit"><button class="edit-button">Edit</button></a>
-		<form action="/api/days/<%=day.id %>/remove?_method=PUT" method="POST">
-			<button class="delete-button">Delete</button>
-		</form>
+	<div class="post__description">
+		<div class="post__description--header">
+			<div class="post__description--header--user">
+				<a href="/api/days/<%=day.id %>"
+					><h3><span><%= day.author.username %></span>: <%= day.title %></h3>
+				</a>
+			</div>
+			<h3><a href="/api/days/<%=day.id%>">Posted:<%= day.date %></a></h3>
+		</div>
+		<div class="post__description--text">
+			<div class="post__description--text--rating">
+				<% if(day.mood == 5 ) { %>
+				<h4>Day Rating: <span class="day-rating green">Great! </span></h4>
+				<% } %> <% if(day.mood == 4 ) { %>
+				<h4>Day Rating: <span class="day-rating green">Good </span></h4>
+				<% } %> <% if(day.mood == 3 ) { %>
+				<h4>Day Rating: <span class="day-rating green">Pretty Good </span></h4>
+				<% } %> <% if(day.mood == 2 ) { %>
+				<h4>Day Rating: <span class="day-rating orange">Eh </span></h4>
+				<% } %> <% if(day.mood == 1 ) { %>
+				<h4>Day Rating: <span class="day-rating orange">Not Great </span></h4>
+				<% } %> <% if(day.mood == 0 ) { %>
+				<h4>Day Rating: <span class="day-rating red">Bad! </span></h4>
+				<% } %>
+			</div>
+			<div class="post__description--text--content">
+				<p><%= day.text%></p>
+			</div>
+		</div>
+		<div class="post__description--show-buttons">
+			<a href="/api/days/<%=day.id %>/edit"
+				><button class="edit-button"><i class="fa fa-pencil"></i> Edit</button></a
+			>
+			<form action="/api/days/<%=day.id %>/remove?_method=PUT" method="POST">
+				<button class="delete-button"><i class="fa fa-trash"></i>Delete</button>
+			</form>
+		</div>
 	</div>
 </div>
 

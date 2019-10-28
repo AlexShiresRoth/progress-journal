@@ -5,15 +5,14 @@
 
 @import 'layout/buttons';
 @import 'layout/forms';
+@import 'layout/posts';
 @import 'layout/hrs';
 @import 'layout/navigation';
 @import 'layout/pagination';
 @import 'layout/footer';
 
-@import 'pages/index';
 @import 'pages/landing';
 @import 'pages/listpage';
-@import 'pages/show';
 @import 'pages/dashboard';
 @import 'pages/tododash';
 @import 'pages/userprofile';
@@ -76,7 +75,7 @@ h3 {
 	grid-template-columns: repeat(1, 1fr);
 	gap: 2rem;
 	width: 100%;
-	padding:4rem 0;
+	padding: 4rem 0;
 	justify-items: center;
 }
 .main-container {

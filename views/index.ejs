@@ -24,8 +24,7 @@
           <div class="post__description">
             <div class="post__description--header">
                <div class="post__description--header--user">
-                  <i class="fa fa-user"></i>
-                <a href="/api/days/<%=day.id %>"><h3><%= day.author.username %>: <%= day.title %> </h3> </a>
+                <a href="/api/days/<%=day.id %>"><h3><span><%= day.author.username %></span>: <%= day.title %> </h3> </a>
                </div>
               <h3><a href="/api/days/<%=day.id%>">Posted:<%= day.date %></a></h3>
             </div>
