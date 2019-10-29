@@ -35,11 +35,12 @@ router.get('/', middleware.isLoggedIn, async (req, res, next) => {
 //Private
 router.get('/new', middleware.isLoggedIn, middleware.isUser, async (req, res, next) => {
 	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+	const currentDay = format(new Date(), 'EEEEEE MMMM do');
 	if (!foundProfile) {
 		req.flash('error', 'You must create a profile to create posts!');
 		res.redirect('back');
 	}
-	res.render('new', { title: 'new Route', user: req.user._id, currentUser: req.user.username });
+	res.render('new', { title: 'new Route', user: req.user._id, currentUser: req.user.username, currentDay });
 });
 
 //Create the post

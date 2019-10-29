@@ -5,16 +5,22 @@ import { addStepMarkup, addStepDashMarkup } from '../models/markup';
 export const newPostClosure = () => {
 	const countCharacters = () => {
 		if (selectors.dayText !== null) {
-			selectors.dayText.addEventListener('keyup', () => {
-				let length = selectors.dayText.value.length;
-				selectors.charCount.textContent = length;
-				if (length < 200) {
-					selectors.charCount.classList.remove('red');
-					selectors.charCount.classList.add('green');
-				} else {
-					selectors.charCount.classList.remove('green');
-					selectors.charCount.classList.add('red');
-				}
+			const eventArr = [
+				{ listener: selectors.dayText, event: 'keyup' },
+				{ listener: window, event: 'DOMContentLoaded' },
+			];
+			eventArr.forEach(item => {
+				item.listener.addEventListener(item.event, () => {
+					let length = selectors.dayText.value.length;
+					selectors.charCount.textContent = length;
+					if (length < 200 && length > 50) {
+						selectors.charCount.classList.remove('red');
+						selectors.charCount.classList.add('green');
+					} else {
+						selectors.charCount.classList.remove('green');
+						selectors.charCount.classList.add('red');
+					}
+				});
 			});
 		}
 	};
