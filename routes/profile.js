@@ -199,34 +199,33 @@ router.put('/:id', middleware.isLoggedIn, middleware.isUser, parser.single('prof
 		url: req.file ? req.file.url : foundProfile.avatar.url,
 		id: req.file ? req.file.public_id : foundProfile.avatar.id,
 	};
-
-	await foundProfile.update(
-		{
-			$set: {
-				social: update.social,
-				username: update.username,
-				firstname: update.firstname,
-				lastname: update.lastname,
-				avatar: update.avatar,
-				email: update.email,
-				bio: update.bio,
-				avatar: {
-					url: update.avatar.url,
-					id: update.avatar.id,
+	try {
+		await foundProfile.update(
+			{
+				$set: {
+					social: update.social,
+					username: update.username,
+					firstname: update.firstname,
+					lastname: update.lastname,
+					avatar: update.avatar,
+					email: update.email,
+					bio: update.bio,
+					avatar: {
+						url: update.avatar.url,
+						id: update.avatar.id,
+					},
 				},
 			},
-		},
-		{ upsert: true, new: true },
-		(err, editedProfile) => {
-			if (err) {
-				req.flash('error', err.message);
-				res.redirect('back');
-			} else {
-				req.flash('success', 'Your profile was updated!');
-				res.redirect('/profile/:id');
-			}
+			{ upsert: true, new: true }
+		);
+		req.flash('success', 'Your profile was updated!');
+		res.redirect('/profile/:id');
+	} catch (error) {
+		if (error) {
+			req.flash('error', error.message);
+			res.redirect('back');
 		}
-	);
+	}
 });
 
 module.exports = router;

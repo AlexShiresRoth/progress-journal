@@ -125,12 +125,11 @@
 @media screen and (max-width: 600px) {
 	.edit__post {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
 		margin: 0rem;
 		min-width: 0rem;
-		max-height: 15rem;
-		max-width: 100%;
+		max-height: 90vh;
 		background: #f7f7f7;
 		box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
 		border-radius: 5px;
