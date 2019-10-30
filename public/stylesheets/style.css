@@ -1812,11 +1812,30 @@ input.list-input {
             transition: all 0.3s ease-in-out; }
             .profile__display--left-column--social ul li a:hover {
               color: #5a0292; }
+  .profile__display--input-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; }
+    .profile__display--input-column label {
+      color: dodgerblue;
+      font-size: 0.45rem; }
+    .profile__display--input-column input {
+      border: 0;
+      border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
+      padding: 0.3rem;
+      font-size: 16px;
+      color: #222; }
+  .profile__display--right-column-edit {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(auto);
+    width: 100%;
+    box-shadow: 0 5px 5px #e6e6e6;
+    padding: .5rem; }
   .profile__display--right-column {
     display: grid;
     grid-template-columns: repeat(1, 100%);
     grid-template-rows: repeat(auto);
-    justify-items: center;
     width: 100%; }
     .profile__display--right-column--user-data {
       box-shadow: 0 5px 5px #e6e6e6;
