@@ -1,9 +1,10 @@
 ////active/passive styles//////////////////
 @mixin hidden {
-	display: hidden;
 	visibility: hidden;
 	max-height: 0;
 	opacity: 0;
+	padding: 0;
+	margin: 0;
 }
 //UTILITIES
 @mixin flex-row-center {

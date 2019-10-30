@@ -1,23 +1,23 @@
 /*=========================
 ========Alerts=============
 =========================*/
-.success{
-  background-color:rgba(23, 233, 225, .2);
-  color: #fff;
-  padding: 5px 0;
-  width: 60%;
-  border-radius: 5px;
-  text-align: center;
-  border: 2px solid $accent-color;
-  align-self:center;
+.success {
+	background-color: $success-green-faded;
+	color: #fff;
+	padding: 5px 0;
+	width: 60%;
+	border-radius: 5px;
+	text-align: center;
+	border: 1px solid $success-green;
+	align-self: center;
 }
-.error{
-  background-color:rgba(255, 0, 0, .2);
-  color: #fff;
-  padding: 5px 0;
-  width: 60%;
-  border-radius: 5px;
-  text-align: center;
-  border: 2px solid red;
-  align-self: center;
+.error {
+	background-color: $alert-red-faded;
+	color: #fff;
+	padding: 5px 0;
+	width: 60%;
+	border-radius: 5px;
+	text-align: center;
+	border: 1px solid $alert-red;
+	align-self: center;
 }

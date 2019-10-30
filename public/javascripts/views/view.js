@@ -13,7 +13,7 @@ export const newPostClosure = () => {
 				item.listener.addEventListener(item.event, () => {
 					let length = selectors.dayText.value.length;
 					selectors.charCount.textContent = length;
-					if (length < 200 && length > 50) {
+					if (length <= 200 && length >= 50) {
 						selectors.charCount.classList.remove('red');
 						selectors.charCount.classList.add('green');
 					} else {
