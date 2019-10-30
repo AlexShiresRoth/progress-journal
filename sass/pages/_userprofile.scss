@@ -1,365 +1,388 @@
 .profile__container {
-	max-width: 60vw;
-	border-radius: 10px;
-	background: #f7f7f7;
-	box-shadow: 0px 5px 5px darken(#fff, 10%);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 1rem;
-	&--button-row {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		justify-items: center;
-		margin: 1rem 0;
-		&--edit {
-			background: transparent;
-			border: none;
-			color: dodgerblue;
-			align-items: center;
-			& i {
-				color: $main-color;
-				font-size: 0.8rem;
-			}
-			&:hover {
-				cursor: pointer;
-			}
-		}
-		&--back {
-			background: transparent;
-			border: none;
-			color: dodgerblue;
-			align-items: center;
-			& i {
-				color: $main-color;
-				font-size: 0.8rem;
-			}
-			&:hover {
-				cursor: pointer;
-			}
-		}
-	}
+  max-width: 60vw;
+  border-radius: 10px;
+  background: #f7f7f7;
+  box-shadow: 0px 5px 5px darken(#fff, 10%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  &--button-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    margin: 1rem 0;
+    &--edit {
+      background: transparent;
+      border: none;
+      color: dodgerblue;
+      align-items: center;
+      & i {
+        color: $main-color;
+        font-size: 0.8rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &--back {
+      background: transparent;
+      border: none;
+      color: dodgerblue;
+      align-items: center;
+      & i {
+        color: $main-color;
+        font-size: 0.8rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .profile__display {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	justify-items: center;
-	gap: 2rem;
-	&--left-column {
-		display: grid;
-		grid-template-columns: repeat(1, 100%);
-		grid-template-rows: repeat(4, auto);
-		align-content: center;
-		width: 100%;
-		gap: 1rem;
-		box-shadow: 0 5px 5px darken(#fff, 10%);
-		border-radius: 5px;
-		margin: 0.5rem;
-		padding: 0.5rem;
-		&--user-info {
-			border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-			align-items: center;
-			&--avatar {
-				max-width: 6rem;
-				& img {
-					max-width: 6rem;
-					border-radius: 50%;
-					border: 5px solid rgba(30, 144, 255, 0.2);
-				}
-			}
-			&--name-display {
-				display: grid;
-				grid-template-columns: 1fr;
-				grid-auto-rows: auto;
-				gap: 0.5rem;
-				padding: 0.5rem;
-				&--username {
-					display: flex;
-					flex-direction: row;
-					justify-content: flex-start;
-					align-items: center;
-					& h2 {
-						color: dodgerblue;
-					}
-				}
-				&--full-name {
-					display: flex;
-					flex-direction: row;
-					justify-content: flex-start;
-					& h4 {
-						color: #222;
-						margin: 0 0.2rem;
-					}
-				}
-				&--email {
-					display: flex;
-					flex-direction: row;
-					justify-content: flex-start;
-					& a {
-						color: $secondary-color;
-						& i {
-							color: $secondary-color;
-						}
-					}
-				}
-			}
-		}
-		&--bio {
-			border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
-			padding: 0.5rem 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			color: #222;
-		}
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 2rem;
+  &--left-column {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(4, auto);
+    align-content: center;
+    width: 100%;
+    gap: 1rem;
+    box-shadow: 0 5px 5px darken(#fff, 10%);
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    &--user-info {
+      border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      &--avatar {
+        max-width: 6rem;
+        & img {
+          max-width: 6rem;
+          border-radius: 50%;
+          border: 5px solid rgba(30, 144, 255, 0.2);
+        }
+      }
+      &--name-display {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        &--username {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          & h2 {
+            color: dodgerblue;
+          }
+        }
+        &--full-name {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          & h4 {
+            color: #222;
+            margin: 0 0.2rem;
+          }
+        }
+        &--email {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          & a {
+            color: $secondary-color;
+            & i {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+    &--bio {
+      border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
+      padding: 0.5rem 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color: #222;
+    }
 
-		&--social {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			& ul {
-				display: flex;
-				flex-direction: row;
-				padding: 0;
-				& li {
-					list-style: none;
-					& a {
-						color: $secondary-color;
-						font-size: 1.5rem;
-						transition: all 0.3s ease-in-out;
-						&:hover {
-							color: lighten($main-color, 10%);
-						}
-					}
-				}
-			}
-		}
-	}
-	&--right-column {
-		display: grid;
-		grid-template-columns: repeat(1, 100%);
-		grid-template-rows: repeat(auto);
-		justify-items: center;
-		width: 100%;
-		&--user-data {
-			box-shadow: 0 5px 5px darken(#fff, 10%);
-			width: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			border-radius: 5px;
-			margin: 0.5rem;
-			padding: 0.5rem;
-			& h2 {
-				color: dodgerblue;
-			}
-			&--bubble {
-				margin: 0.2rem;
-				border-bottom: 0.5px solid transparent;
-				transition: all 0.3s ease-in-out;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				&:hover {
-					cursor: pointer;
-					border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
-				}
-				& a {
-					color: $secondary-color;
-				}
-			}
-		}
-	}
+    &--social {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      & ul {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        & li {
+          list-style: none;
+          & a {
+            color: $secondary-color;
+            font-size: 1.5rem;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              color: lighten($main-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+  &--input-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & label {
+      color: $accent-color;
+      font-size: 0.45rem;
+    }
+    & input {
+      border: 0;
+      border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
+      padding: 0.3rem;
+      font-size: 16px;
+      color: #222;
+    }
+  }
+  &--right-column-edit {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(auto);
+	width: 100%;
+	box-shadow: 0 5px 5px darken(#fff, 10%);
+	padding: .5rem
+  }
+  &--right-column {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(auto);
+    width: 100%;
+    &--user-data {
+      box-shadow: 0 5px 5px darken(#fff, 10%);
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      border-radius: 5px;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      & h2 {
+        color: dodgerblue;
+      }
+      &--bubble {
+        margin: 0.2rem;
+        border-bottom: 0.5px solid transparent;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          cursor: pointer;
+          border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
+        }
+        & a {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
-	.profile__container {
-		max-width: 90vw;
-		border-radius: 10px;
-		background: #fff;
-		box-shadow: 0px 5px 5px darken(#fff, 10%);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: 1rem;
-		&--button-row {
-			display: grid;
-			grid-template-columns: repeat(1, 1fr);
-			justify-items: center;
-			margin: 1rem 0;
-			&--edit {
-				background: transparent;
-				border: none;
-				color: dodgerblue;
-				align-items: center;
-				& i {
-					color: $main-color;
-					font-size: 0.8rem;
-				}
-				&:hover {
-					cursor: pointer;
-				}
-			}
-			&--back {
-				background: transparent;
-				border: none;
-				color: dodgerblue;
-				align-items: center;
-				& i {
-					color: $main-color;
-					font-size: 0.8rem;
-				}
-				&:hover {
-					cursor: pointer;
-				}
-			}
-		}
-	}
+  .profile__container {
+    max-width: 90vw;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 5px 5px darken(#fff, 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    &--button-row {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+      margin: 1rem 0;
+      &--edit {
+        background: transparent;
+        border: none;
+        color: dodgerblue;
+        align-items: center;
+        & i {
+          color: $main-color;
+          font-size: 0.8rem;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &--back {
+        background: transparent;
+        border: none;
+        color: dodgerblue;
+        align-items: center;
+        & i {
+          color: $main-color;
+          font-size: 0.8rem;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 
-	.profile__display {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		justify-items: center;
-		gap: 2rem;
-		&--left-column {
-			display: grid;
-			grid-template-columns: repeat(1, 100%);
-			grid-template-rows: repeat(4, auto);
-			align-content: center;
-			width: 100%;
-			gap: 1rem;
-			box-shadow: 0 5px 5px #eee;
-			border-radius: 5px;
-			margin: 0.5rem;
-			padding: 0.5rem;
-			&--user-info {
-				border-bottom: 1px solid #eee;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-around;
-				align-items: center;
-				&--avatar {
-					max-width: 6rem;
-					& img {
-						max-width: 6rem;
-						border-radius: 50%;
-						border: 5px solid rgba(30, 144, 255, 0.5);
-					}
-				}
-				&--name-display {
-					display: grid;
-					grid-template-columns: 1fr;
-					grid-auto-rows: auto;
-					gap: 0.5rem;
-					padding: 0.5rem;
-					&--username {
-						display: flex;
-						flex-direction: row;
-						justify-content: center;
-						align-items: center;
-						& h2 {
-							color: dodgerblue;
-						}
-					}
-					&--full-name {
-						display: flex;
-						flex-direction: row;
-						justify-content: center;
-						& h4 {
-							color: #666;
-							margin: 0 0.2rem;
-						}
-					}
-					&--email {
-						display: flex;
-						flex-direction: row;
-						justify-content: center;
-						& a {
-							color: $secondary-color;
-							& i {
-								color: $secondary-color;
-							}
-						}
-					}
-				}
-			}
-			&--bio {
-				border-bottom: 1px solid #eee;
-				padding: 0.5rem 0;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				color: #222;
-			}
+  .profile__display {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    gap: 2rem;
+    &--left-column {
+      display: grid;
+      grid-template-columns: repeat(1, 100%);
+      grid-template-rows: repeat(4, auto);
+      align-content: center;
+      width: 100%;
+      gap: 1rem;
+      box-shadow: 0 5px 5px #eee;
+      border-radius: 5px;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      &--user-info {
+        border-bottom: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        &--avatar {
+          max-width: 6rem;
+          & img {
+            max-width: 6rem;
+            border-radius: 50%;
+            border: 5px solid rgba(30, 144, 255, 0.5);
+          }
+        }
+        &--name-display {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-auto-rows: auto;
+          gap: 0.5rem;
+          padding: 0.5rem;
+          &--username {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            & h2 {
+              color: dodgerblue;
+            }
+          }
+          &--full-name {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            & h4 {
+              color: #666;
+              margin: 0 0.2rem;
+            }
+          }
+          &--email {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            & a {
+              color: $secondary-color;
+              & i {
+                color: $secondary-color;
+              }
+            }
+          }
+        }
+      }
+      &--bio {
+        border-bottom: 1px solid #eee;
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: #222;
+      }
 
-			&--social {
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				& ul {
-					display: flex;
-					flex-direction: row;
-					padding: 0;
-					& li {
-						list-style: none;
-						& a {
-							color: $main-color;
-							font-size: 1.5rem;
-							transition: all 0.3s ease-in-out;
-							&:hover {
-								color: $secondary-color;
-							}
-						}
-					}
-				}
-			}
-		}
-		&--right-column {
-			display: grid;
-			grid-template-columns: repeat(1, 100%);
-			grid-template-rows: repeat(auto);
-			justify-items: center;
-			width: 100%;
-			&--user-data {
-				box-shadow: 0 5px 5px #eee;
-				width: 100%;
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-				border-radius: 5px;
-				margin: 0.5rem;
-				padding: 0.5rem;
-				& h2 {
-					color: dodgerblue;
-				}
-				&--bubble {
-					margin: 0.2rem;
-					border-bottom: 1px solid transparent;
-					color: $secondary-color;
-					transition: all 0.3s ease-in-out;
-					border-radius: 5px;
-					display: flex;
-					flex-direction: row;
-					justify-content: center;
-					align-items: center;
-					&:hover {
-						cursor: pointer;
-						border-bottom: 1px solid $secondary-color;
-					}
-					& a {
-						color: $secondary-color;
-					}
-				}
-			}
-		}
-	}
+      &--social {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        & ul {
+          display: flex;
+          flex-direction: row;
+          padding: 0;
+          & li {
+            list-style: none;
+            & a {
+              color: $main-color;
+              font-size: 1.5rem;
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                color: $secondary-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    &--right-column {
+      display: grid;
+      grid-template-columns: repeat(1, 100%);
+      grid-template-rows: repeat(auto);
+      justify-items: center;
+      width: 100%;
+      &--user-data {
+        box-shadow: 0 5px 5px #eee;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border-radius: 5px;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        & h2 {
+          color: dodgerblue;
+        }
+        &--bubble {
+          margin: 0.2rem;
+          border-bottom: 1px solid transparent;
+          color: $secondary-color;
+          transition: all 0.3s ease-in-out;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid $secondary-color;
+          }
+          & a {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
 }
