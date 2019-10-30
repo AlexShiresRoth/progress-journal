@@ -4,8 +4,8 @@
 		><button class="list__header--add-new">
 			<i class="fa fa-plus-circle"></i></button
 	></a>
-	<p>Edit Your Profile</p>
-	<a href="/profile/<%= user._id %>">
+	<p>Change Avatar Picture</p>
+	<a href="/profile/<%= user._id %>/editprofile">
 		<button class="list__header--go-back">
 			<i class="fa fa-angle-left"></i></button
 	></a>
@@ -23,9 +23,14 @@
 					<img src="<%=profile.avatar.url%>" alt="<%=profile.username%>'s " />
 				</div>
 				<div class="profile__display--input-column">
-					<a href="/profile/<%= user._id%>/editprofile/changeavatar"
-						><i class="fa fa-plus-circle"></i>Change Avatar</a
-					>
+					<label for="avatar">Choose New Avatar</label>
+					<input
+						name="profile[avatar]"
+						type="file"
+						value="<%=profile.avatar.url%>"
+						placeholder="<%=profile.avatar.url%>"
+						required
+					/>
 				</div>
 			</div>
 			<div class="profile__display--input-column">
@@ -64,7 +69,7 @@
 				<input name="profile[lastname]" type="text" value="<%=profile.lastname%>" />
 			</div>
 		</div>
-		<button class="full-btn">Submit Edits</button>
+		<button class="full-btn">Submit New Avatar</button>
 	</form>
 </div>
 <% include partials/footer %>

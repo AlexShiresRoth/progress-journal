@@ -1531,6 +1531,7 @@ button:focus {
       -ms-flex-align: center;
           align-items: center;
   color: #fff;
+  font-size: 700;
   max-height: 7vh;
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 3px #ddd;
@@ -3416,17 +3417,40 @@ input.list-input {
           align-items: flex-start;
 }
 
+.profile__display--input-column a {
+  color: dodgerblue;
+}
+
 .profile__display--input-column label {
   color: dodgerblue;
   font-size: 0.45rem;
 }
 
 .profile__display--input-column input {
-  border: 0;
-  border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
+  border: 2px solid transparent;
+  border-bottom: 2px solid rgba(121, 9, 165, 0.5);
   padding: 0.3rem;
   font-size: 16px;
   color: #222;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.profile__display--input-column input:focus {
+  outline: 0px solid transparent;
+  -webkit-box-shadow: 0 6px 6px rgba(86, 6, 117, 0.7);
+          box-shadow: 0 6px 6px rgba(86, 6, 117, 0.7);
+  border: 2px solid rgba(121, 9, 165, 0.8);
+  border-radius: 5px;
+}
+
+.profile__display--input-column input:hover {
+  outline: 0px solid transparent;
+  border: 2px solid rgba(121, 9, 165, 0.8);
+  -webkit-box-shadow: 0 6px 6px rgba(86, 6, 117, 0.7);
+          box-shadow: 0 6px 6px rgba(86, 6, 117, 0.7);
+  border-radius: 5px;
 }
 
 .profile__display--right-column-edit {
@@ -3439,7 +3463,8 @@ input.list-input {
   width: 100%;
   -webkit-box-shadow: 0 5px 5px #e6e6e6;
           box-shadow: 0 5px 5px #e6e6e6;
-  padding: .5rem;
+  padding: 0 0.5rem;
+  border-radius: 5px;
 }
 
 .profile__display--right-column {

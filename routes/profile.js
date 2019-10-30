@@ -64,7 +64,6 @@ router.get('/:id/createprofile', middleware.isLoggedIn, middleware.isUser, (req,
 //GET User Profile
 //Private Access
 router.get('/:id', middleware.isLoggedIn, middleware.isUser, (req, res) => {
-	console.log(req.user.username);
 	try {
 		Profile.findOne({ 'userprofile.username': req.user.username }, (err, foundProfile) => {
 			if (err) throw err;
@@ -140,8 +139,8 @@ router.post('/', middleware.isLoggedIn, middleware.isUser, parser.single('profil
 
 //Get Edit Profile Page
 //Private Access
-router.get('/:id/editprofile', middleware.isLoggedIn, middleware.isUser, (req, res) => {
-	Profile.findOne({ 'userprofile.username': req.user.username }, (err, foundProfile) => {
+router.get('/:id/editprofile', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
+	await Profile.findOne({ 'userprofile.username': req.user.username }, (err, foundProfile) => {
 		if (err) {
 			req.flash('error', err.message);
 			res.redirect('/:id');
@@ -155,32 +154,53 @@ router.get('/:id/editprofile', middleware.isLoggedIn, middleware.isUser, (req, r
 	});
 });
 
+//GET ROUTE
+//CHANGE USER AVATAR
+//PRIVATE ACCESS
+router.get('/:id/editprofile/changeavatar', middleware.isLoggedIn, middleware.isUser, async (req, res) => {
+	await Profile.findOne({ 'userprofile.username': req.user.username }, (err, foundProfile) => {
+		try {
+			if (err) {
+				req.flash('error', err.message);
+				res.redirect('/:id/editprofile');
+			} else {
+				res.render('changeavatar', {
+					profile: foundProfile,
+					currentUser: req.user.username,
+					user: req.user._id,
+				});
+			}
+		} catch (error) {
+			req.flash('error', error.message);
+			res.redirect('back');
+		}
+	});
+});
 //Edit Profile Route
 //Private Access
 //figure out how to update social
 router.put('/:id', middleware.isLoggedIn, middleware.isUser, parser.single('profile[avatar]'), async (req, res) => {
-	const query = { 'userprofile.username': req.user.username };
+	const foundProfile = await Profile.findOne({ 'userprofile.id': req.user._id });
+
 	const { username, firstname, lastname, email, bio, facebook, twitter, instagram } = req.body.profile;
-	const update = {
-		username,
-		firstname,
-		lastname,
-		email,
-		bio,
-	};
-	update.social = {
-		facebook,
-		twitter,
-		instagram,
-	};
+	const update = {};
+	update.social = {};
+	username ? (update.username = username) : (update.username = foundProfile.username);
+	firstname ? (update.firstname = firstname) : (update.firstName = foundProfile.firstName);
+	lastname ? (update.lastname = lastname) : (update.lastname = foundProfile.lastname);
+	email ? (update.email = email) : (update.email = foundProfile.email);
+	bio ? (update.bio = bio) : (update.bio = foundProfile.bio);
+
+	facebook ? (update.social.facebook = facebook) : (update.facebook = foundProfile.facebook);
+	twitter ? (update.social.twitter = twitter) : (update.twitter = foundProfile.twitter);
+	instagram ? (update.social.instagram = instagram) : (update.instagram = foundProfile.instagram);
 
 	update.avatar = {
-		url: req.file.url,
-		id: req.file.public_id,
+		url: req.file ? req.file.url : foundProfile.avatar.url,
+		id: req.file ? req.file.public_id : foundProfile.avatar.id,
 	};
 
-	await Profile.findOneAndUpdate(
-		query,
+	await foundProfile.update(
 		{
 			$set: {
 				social: update.social,
@@ -200,10 +220,10 @@ router.put('/:id', middleware.isLoggedIn, middleware.isUser, parser.single('prof
 		(err, editedProfile) => {
 			if (err) {
 				req.flash('error', err.message);
-				res.redirect('/:id/editprofile');
+				res.redirect('back');
 			} else {
 				req.flash('success', 'Your profile was updated!');
-				res.redirect('/profile/');
+				res.redirect('/profile/:id');
 			}
 		}
 	);
