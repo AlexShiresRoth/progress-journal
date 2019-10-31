@@ -1,6 +1,6 @@
-const { format } = require('date-fns');
 const express = require('express');
 const router = express.Router();
+const { format } = require('date-fns');
 const { genId } = require('../helpers/idGen');
 const middleware = require('../middleware/middleware');
 const Day = require('../models/day');

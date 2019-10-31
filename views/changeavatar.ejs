@@ -1,9 +1,6 @@
 <% include partials/header %>
 <div class="list__header">
-	<a href="/profile"
-		><button class="list__header--add-new">
-			<i class="fa fa-plus-circle"></i></button
-	></a>
+	<a></a>
 	<p>Change Avatar Picture</p>
 	<a href="/profile/<%= user._id %>/editprofile">
 		<button class="list__header--go-back">
@@ -35,38 +32,73 @@
 			</div>
 			<div class="profile__display--input-column">
 				<label for="username">Change Username</label>
-				<input name="profile[username]" type="text" value="<%=profile.username%>" />
+				<input
+					name="profile[username]"
+					type="text"
+					value="<%=profile.username%>"
+					aria-disabled="true"
+					disabled
+				/>
 			</div>
 			<div class="profile__display--input-column">
 				<label for="email">Change Email</label>
-				<input name="profile[email]" type="email" value="<%-profile.email%>" />
+				<input name="profile[email]" type="email" value="<%-profile.email%>" aria-disabled="true" disabled />
 			</div>
 			<div class="profile__display--input-column">
 				<label for="bio">Change Bio</label>
-				<input name="profile[bio]" type="text" value="<%=profile.bio%>" />
+				<input name="profile[bio]" type="text" value="<%=profile.bio%>" aria-disabled="true" disabled />
 			</div>
 		</div>
 
 		<div class="profile__display--right-column-edit">
 			<div class="profile__display--input-column">
 				<label for="facebook">Change Facebook Address</label>
-				<input name="profile[facebook]" type="text" value="<%=profile.social.facebook%>" />
+				<input
+					name="profile[facebook]"
+					type="text"
+					value="<%=profile.social.facebook%>"
+					aria-disabled="true"
+					disabled
+				/>
 			</div>
 			<div class="profile__display--input-column">
 				<label for="twitter">Change Twitter Address</label>
-				<input name="profile[twitter]" type="text" value="<%=profile.social.twitter%>" />
+				<input
+					name="profile[twitter]"
+					type="text"
+					value="<%=profile.social.twitter%>"
+					aria-disabled="true"
+					disabled
+				/>
 			</div>
 			<div class="profile__display--input-column">
 				<label for="instagram">Change Instagram Address</label>
-				<input name="profile[instagram]" type="text" value="<%=profile.social.instagram%>" />
+				<input
+					name="profile[instagram]"
+					type="text"
+					value="<%=profile.social.instagram%>"
+					aria-disabled="true"
+				/>
 			</div>
 			<div class="profile__display--input-column">
 				<label for="firstname">Change First Name</label>
-				<input name="profile[firstname]" type="text" value="<%=profile.firstname%>" />
+				<input
+					name="profile[firstname]"
+					type="text"
+					value="<%=profile.firstname%>"
+					aria-disabled="true"
+					disabled
+				/>
 			</div>
 			<div class="profile__display--input-column">
 				<label for="lastname">Change Last Name</label>
-				<input name="profile[lastname]" type="text" value="<%=profile.lastname%>" />
+				<input
+					name="profile[lastname]"
+					type="text"
+					value="<%=profile.lastname%>"
+					aria-disabled="true"
+					disabled
+				/>
 			</div>
 		</div>
 		<button class="full-btn">Submit New Avatar</button>

@@ -129,7 +129,7 @@
 		align-items: center;
 		margin: 0rem;
 		min-width: 0rem;
-		max-height: 90vh;
+		min-height: 20rem;
 		background: #f7f7f7;
 		box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
 		border-radius: 5px;
@@ -137,6 +137,17 @@
 		&:hover {
 			box-shadow: 0 2rem 2.5rem rgba(0, 0, 0, 0.2);
 			transform: translateY(-0.2vh);
+		}
+		&--box {
+			width: 100%;
+			padding: 0.5rem 0;
+			border-bottom: 0.5px solid rgba(121, 9, 165, 0.5);
+		}
+		&--description {
+			border-left: 0;
+		}
+		& textarea {
+			min-height: 5rem;
 		}
 	}
 }

@@ -1,9 +1,7 @@
 <% include partials/header %>
 <div class="list__header">
-	<a href="/api/todos/<%=user._id%>/createtodo"
-		><button class="list__header--add-new"><i class="fa fa-plus-circle"></i></button
-	></a>
-	<p>Welcome to Your To-do List Dashboard</p>
+	<a></a>
+	<p>Create a new To-Do Item</p>
 	<a href="/api/todos/<%=user._id%>/todos">
 		<button class="list__header--go-back"><i class="fa fa-angle-left"></i></button
 	></a>
@@ -15,7 +13,7 @@
 			<div class="create__form--form--row--icon-box"><i class="fa fa-list-alt"></i></div>
 			<div class="create__form--form--row--column">
 				<label for="todo[title]">Add A Title</label>
-				<input name="todo[title]" type="text" placeholder="Enter a title" required />
+				<input name="todo[title]" maxLength="20" type="text" placeholder="Enter a title" required />
 			</div>
 		</div>
 		<div class="create__form--form--row">
@@ -23,6 +21,13 @@
 			<div class="create__form--form--row--column">
 				<label for="todo[endDate]">Add A Finish Date</label>
 				<input name="todo[endDate]" type="date" placeholder="Enter completion date" required />
+			</div>
+		</div>
+		<div class="create__form--form--row">
+			<div class="create__form--form--row--icon-box"><i class="fa fa-hourglass-end"></i></div>
+			<div class="create__form--form--row--column">
+				<label for="todo[time]">What time do you want to finish this?</label>
+				<input name="todo[time]" type="time" value="09:00" required />
 			</div>
 		</div>
 		<button class="full-btn">Create To-Do</button>

@@ -56,7 +56,11 @@
 		border: 1px solid $accent-color;
 	}
 }
-
+input,
+select,
+textarea {
+	font-size: 16px;
+}
 .input-row {
 	display: flex;
 	flex-direction: row;
@@ -310,6 +314,15 @@
 }
 
 @media screen and (max-width: 600px) {
+	.create__form {
+		padding: 1rem;
+		& i {
+			font-size: 1.5rem;
+		}
+		& h2 {
+			font-size: 0.9rem;
+		}
+	}
 	.login__form {
 		background-color: $main-color;
 		display: flex;
@@ -366,46 +379,5 @@
 		border-right: 0px;
 		border-bottom-left-radius: 2px;
 		border-top-left-radius: 2px;
-	}
-	input,
-	select {
-		color: #fff;
-		padding: 10px;
-		transition: 0.2s linear;
-		background-color: $secondary-color;
-		border: 1px solid $third-color;
-		border-top-right-radius: 1px;
-		border-bottom-right-radius: 1px;
-	}
-
-	label {
-		color: $text-color;
-		margin: 5px;
-	}
-	textarea {
-		border: 1px solid $secondary-color;
-		height: 15vh;
-		color: $text-color;
-		padding: 1rem;
-		transition: 0.5s linear;
-		background-color: $secondary-color;
-	}
-	input:focus,
-	textarea:focus,
-	select:focus {
-		outline: none;
-		border: 1px solid $accent-color;
-	}
-	input:hover,
-	textarea:hover {
-		border: 1px solid $accent-color;
-	}
-	select:hover,
-	option:hover {
-		cursor: pointer;
-		border: 1px solid $accent-color;
-	}
-	option:focus {
-		outline: none;
 	}
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap');
+
 @import 'components/variables';
 @import 'components/functions';
 @import 'components/mixins';
@@ -52,12 +54,19 @@ a {
 	font-weight: 300;
 	transition: all 0.3s ease-in-out;
 	font-size: 0.7rem;
+	font-family: 'Oswald';
 }
 
 h1,
 h2,
-h3 {
-	color: $text-color;
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: 1.2px;
+	font-family: 'Oswald';
+	text-transform: uppercase;
+	color: #fff;
 }
 .green {
 	color: $accent-color;
@@ -87,7 +96,7 @@ h3 {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	min-height: 80vh;
+	min-height: 100vh;
 }
 
 @media screen and (max-width: 600px) {

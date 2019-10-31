@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { format } = require('date-fns');
+const { timeConvert } = require('../helpers/timeConvert');
 const { genId } = require('../helpers/idGen');
 const { check, validationResult } = require('express-validator');
 const Profile = require('../models/profiles');
@@ -36,12 +38,12 @@ router.put('/', [check('title').isEmpty()], async (req, res) => {
 		res.redirect('back');
 	}
 
-	const { startDate, endDate, title, deleted } = req.body.todo;
+	const { endDate, title, deleted, time } = req.body.todo;
 
 	const todoFields = {};
 
-	if (startDate) todoFields.startDate = startDate;
-	if (endDate) todoFields.endDate = endDate;
+	if (endDate) todoFields.endDate = format(Date.parse(endDate), 'EEEEEE MMMM do');
+	if (time) todoFields.time = timeConvert(time);
 	if (title) todoFields.title = title;
 	if (deleted) todoFields.deleted = deleted;
 
