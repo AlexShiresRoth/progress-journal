@@ -10,6 +10,10 @@
 	min-width: 40vw;
 	border-radius: 10px;
 	box-shadow: 0 5px 5px darken($main-color, 5%);
+	& h3 {
+		font-family: 'Raleway', sans-serif;
+		text-transform: none;
+	}
 	& .form-header {
 		margin: 0 0 10px 0;
 	}

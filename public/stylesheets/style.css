@@ -131,6 +131,9 @@ button {
   min-width: 40vw;
   border-radius: 10px;
   box-shadow: 0 5px 5px #2b0147; }
+  .login__form h3 {
+    font-family: 'Raleway', sans-serif;
+    text-transform: none; }
   .login__form .form-header {
     margin: 0 0 10px 0; }
   .login__form .form-header h1 {
@@ -676,12 +679,12 @@ textarea {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 1rem;
+  height: 0.5rem;
   padding: 0 0.2rem; }
 
 .line {
   margin: 2px;
-  height: 0.5px;
+  height: 1px;
   width: 100%;
   background-color: rgba(121, 9, 165, 0.5); }
 
@@ -1600,7 +1603,7 @@ input.list-input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 1rem;
     color: #fff;
     font-weight: 700; }
@@ -3061,7 +3064,7 @@ h4,
 h5,
 h6 {
   letter-spacing: 1.2px;
-  font-family: 'Oswald';
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: #fff; }
 
@@ -3083,7 +3086,8 @@ h6 {
   gap: 2rem;
   width: 100%;
   padding: 4rem;
-  justify-items: center; }
+  justify-items: center;
+  height: 100%; }
 
 .main-container {
   background-color: #eeeeee;
@@ -3092,8 +3096,8 @@ h6 {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 80vh; }
+  justify-content: center;
+  min-height: 90vh; }
 
 @media screen and (max-width: 600px) {
   .content {
@@ -3102,9 +3106,10 @@ h6 {
     gap: 2rem;
     width: 100%;
     padding: 20vh 0;
+    height: 100%;
     justify-items: center; }
   .main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 80vh; } }
+    min-height: 90vh; } }

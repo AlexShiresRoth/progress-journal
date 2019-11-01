@@ -4,40 +4,52 @@
 <div class="success"><%= success %></div>
 <% } %>
 
-<div class="create__profile">
-	<form class="create__profile--form" action="/profile" method="POST" enctype="multipart/form-data">
-		<div class="create__profile--form--row">
-			<input name="profile[username]" type="text" placeholder="Enter your username" />
+<div class="profile__container">
+	<form class="profile__display" action="/profile" method="POST" enctype="multipart/form-data">
+		<div class="profile__display--left-column">
+			<div class="profile__display--left-column--user-info">
+				<div class="profile__display--input-column">
+					<label for="avatar">Choose a Profile Picture</label>
+					<input name="profile[avatar]" type="file" placeholder="Choose file" required />
+				</div>
+			</div>
+			<div class="profile__display--input-column">
+				<label for="username">Add Username</label>
+				<input name="profile[username]" type="text" placeholder="Enter your username" />
+			</div>
+			<div class="profile__display--input-column">
+				<label for="email">Add Email</label>
+				<input name="profile[email]" type="email" placeholder="Enter your email" />
+			</div>
+			<div class="profile__display--input-column">
+				<label for="bio">Add Bio</label>
+				<input name="profile[bio]" type="text" placeholder="Write A Short Bio" />
+			</div>
 		</div>
 
-		<div class="create__profile--form--row">
-			<input name="profile[email]" type="email" placeholder="Enter your email" />
+		<div class="profile__display--right-column-edit">
+			<div class="profile__display--input-column">
+				<label for="facebook">Add Facebook Address</label>
+				<input name="profile[facebook]" type="text" placeholder="Add your Facebook profile link" />
+			</div>
+			<div class="profile__display--input-column">
+				<label for="twitter">Add Twitter Address</label>
+				<input name="profile[twitter]" type="text" placeholder="Add your Twitter profile link" />
+			</div>
+			<div class="profile__display--input-column">
+				<label for="instagram">Add Instagram Address</label>
+				<input name="profile[instagram]" type="text" placeholder="Add your Instagram profile link" />
+			</div>
+			<div class="profile__display--input-column">
+				<label for="firstname">Add First Name</label>
+				<input name="profile[firstname]" type="text" placeholder="What's your firstname, huh?" />
+			</div>
+			<div class="profile__display--input-column">
+				<label for="lastname">Add Last Name</label>
+				<input name="profile[lastname]" type="text" placeholder="And your lastname??" />
+			</div>
 		</div>
-		<div class="create__profile--form--row">
-			<input name="profile[bio]" type="text" placeholder="Write a short bio about yourself" />
-		</div>
-		<div class="create__profile--form--row">
-			<input name="profile[facebook]" type="text" placeholder="Link to your facebook" />
-		</div>
-		<div class="create__profile--form--row">
-			<input name="profile[twitter]" type="text" placeholder="Link to your twitter" />
-		</div>
-		<div class="create__profile--form--row">
-			<input name="profile[instagram]" type="text" placeholder="Link to your instagram" />
-		</div>
-		<div class="create__profile--form--row">
-			<input name="profile[firstname]" type="text" placeholder="Enter your first name if you would like..." />
-		</div>
-		<div class="create__profile--form--row">
-			<input name="profile[lastname]" type="text" placeholder="Enter your last name if you want as well" />
-		</div>
-
-		<div class="create__profile--form--row">
-			<input name="profile[avatar]" type="file" placeholder="Add a snazzy pic of yourself" />
-		</div>
-		<div class="create__profile--form--row">
-			<button>Create Profile!</button>
-		</div>
+		<button class="full-btn">Create Profile</button>
 	</form>
 </div>
 
