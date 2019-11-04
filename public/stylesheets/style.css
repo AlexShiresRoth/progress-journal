@@ -2473,7 +2473,8 @@ input.list-input {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     grid-template-rows: auto;
-    justify-items: center; }
+    justify-items: center;
+    padding: 0; }
     .goals__container--goal {
       background: #fff;
       border-radius: 10px;
