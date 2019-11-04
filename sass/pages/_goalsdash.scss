@@ -1,658 +1,658 @@
 .goals__container {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 1rem;
-	grid-template-rows: auto;
-	&--goal {
-		background: #fff;
-		border-radius: 10px;
-		box-shadow: 0 5px 5px #eee;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		max-width: 15rem;
-		min-width: 13rem;
-		&--header {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: flex-start;
-			border-bottom: 1px solid #eee;
-			position: relative;
-			width: 100%;
-			z-index: 0;
-			& img {
-				position: absolute;
-				width: 100%;
-				z-index: 0;
-				height: 100%;
-				border-top-left-radius: 10px;
-				border-top-right-radius: 10px;
-			}
-			& h2 {
-				color: #fff;
-				z-index: 2;
-				text-transform: uppercase;
-			}
-			& p {
-				color: #fff;
-				font-weight: 700;
-				display: flex;
-				flex-direction: column;
-				z-index: 2;
-				text-transform: uppercase;
-				& span {
-					font-size: 0.9rem;
-					color: $accent-color;
-				}
-			}
-			&--overlay {
-				background: rgba(0, 0, 0, 0.7);
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				z-index: 1;
-				border-top-left-radius: 10px;
-				border-top-right-radius: 10px;
-			}
-			&--complete {
-				width: 100%;
-				z-index: 1;
-				& form {
-					& .complete-button,
-					.incomplete-button {
-						width: 100%;
-						display: flex;
-						flex-direction: row;
-						background: transparent;
-						border: 0;
-						color: #fff;
-						justify-content: flex-end;
-						align-items: center;
-						transition: all 0.3s ease-in-out;
-						border-top-left-radius: 10px;
-						border-top-right-radius: 10px;
-						& i {
-							transition: all 0.3s ease-in-out;
-							font-size: 1.2rem;
-							&:hover {
-								color: #fff;
-								background: $success-green;
-								border-radius: 50%;
-								cursor: pointer;
-							}
-						}
-						&::before {
-							transition: all 0.3s ease-in-out;
-						}
-						&:hover::before {
-							content: 'Complete Goal?';
-							color: #fff;
-							font-weight: 300;
-							font-size: 0.7rem;
-						}
-					}
-				}
-			}
-			&--incomplete {
-				width: 100%;
-				z-index: 1;
-				& form {
-					& .incomplete-button {
-						width: 100%;
-						display: flex;
-						flex-direction: row;
-						background: transparent;
-						border: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  grid-template-rows: auto;
+  padding: 0 2rem;
+  &--goal {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 15rem;
+    min-width: 13rem;
+    &--header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      width: 100%;
+      z-index: 0;
+      & img {
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+        height: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      & h2 {
+        color: #fff;
+        z-index: 2;
+        text-transform: uppercase;
+      }
+      & p {
+        color: #fff;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        text-transform: uppercase;
+        & span {
+          font-size: 0.9rem;
+          color: $accent-color;
+        }
+      }
+      &--overlay {
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      &--complete {
+        width: 100%;
+        z-index: 1;
+        & form {
+          & .complete-button,
+          .incomplete-button {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            background: transparent;
+            border: 0;
+            color: #fff;
+            justify-content: flex-end;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            & i {
+              transition: all 0.3s ease-in-out;
+              font-size: 1.2rem;
+              &:hover {
+                color: #fff;
+                background: $success-green;
+                border-radius: 50%;
+                cursor: pointer;
+              }
+            }
+            &::before {
+              transition: all 0.3s ease-in-out;
+            }
+            &:hover::before {
+              content: "Complete Goal?";
+              color: #fff;
+              font-weight: 300;
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+      &--incomplete {
+        width: 100%;
+        z-index: 1;
+        & form {
+          & .incomplete-button {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            background: transparent;
+            border: 0;
 
-						justify-content: flex-end;
-						align-items: center;
-						transition: all 0.3s ease-in-out;
-						border-top-left-radius: 10px;
-						border-top-right-radius: 10px;
-						& i {
-							transition: all 0.3s ease-in-out;
-							font-size: 1.2rem;
-							color: #fff;
-							background: $success-green;
-							border-radius: 50%;
-							&:hover {
-								color: #fff;
-								background: transparent;
-								border-radius: 50%;
-								cursor: pointer;
-							}
-						}
-						&::before {
-							transition: all 0.3s ease-in-out;
-						}
-						&:hover::before {
-							content: 'Undo Completed Goal?';
-							color: #fff;
-							font-weight: 300;
-							font-size: 0.6rem;
-						}
-					}
-				}
-			}
-			&--title {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				align-items: flex-start;
-				padding: 1rem;
-				& .complete {
-					text-transform: uppercase;
-					color: $success-green;
-					font-size: 1.1rem;
-				}
-			}
-		}
-		&--steps {
-			padding: 0.5rem;
-			height: 100%;
+            justify-content: flex-end;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            & i {
+              transition: all 0.3s ease-in-out;
+              font-size: 1.2rem;
+              color: #fff;
+              background: $success-green;
+              border-radius: 50%;
+              &:hover {
+                color: #fff;
+                background: transparent;
+                border-radius: 50%;
+                cursor: pointer;
+              }
+            }
+            &::before {
+              transition: all 0.3s ease-in-out;
+            }
+            &:hover::before {
+              content: "Undo Completed Goal?";
+              color: #fff;
+              font-weight: 300;
+              font-size: 0.6rem;
+            }
+          }
+        }
+      }
+      &--title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1rem;
+        & .complete {
+          text-transform: uppercase;
+          color: $success-green;
+          font-size: 1.1rem;
+        }
+      }
+    }
+    &--steps {
+      padding: 0.5rem;
+      height: 100%;
 
-			&--header {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				padding: 0 1rem;
-				& p {
-					font-weight: 700;
-				}
-				& button.edit-goal,
-				button.edit-goal-dash {
-					border: 0;
-					display: flex;
-					flex-direction: row;
-					justify-content: center;
-					align-items: center;
-					color: $secondary-color;
-					background: transparent;
-					font-size: 0.6rem;
-					transition: all 0.3s ease-in-out;
-					padding: 0.2rem 0;
-					border-radius: 5px;
-					&:hover {
-						color: #fff;
-						background: $secondary-color;
-						box-shadow: 0 5px 5px darken($secondary-color, 10%);
-						cursor: pointer;
-					}
-					& i {
-						font-size: 1.2rem;
-					}
-				}
-			}
-			& ul {
-				display: grid;
-				grid-template-columns: 1fr;
-				grid-template-rows: auto;
-				padding: 0;
-				transition: all 0.3s ease-in-out;
-				opacity: 1;
-				overflow-y: auto;
-				max-height: 10rem;
-				& .dashboard-step-row {
-					display: flex;
-					flex-direction: row;
-					width: 100%;
-					justify-content: space-between;
-					align-items: center;
-					margin: 0.2rem 0;
-					& .save-step-btn {
-						background: transparent;
-						color: $secondary-color;
-						border: 0;
-						display: flex;
-						flex-direction: row;
-						align-items: center;
-						border-radius: 50%;
-						& i {
-							padding: 0.2rem;
-							font-size: 1rem;
-							border-radius: 50px;
-							background: rgba(30, 144, 255, 0.2);
-							box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
-							transition: all 0.3s ease-in-out;
-							&:hover {
-								background: $success-green;
-								color: #fff;
-								cursor: pointer;
-								box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
-							}
-						}
-					}
-					& .completed-step-btn {
-						background: transparent;
-						color: #fff;
-						border: 0;
-						display: flex;
-						flex-direction: row;
-						align-items: center;
-						border-radius: 50%;
-						& i {
-							padding: 0.2rem;
-							font-size: 1rem;
-							border-radius: 50px;
-							background: $success-green;
-							color: #fff;
-							box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
-							transition: all 0.3s ease-in-out;
-							&:hover {
-								background: transparent;
-								color: $success-green;
-								cursor: pointer;
-								box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
-							}
-						}
-					}
+      &--header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 1rem;
+        & p {
+          font-weight: 700;
+        }
+        & button.edit-goal,
+        button.edit-goal-dash {
+          border: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          color: $secondary-color;
+          background: transparent;
+          font-size: 0.6rem;
+          transition: all 0.3s ease-in-out;
+          padding: 0.2rem 0;
+          border-radius: 5px;
+          &:hover {
+            color: #fff;
+            background: $secondary-color;
+            box-shadow: 0 5px 5px darken($secondary-color, 10%);
+            cursor: pointer;
+          }
+          & i {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      & ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 0;
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        overflow-y: auto;
+        max-height: 10rem;
+        & .dashboard-step-row {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0.2rem 0;
+          & .save-step-btn {
+            background: transparent;
+            color: $secondary-color;
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 50%;
+            & i {
+              padding: 0.2rem;
+              font-size: 1rem;
+              border-radius: 50px;
+              background: rgba(30, 144, 255, 0.2);
+              box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                background: $success-green;
+                color: #fff;
+                cursor: pointer;
+                box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
+              }
+            }
+          }
+          & .completed-step-btn {
+            background: transparent;
+            color: #fff;
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 50%;
+            & i {
+              padding: 0.2rem;
+              font-size: 1rem;
+              border-radius: 50px;
+              background: $success-green;
+              color: #fff;
+              box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                background: transparent;
+                color: $success-green;
+                cursor: pointer;
+                box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
+              }
+            }
+          }
 
-					& .remove-step-btn {
-						background: transparent;
-						color: $secondary-color;
-						border: 0;
-						display: flex;
-						flex-direction: row;
-						align-items: center;
-						border-radius: 50%;
-						& i {
-							padding: 0.2rem;
-							font-size: 1rem;
-							border-radius: 50px;
-							background: rgba(243, 20, 49, 0.2);
-							box-shadow: 0 2px 2px darken(rgba(243, 20, 49, 0.2), 10%);
-							transition: all 0.3s ease-in-out;
-							&:hover {
-								background: rgba(243, 20, 49, 0.5);
-								color: #fff;
-								cursor: pointer;
-								box-shadow: 0 4px 4px darken(rgba(243, 20, 49, 0.2), 10%);
-							}
-						}
-					}
-					& .dashboard-input {
-						background: transparent;
-						color: #666;
-						border: 0;
-						border-bottom: 1px solid $secondary-color;
-						padding: 0.1rem;
-					}
-				}
-				& li {
-					list-style: none;
-					color: #666;
-					width: 100%;
-					border-bottom: 1px solid #eee;
-					& p {
-						font-weight: 700;
-
-						& span {
-							color: $secondary-color;
-							margin: 0 0.2rem;
-							font-size: 0.9rem;
-						}
-					}
-				}
-			}
-		}
-		& .remove-button {
-			background: rgba(243, 20, 49, 0.5);
-			color: #fff;
-			border: 0;
-			padding: 0.5rem 1rem;
-			transition: all 0.3s ease-in-out;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			width: 100%;
-			border-bottom-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			&:hover {
-				cursor: pointer;
-				background: $alert-red;
-				border: 0;
-			}
-			&:hover::after {
-				content: 'Remove Goal?';
-				color: #fff;
-				font-weight: 700;
-			}
-			& i {
-				font-size: 1.1rem;
-				color: #fff;
-			}
-		}
-	}
+          & .remove-step-btn {
+            background: transparent;
+            color: $secondary-color;
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 50%;
+            & i {
+              padding: 0.2rem;
+              font-size: 1rem;
+              border-radius: 50px;
+              background: rgba(243, 20, 49, 0.2);
+              box-shadow: 0 2px 2px darken(rgba(243, 20, 49, 0.2), 10%);
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                background: rgba(243, 20, 49, 0.5);
+                color: #fff;
+                cursor: pointer;
+                box-shadow: 0 4px 4px darken(rgba(243, 20, 49, 0.2), 10%);
+              }
+            }
+          }
+          & .dashboard-input {
+            background: transparent;
+            color: #666;
+            border: 0;
+            border-bottom: 1px solid $secondary-color;
+            padding: 0.1rem;
+          }
+        }
+        & li {
+          list-style: none;
+          color: #666;
+          width: 100%;
+          border-bottom: 1px solid #eee;
+          & p {
+            font-weight: 700;
+            text-align: center;
+            & span {
+              color: $secondary-color;
+              margin: 0 0.2rem;
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+    & .remove-button {
+      background: rgba(243, 20, 49, 0.5);
+      color: #fff;
+      border: 0;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      &:hover {
+        cursor: pointer;
+        background: $alert-red;
+        border: 0;
+      }
+      &:hover::after {
+        content: "Remove Goal?";
+        color: #fff;
+        font-weight: 700;
+      }
+      & i {
+        font-size: 1.1rem;
+        color: #fff;
+      }
+    }
+  }
 }
 
-@media screen and (max-width: 600px) {
-	.goals__container {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 1rem;
-		grid-template-rows: auto;
-		justify-items: center;
-		&--goal {
-			background: #fff;
-			border-radius: 10px;
-			box-shadow: 0 5px 5px #eee;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			max-width: 14rem;
-			min-width: 14rem;
-			&--header {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				align-items: flex-start;
-				border-bottom: 1px solid #eee;
-				position: relative;
-				width: 100%;
-				z-index: 0;
-				& img {
-					position: absolute;
-					width: 100%;
-					z-index: 0;
-					height: 100%;
-					border-top-left-radius: 10px;
-					border-top-right-radius: 10px;
-				}
-				& h2 {
-					color: #fff;
-					z-index: 2;
-					text-transform: uppercase;
-				}
-				& p {
-					color: #fff;
-					font-weight: 700;
-					display: flex;
-					flex-direction: column;
-					z-index: 2;
-					text-transform: uppercase;
-					& span {
-						font-size: 0.9rem;
-						color: $accent-color;
-					}
-				}
-				&--overlay {
-					background: rgba(0, 0, 0, 0.7);
-					width: 100%;
-					height: 100%;
-					position: absolute;
-					z-index: 1;
-					border-top-left-radius: 10px;
-					border-top-right-radius: 10px;
-				}
-				&--complete {
-					width: 100%;
-					z-index: 1;
-					& form {
-						& .complete-button,
-						.incomplete-button {
-							width: 100%;
-							display: flex;
-							flex-direction: row;
-							background: transparent;
-							border: 0;
-							color: #fff;
-							justify-content: flex-end;
-							align-items: center;
-							transition: all 0.3s ease-in-out;
-							border-top-left-radius: 10px;
-							border-top-right-radius: 10px;
-							& i {
-								transition: all 0.3s ease-in-out;
-								font-size: 1.2rem;
-								&:hover {
-									color: #fff;
-									background: $success-green;
-									border-radius: 50%;
-									cursor: pointer;
-								}
-							}
-							&::before {
-								transition: all 0.3s ease-in-out;
-							}
-							&:hover::before {
-								content: 'Complete Goal?';
-								color: #fff;
-								font-weight: 300;
-								font-size: 0.7rem;
-							}
-						}
-					}
-				}
-				&--incomplete {
-					width: 100%;
-					z-index: 1;
-					& form {
-						& .incomplete-button {
-							width: 100%;
-							display: flex;
-							flex-direction: row;
-							background: transparent;
-							border: 0;
+@media screen and (max-width: 700px) {
+  .goals__container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    grid-template-rows: auto;
+    justify-items: center;
+    &--goal {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 5px #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 14rem;
+      &--header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        width: 100%;
+        z-index: 0;
+        & img {
+          position: absolute;
+          width: 100%;
+          z-index: 0;
+          height: 100%;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+        & h2 {
+          color: #fff;
+          z-index: 2;
+          text-transform: uppercase;
+        }
+        & p {
+          color: #fff;
+          font-weight: 700;
+          display: flex;
+          flex-direction: column;
+          z-index: 2;
+          text-transform: uppercase;
+          & span {
+            font-size: 0.9rem;
+            color: $accent-color;
+          }
+        }
+        &--overlay {
+          background: rgba(0, 0, 0, 0.7);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          z-index: 1;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+        &--complete {
+          width: 100%;
+          z-index: 1;
+          & form {
+            & .complete-button,
+            .incomplete-button {
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              background: transparent;
+              border: 0;
+              color: #fff;
+              justify-content: flex-end;
+              align-items: center;
+              transition: all 0.3s ease-in-out;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              & i {
+                transition: all 0.3s ease-in-out;
+                font-size: 1.2rem;
+                &:hover {
+                  color: #fff;
+                  background: $success-green;
+                  border-radius: 50%;
+                  cursor: pointer;
+                }
+              }
+              &::before {
+                transition: all 0.3s ease-in-out;
+              }
+              &:hover::before {
+                content: "Complete Goal?";
+                color: #fff;
+                font-weight: 300;
+                font-size: 0.7rem;
+              }
+            }
+          }
+        }
+        &--incomplete {
+          width: 100%;
+          z-index: 1;
+          & form {
+            & .incomplete-button {
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              background: transparent;
+              border: 0;
 
-							justify-content: flex-end;
-							align-items: center;
-							transition: all 0.3s ease-in-out;
-							border-top-left-radius: 10px;
-							border-top-right-radius: 10px;
-							& i {
-								transition: all 0.3s ease-in-out;
-								font-size: 1.2rem;
-								color: #fff;
-								background: $success-green;
-								border-radius: 50%;
-								&:hover {
-									color: #fff;
-									background: transparent;
-									border-radius: 50%;
-									cursor: pointer;
-								}
-							}
-							&::before {
-								transition: all 0.3s ease-in-out;
-							}
-							&:hover::before {
-								content: 'Undo Completed Goal?';
-								color: #fff;
-								font-weight: 300;
-								font-size: 0.6rem;
-							}
-						}
-					}
-				}
-				&--title {
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-					align-items: flex-start;
-					padding: 1rem;
-					& .complete {
-						text-transform: uppercase;
-						color: $success-green;
-						font-size: 1.1rem;
-					}
-				}
-			}
-			&--steps {
-				padding: 0.5rem;
-				height: 100%;
+              justify-content: flex-end;
+              align-items: center;
+              transition: all 0.3s ease-in-out;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              & i {
+                transition: all 0.3s ease-in-out;
+                font-size: 1.2rem;
+                color: #fff;
+                background: $success-green;
+                border-radius: 50%;
+                &:hover {
+                  color: #fff;
+                  background: transparent;
+                  border-radius: 50%;
+                  cursor: pointer;
+                }
+              }
+              &::before {
+                transition: all 0.3s ease-in-out;
+              }
+              &:hover::before {
+                content: "Undo Completed Goal?";
+                color: #fff;
+                font-weight: 300;
+                font-size: 0.6rem;
+              }
+            }
+          }
+        }
+        &--title {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding: 1rem;
+          & .complete {
+            text-transform: uppercase;
+            color: $success-green;
+            font-size: 1.1rem;
+          }
+        }
+      }
+      &--steps {
+        padding: 0.5rem;
+        height: 100%;
 
-				&--header {
-					display: flex;
-					flex-direction: row;
-					justify-content: space-between;
-					padding: 0 1rem;
-					& p {
-						font-weight: 700;
-					}
-					& button.edit-goal,
-					button.edit-goal-dash {
-						border: 0;
-						display: flex;
-						flex-direction: row;
-						justify-content: center;
-						align-items: center;
-						color: $secondary-color;
-						background: transparent;
-						font-size: 0.6rem;
-						transition: all 0.3s ease-in-out;
-						padding: 0.2rem 0;
-						border-radius: 5px;
-						&:hover {
-							color: #fff;
-							background: $secondary-color;
-							box-shadow: 0 5px 5px darken($secondary-color, 10%);
-							cursor: pointer;
-						}
-						& i {
-							font-size: 1.2rem;
-						}
-					}
-				}
-				& ul {
-					display: grid;
-					grid-template-columns: 1fr;
-					grid-template-rows: auto;
-					padding: 0;
-					transition: all 0.3s ease-in-out;
-					opacity: 1;
-					overflow-y: auto;
-					max-height: 10rem;
-					& .dashboard-step-row {
-						display: flex;
-						flex-direction: row;
-						width: 100%;
-						justify-content: space-between;
-						align-items: center;
-						margin: 0.2rem 0;
-						& .save-step-btn {
-							background: transparent;
-							color: $secondary-color;
-							border: 0;
-							display: flex;
-							flex-direction: row;
-							align-items: center;
-							border-radius: 50%;
-							& i {
-								padding: 0.2rem;
-								font-size: 1rem;
-								border-radius: 50px;
-								background: rgba(30, 144, 255, 0.2);
-								box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
-								transition: all 0.3s ease-in-out;
-								&:hover {
-									background: $success-green;
-									color: #fff;
-									cursor: pointer;
-									box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
-								}
-							}
-						}
-						& .completed-step-btn {
-							background: transparent;
-							color: #fff;
-							border: 0;
-							display: flex;
-							flex-direction: row;
-							align-items: center;
-							border-radius: 50%;
-							& i {
-								padding: 0.2rem;
-								font-size: 1rem;
-								border-radius: 50px;
-								background: $success-green;
-								color: #fff;
-								box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
-								transition: all 0.3s ease-in-out;
-								&:hover {
-									background: transparent;
-									color: $success-green;
-									cursor: pointer;
-									box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
-								}
-							}
-						}
+        &--header {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 0 1rem;
+          & p {
+            font-weight: 700;
+          }
+          & button.edit-goal,
+          button.edit-goal-dash {
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            color: $secondary-color;
+            background: transparent;
+            font-size: 0.6rem;
+            transition: all 0.3s ease-in-out;
+            padding: 0.2rem 0;
+            border-radius: 5px;
+            &:hover {
+              color: #fff;
+              background: $secondary-color;
+              box-shadow: 0 5px 5px darken($secondary-color, 10%);
+              cursor: pointer;
+            }
+            & i {
+              font-size: 1.2rem;
+            }
+          }
+        }
+        & ul {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+          padding: 0;
+          transition: all 0.3s ease-in-out;
+          opacity: 1;
+          overflow-y: auto;
+          max-height: 10rem;
+          & .dashboard-step-row {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.2rem 0;
+            & .save-step-btn {
+              background: transparent;
+              color: $secondary-color;
+              border: 0;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border-radius: 50%;
+              & i {
+                padding: 0.2rem;
+                font-size: 1rem;
+                border-radius: 50px;
+                background: rgba(30, 144, 255, 0.2);
+                box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                  background: $success-green;
+                  color: #fff;
+                  cursor: pointer;
+                  box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
+                }
+              }
+            }
+            & .completed-step-btn {
+              background: transparent;
+              color: #fff;
+              border: 0;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border-radius: 50%;
+              & i {
+                padding: 0.2rem;
+                font-size: 1rem;
+                border-radius: 50px;
+                background: $success-green;
+                color: #fff;
+                box-shadow: 0 2px 2px darken(rgba(30, 144, 255, 0.2), 10%);
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                  background: transparent;
+                  color: $success-green;
+                  cursor: pointer;
+                  box-shadow: 0 4px 4px darken(rgba(75, 202, 129, 0.5), 10%);
+                }
+              }
+            }
 
-						& .remove-step-btn {
-							background: transparent;
-							color: $secondary-color;
-							border: 0;
-							display: flex;
-							flex-direction: row;
-							align-items: center;
-							border-radius: 50%;
-							& i {
-								padding: 0.2rem;
-								font-size: 1rem;
-								border-radius: 50px;
-								background: rgba(243, 20, 49, 0.2);
-								box-shadow: 0 2px 2px darken(rgba(243, 20, 49, 0.2), 10%);
-								transition: all 0.3s ease-in-out;
-								&:hover {
-									background: rgba(243, 20, 49, 0.5);
-									color: #fff;
-									cursor: pointer;
-									box-shadow: 0 4px 4px darken(rgba(243, 20, 49, 0.2), 10%);
-								}
-							}
-						}
-						& .dashboard-input {
-							background: transparent;
-							color: #666;
-							border: 0;
-							border-bottom: 1px solid $secondary-color;
-							padding: 0.1rem;
-						}
-					}
-					& li {
-						list-style: none;
-						color: #666;
-						width: 100%;
-						border-bottom: 1px solid #eee;
-						& p {
-							font-weight: 700;
+            & .remove-step-btn {
+              background: transparent;
+              color: $secondary-color;
+              border: 0;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border-radius: 50%;
+              & i {
+                padding: 0.2rem;
+                font-size: 1rem;
+                border-radius: 50px;
+                background: rgba(243, 20, 49, 0.2);
+                box-shadow: 0 2px 2px darken(rgba(243, 20, 49, 0.2), 10%);
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                  background: rgba(243, 20, 49, 0.5);
+                  color: #fff;
+                  cursor: pointer;
+                  box-shadow: 0 4px 4px darken(rgba(243, 20, 49, 0.2), 10%);
+                }
+              }
+            }
+            & .dashboard-input {
+              background: transparent;
+              color: #666;
+              border: 0;
+              border-bottom: 1px solid $secondary-color;
+              padding: 0.1rem;
+            }
+          }
+          & li {
+            list-style: none;
+            color: #666;
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            & p {
+              font-weight: 700;
 
-							& span {
-								color: $secondary-color;
-								margin: 0 0.2rem;
-								font-size: 0.9rem;
-							}
-						}
-					}
-				}
-			}
-			& .remove-button {
-				background: rgba(243, 20, 49, 0.5);
-				color: #fff;
-				border: 0;
-				padding: 0.5rem 1rem;
-				transition: all 0.3s ease-in-out;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				width: 100%;
-				border-bottom-left-radius: 10px;
-				border-bottom-right-radius: 10px;
-				&:hover {
-					cursor: pointer;
-					background: $alert-red;
-					border: 0;
-				}
-				&:hover::after {
-					content: 'Remove Goal?';
-					color: #fff;
-					font-weight: 700;
-				}
-				& i {
-					font-size: 1.1rem;
-					color: #fff;
-				}
-			}
-		}
-	}
+              & span {
+                color: $secondary-color;
+                margin: 0 0.2rem;
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+      & .remove-button {
+        background: rgba(243, 20, 49, 0.5);
+        color: #fff;
+        border: 0;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        &:hover {
+          cursor: pointer;
+          background: $alert-red;
+          border: 0;
+        }
+        &:hover::after {
+          content: "Remove Goal?";
+          color: #fff;
+          font-weight: 700;
+        }
+        & i {
+          font-size: 1.1rem;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
