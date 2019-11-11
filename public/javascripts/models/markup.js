@@ -8,9 +8,8 @@ export const addStepMarkup = `<div class="create__form--form--row">
 		</div>`;
 
 export const addStepDashMarkup = `
-<li class="dashboard-step-row"><form action="/api/goals/<%=goal.id%>/addstep?_method=PUT" method="POST">
+<li class="dashboard-step-row">
 <button class="completed-step-btn">
 <i class="fa fa-plus-circle save-step"></i></button>
 <input class="dashboard-input" type="text" name="goals[steps]" placeholder="add a new step" />
-</form>
 <button class="remove-step-btn"><i class="fa fa-close remove-step"></i></li>`;
