@@ -2467,6 +2467,16 @@ input.list-input {
         font-size: 1.1rem;
         color: #fff; }
 
+@media screen and (max-width: 1400px) {
+  .goals__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); } }
+
+@media screen and (max-width: 900px) {
+  .goals__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); } }
+
 @media screen and (max-width: 700px) {
   .goals__container {
     display: grid;
