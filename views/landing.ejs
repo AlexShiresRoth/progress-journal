@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link href="https://fonts.googleapis.com/css?family=Raleway|Poiret+One&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="landing-background"></div>
-      <div class="landing">
-              <div class="img-container">
-                  <img class="logo" src="../images/progressjournal.png">
-              </div>
-              <div class="form-container">
-              <form class="login__form" action="/login" method="POST">
-                    <% if(error && error.length > 0){ %>
-                      <div class="error"><%= error %></div>
-                  <% } %>
-                  <% if(success && success.length > 0) { %>
-                      <div class="success"><%= success %></div>
-                  <% } %>
-                  <h3>Please Login or <span><a href="/signup" class="signup">Signup.</a></span></h3>
-                  <div class="input-row">
-                    <label></label>
-                      <div class="icon-container">
-                        <i class="far fa-user"></i>
-                      </div>
-                      <input type="text" name="username" placeholder="Username" required>
-                    </div>
-                  <div class="input-row">
-                    <label></label>
-                    <div class="icon-container">
-                      <i class="fas fa-unlock"></i>
-                    </div>
-                    <input type="password" name="password" placeholder="Password" required>
-                  </div>
-                  <div class="custom-hr">
-                      <div class="line"></div><div class="inter">&</div><div class="line"></div>
-                  </div>
-                  <button class="full-btn">Submit</button>
-              </form>
-              <div class="photo-box">
-              <p>Photo By:</p>
-              <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@david_beatz?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from David Beatz"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32">
-              <title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">David Beatz</span></a>
-              </div>
-          </div>
-      </div>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+		<div class="landing-background"></div>
+		<div class="landing">
+			<div class="img-container">
+				<img class="logo" src="../images/progressjournal.png" />
+			</div>
+			<div class="form-container">
+				<form class="login__form" action="/login" method="POST">
+					<% if(error && error.length > 0){ %>
+					<div class="error"><%= error %></div>
+					<% } %> <% if(success && success.length > 0) { %>
+					<div class="success"><%= success %></div>
+					<% } %>
+					<h3>
+						Please Login or <span><a href="/signup" class="signup">Signup.</a></span>
+					</h3>
+					<div class="input-column">
+						<label>Username</label>
+						<div class="input-row">
+							<div class="icon-container">
+								<i class="far fa-user"></i>
+							</div>
+							<input type="text" name="username" placeholder="Username" required />
+						</div>
+					</div>
+					<div class="input-column">
+						<label>Password</label>
+						<div class="input-row">
+							<div class="icon-container">
+								<i class="fas fa-unlock"></i>
+							</div>
+							<input type="password" name="password" placeholder="Password" required />
+						</div>
+					</div>
+					<button class="full-btn">Submit</button>
+				</form>
+			</div>
+		</div>
+		<script src="bundle.js"></script>
 
-  </div>
-  <script src="bundle.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
-  </body>
+		<script
+			defer
+			src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"
+			integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1"
+			crossorigin="anonymous"
+		></script>
+	</body>
 </html>

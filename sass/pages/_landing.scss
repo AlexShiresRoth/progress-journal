@@ -5,8 +5,8 @@
 	height: 100vh;
 	width: 100vw;
 	background-image: linear-gradient(217deg, rgba(59, 1, 96, 0.5), rgba(59, 1, 96, 0.4) 70.1%),
-		url('https://res.cloudinary.com/snackmanproductions/image/upload/v1571278497/progressjournal/landingpage/backimg_qsrpqq.jpg');
-	clip-path: polygon(0 0, 100% 0, 55% 100%, 0% 100%);
+		url('https://res.cloudinary.com/snackmanproductions/image/upload/c_scale,q_52,w_1847/v1571278497/progressjournal/landingpage/backimg_qsrpqq.jpg');
+
 	background-size: cover;
 	background-position: center;
 	z-index: 0;
@@ -16,11 +16,11 @@
 }
 .landing {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	height: 100vh;
 	width: 100vw;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: center;
 	z-index: 1;
 	overflow: hidden;
 	background: $main-color;
@@ -34,8 +34,8 @@
 	text-decoration: underline;
 }
 .img-container {
-	max-height: 40vh;
-	max-width: 40vw;
+	max-height: 25vh;
+	max-width: 25vw;
 	border-right: 0.5px solid $border-color;
 	animation: slideInRight 0.5s linear;
 	z-index: 9999999;

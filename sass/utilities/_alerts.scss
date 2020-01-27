@@ -10,6 +10,7 @@
 	text-align: center;
 	border: 1px solid $success-green;
 	align-self: center;
+	animation: 0.2s linear forwards 5s fadeout;
 }
 .error {
 	background-color: $alert-red-faded;
@@ -20,4 +21,19 @@
 	text-align: center;
 	border: 1px solid $alert-red;
 	align-self: center;
+	animation: 0.2s linear forwards 5s fadeout;
+}
+
+@keyframes fadeout {
+	0% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 0;
+		max-height: 0;
+		padding: 0;
+	}
 }
