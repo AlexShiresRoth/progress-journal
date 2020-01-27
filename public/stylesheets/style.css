@@ -1001,16 +1001,60 @@ ul.pagination li:hover {
 /*=======================
 =========LANDING PAGE ===
 ========================*/
-.landing-background {
+.landing-header {
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(217deg, rgba(59, 1, 96, 0.5), rgba(59, 1, 96, 0.4) 70.1%), url("https://res.cloudinary.com/snackmanproductions/image/upload/c_scale,q_52,w_1847/v1571278497/progressjournal/landingpage/backimg_qsrpqq.jpg");
   background-size: cover;
   background-position: center;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  position: absolute; }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .landing-header .img-container {
+    width: 20vw;
+    z-index: 9999999;
+    animation: 1s fadein linear forwards; }
+    .landing-header .img-container .logo {
+      height: 100%;
+      width: 100%; }
+  .landing-header .text-box {
+    border-left: 1px solid #bbbbbb;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .landing-header .text-box h1 {
+      font-size: 3vw;
+      color: #f4f4f4; }
+    .landing-header .text-box p {
+      font-size: 1vw;
+      color: #f4f4f4; }
+    .landing-header .text-box .buttons-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: 1rem 0; }
+      .landing-header .text-box .buttons-container button {
+        height: 5vh;
+        width: 10vw;
+        transition: all 0.3s ease-in-out; }
+        .landing-header .text-box .buttons-container button:hover {
+          cursor: pointer; }
+      .landing-header .text-box .buttons-container button:nth-child(1) {
+        background: transparent;
+        border: 2px solid #5a0292;
+        color: #5a0292; }
+        .landing-header .text-box .buttons-container button:nth-child(1):hover {
+          color: #f4f4f4;
+          background: #5a0292; }
+      .landing-header .text-box .buttons-container button:nth-child(2) {
+        background: #5a0292;
+        border: 2px solid #5a0292;
+        color: #f4f4f4;
+        margin: 0 2vw; }
+        .landing-header .text-box .buttons-container button:nth-child(2):hover {
+          background: #3b0160; }
 
 .landing {
   display: flex;
@@ -1022,40 +1066,12 @@ ul.pagination li:hover {
   z-index: 1;
   overflow: hidden;
   background: #3b0160; }
-
-.landing form {
-  animation: 0.5s slideInLeft linear;
-  margin-bottom: 40px;
-  z-index: 999999; }
-
-.signup {
-  text-decoration: underline; }
-
-.img-container {
-  max-height: 25vh;
-  max-width: 25vw;
-  border-right: 0.5px solid #bc6fdb;
-  animation: slideInRight 0.5s linear;
-  z-index: 9999999; }
-
-.logo {
-  height: 100%;
-  width: 100%; }
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end; }
-
-.photo-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; }
-
-.photo-box p {
-  color: #fff; }
+  .landing form {
+    animation: 0.5s slideInLeft linear;
+    margin-bottom: 40px;
+    z-index: 999999; }
+  .landing:nth-child(3) {
+    background: #eee; }
 
 @media screen and (max-width: 600px) {
   .landing-background {
@@ -1082,11 +1098,7 @@ ul.pagination li:hover {
   .img-container {
     max-width: 100vw;
     border-right: 0;
-    animation: slideInRight 0.5s linear;
     z-index: 9999999; }
-  .logo {
-    height: 100%;
-    width: 100%; }
   .photo-box {
     display: none; } }
 

@@ -1,4 +1,5 @@
 import { newPostClosure, addStepClosure, addStepsDashboardClosure } from './views/view';
+import { landingClosure } from './views/landingView';
 import DaySearch from './controllers/days';
 
 const funcOne = newPostClosure();
@@ -11,7 +12,11 @@ const addStep = funcTwo[0];
 const funcThree = addStepsDashboardClosure();
 const addStepDash = funcThree[0];
 
+const landing = landingClosure();
+const handleScroll = landing[0];
+
 const loadFile = () => {
+	handleScroll();
 	countCharacters();
 	newSearch.searchDays();
 	addStep();
