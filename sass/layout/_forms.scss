@@ -14,6 +14,9 @@
 		color: $dark-text;
 		& a {
 			color: $accent-color;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 	& .input-column {
@@ -52,11 +55,8 @@
 				display: flex;
 				border: 0px;
 				padding: 1vh 1vw;
-				& svg {
+				& i {
 					color: lighten($main-color, 10%);
-					& path {
-						padding: 5px;
-					}
 				}
 			}
 		}

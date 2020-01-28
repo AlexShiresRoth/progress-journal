@@ -14,6 +14,8 @@ export const selectors = {
 	stepsContainer: document.getElementById('steps__container'),
 	stepsUl: document.querySelectorAll('.steps-ul'),
 	goalsForm: document.getElementById('goals__form'),
+	backContainer: document.querySelector('.back-container'),
+	target: document.querySelector('.landing-header'),
 	landingBtns: [
 		document.querySelector('#signup-btn'),
 		document.querySelector('#login-btn'),

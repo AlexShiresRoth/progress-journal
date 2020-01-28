@@ -13,6 +13,7 @@
 		/>
 	</head>
 	<body>
+		<div class="back-container"></div>
 		<header class="landing-header">
 			<div class="img-container">
 				<img class="logo" src="../images/progressjournal.png" alt="logo" />
@@ -37,7 +38,7 @@
 				<div class="success"><%= success %></div>
 				<% } %>
 				<h3>
-					Already have an account? <span><button class="signup" id="login-alt">login</button></span>
+					Already have an account? <span><a class="signup" id="login-alt">login</a></span>
 				</h3>
 				<div class="input-column">
 					<label>Enter your email</label>
@@ -91,7 +92,7 @@
 					<div class="success"><%= success %></div>
 					<% } %>
 					<h3>
-						Please Login or <span><button class="signup" id="signup-alt">Signup.</button></span>
+						Please Login or <span><a class="signup" id="signup-alt">Signup.</a></span>
 					</h3>
 					<div class="input-column">
 						<label>Username</label>
@@ -117,12 +118,5 @@
 		</section>
 
 		<script src="bundle.js"></script>
-
-		<script
-			defer
-			src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"
-			integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1"
-			crossorigin="anonymous"
-		></script>
 	</body>
 </html>
