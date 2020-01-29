@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald|Raleway|Playfair+Display&display=swap');
 
 @import 'components/variables';
 @import 'components/functions';
@@ -85,7 +85,7 @@ h6 {
 	grid-template-columns: repeat(1, 1fr);
 	gap: 2rem;
 	width: 100%;
-	padding: 4rem 0 ;
+	padding: 4rem 0;
 	justify-items: center;
 	height: 100%;
 }

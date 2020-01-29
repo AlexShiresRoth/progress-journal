@@ -15,12 +15,9 @@ const addStepDash = funcThree[0];
 
 const landing = landingClosure();
 const handleScroll = landing[0];
-const handleResize = landing[1];
-const addBackBtn = landing[2];
+const addBackBtn = landing[1];
 
 const loadFile = () => {
-	window.addEventListener('resize', handleResize);
-
 	handleScroll();
 
 	countCharacters();

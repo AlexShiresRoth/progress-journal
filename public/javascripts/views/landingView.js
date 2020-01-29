@@ -1,19 +1,18 @@
 import { selectors } from '../models/selectors';
 
 export const landingClosure = () => {
-	let signup = document.querySelector('#signup').getBoundingClientRect().top;
-	let login = document.querySelector('#login').getBoundingClientRect().top;
-
-	const handleResize = () => {
-		signup = Math.abs(document.querySelector('#signup').getBoundingClientRect().top);
-		login = Math.abs(document.querySelector('#login').getBoundingClientRect().top);
-	};
+	let signup;
+	let login;
 
 	const handleLandingScroll = () => {
+		signup = document.querySelector('#signup').getBoundingClientRect().top;
+		login = document.querySelector('#login').getBoundingClientRect().top;
+
 		if (selectors.landingBtns.length <= 0) return;
 		selectors.landingBtns.forEach(btn => {
 			btn.addEventListener('click', e => {
 				e.preventDefault();
+				console.log(login, signup);
 				if (btn.id === 'signup-btn' || btn.id === 'signup-alt') {
 					window.scrollTo({
 						top: signup,
@@ -47,5 +46,5 @@ export const landingClosure = () => {
 		}
 	});
 
-	return [handleLandingScroll, handleResize, addBackToTopButton];
+	return [handleLandingScroll, addBackToTopButton];
 };
